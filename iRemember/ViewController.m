@@ -14,10 +14,15 @@
 
 @implementation ViewController
 
+@synthesize sampleLabel;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
+    self.sampleLabel.text = @"Good bye cruel world.";
 }
 
 - (void)viewDidUnload
