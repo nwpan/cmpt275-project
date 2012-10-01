@@ -15,6 +15,7 @@
 @implementation ViewController
 
 @synthesize sampleLabel;
+@synthesize sampleLabel2;
 
 - (void)viewDidLoad
 {
@@ -23,6 +24,7 @@
     
     
     self.sampleLabel.text = @"Good bye cruel world.";
+    self.sampleLabel2.text = @"Hello again!";
 }
 
 - (void)viewDidUnload

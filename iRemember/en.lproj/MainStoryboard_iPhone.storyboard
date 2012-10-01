@@ -21,14 +21,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Azc-WK-WGw">
+                                <rect key="frame" x="20" y="54" width="102" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="sampleLabel" destination="jqR-iP-mYu" id="Lcc-NG-L0O"/>
+                        <outlet property="sampleLabel2" destination="Azc-WK-WGw" id="IL3-QN-gex"/>
                     </connections>
                 </viewController>
             </objects>
+            <point key="canvasLocation" x="142" y="172"/>
         </scene>
     </scenes>
     <classes>
@@ -36,6 +45,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="sampleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sampleLabel2" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

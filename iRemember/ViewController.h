@@ -12,4 +12,6 @@
 
 @property(weak, nonatomic) IBOutlet UILabel *sampleLabel;
 
+@property(weak, nonatomic) IBOutlet UILabel *sampleLabel2;
+
 @end
