@@ -10,8 +10,8 @@
 
 @interface ViewController : UIViewController
 
-@property(weak, nonatomic) IBOutlet UILabel *sampleLabel;
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id) sender;
 
-@property(weak, nonatomic) IBOutlet UILabel *sampleLabel2;
+@property (nonatomic, retain) IBOutlet UIView *LoginView;
 
 @end

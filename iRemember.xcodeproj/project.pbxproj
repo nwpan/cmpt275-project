@@ -14,13 +14,15 @@
 		232CB0A8161A18EF00737655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 232CB0A7161A18EF00737655 /* main.m */; };
 		232CB0AC161A18EF00737655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 232CB0AB161A18EF00737655 /* AppDelegate.m */; };
 		232CB0AF161A18EF00737655 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 232CB0AD161A18EF00737655 /* MainStoryboard_iPhone.storyboard */; };
-		232CB0B2161A18EF00737655 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 232CB0B0161A18EF00737655 /* MainStoryboard_iPad.storyboard */; };
 		232CB0B5161A18EF00737655 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232CB0B4161A18EF00737655 /* ViewController.m */; };
 		232CB0BD161A18EF00737655 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232CB0BC161A18EF00737655 /* SenTestingKit.framework */; };
 		232CB0BE161A18EF00737655 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232CB09B161A18EF00737655 /* UIKit.framework */; };
 		232CB0BF161A18EF00737655 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232CB09D161A18EF00737655 /* Foundation.framework */; };
 		232CB0C7161A18EF00737655 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232CB0C5161A18EF00737655 /* InfoPlist.strings */; };
 		232CB0CA161A18EF00737655 /* iRememberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232CB0C9161A18EF00737655 /* iRememberTests.m */; };
+		81FE2794162AACB800F8DEFF /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81FE2793162AACB800F8DEFF /* LoginView.xib */; };
+		81FE2796162AAD5E00F8DEFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FE2795162AAD5E00F8DEFF /* Default-568h@2x.png */; };
+		81FE2799162AADFB00F8DEFF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE2798162AADFB00F8DEFF /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +47,6 @@
 		232CB0AA161A18EF00737655 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		232CB0AB161A18EF00737655 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		232CB0AE161A18EF00737655 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		232CB0B1161A18EF00737655 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		232CB0B3161A18EF00737655 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		232CB0B4161A18EF00737655 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		232CB0BB161A18EF00737655 /* iRememberTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRememberTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +55,10 @@
 		232CB0C6161A18EF00737655 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		232CB0C8161A18EF00737655 /* iRememberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRememberTests.h; sourceTree = "<group>"; };
 		232CB0C9161A18EF00737655 /* iRememberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRememberTests.m; sourceTree = "<group>"; };
+		81FE2793162AACB800F8DEFF /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		81FE2795162AAD5E00F8DEFF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		81FE2797162AADFB00F8DEFF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		81FE2798162AADFB00F8DEFF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 		232CB08C161A18EF00737655 = {
 			isa = PBXGroup;
 			children = (
+				81FE2795162AAD5E00F8DEFF /* Default-568h@2x.png */,
 				232CB0A1161A18EF00737655 /* iRemember */,
 				232CB0C2161A18EF00737655 /* iRememberTests */,
 				232CB09A161A18EF00737655 /* Frameworks */,
@@ -116,10 +122,12 @@
 				232CB0AA161A18EF00737655 /* AppDelegate.h */,
 				232CB0AB161A18EF00737655 /* AppDelegate.m */,
 				232CB0AD161A18EF00737655 /* MainStoryboard_iPhone.storyboard */,
-				232CB0B0161A18EF00737655 /* MainStoryboard_iPad.storyboard */,
 				232CB0B3161A18EF00737655 /* ViewController.h */,
 				232CB0B4161A18EF00737655 /* ViewController.m */,
 				232CB0A2161A18EF00737655 /* Supporting Files */,
+				81FE2793162AACB800F8DEFF /* LoginView.xib */,
+				81FE2797162AADFB00F8DEFF /* LoginViewController.h */,
+				81FE2798162AADFB00F8DEFF /* LoginViewController.m */,
 			);
 			path = iRemember;
 			sourceTree = "<group>";
@@ -227,7 +235,8 @@
 			files = (
 				232CB0A6161A18EF00737655 /* InfoPlist.strings in Resources */,
 				232CB0AF161A18EF00737655 /* MainStoryboard_iPhone.storyboard in Resources */,
-				232CB0B2161A18EF00737655 /* MainStoryboard_iPad.storyboard in Resources */,
+				81FE2794162AACB800F8DEFF /* LoginView.xib in Resources */,
+				81FE2796162AAD5E00F8DEFF /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +274,7 @@
 				232CB0A8161A18EF00737655 /* main.m in Sources */,
 				232CB0AC161A18EF00737655 /* AppDelegate.m in Sources */,
 				232CB0B5161A18EF00737655 /* ViewController.m in Sources */,
+				81FE2799162AADFB00F8DEFF /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +311,6 @@
 				232CB0AE161A18EF00737655 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		232CB0B0161A18EF00737655 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				232CB0B1161A18EF00737655 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		232CB0C5161A18EF00737655 /* InfoPlist.strings */ = {
@@ -380,6 +382,7 @@
 				GCC_PREFIX_HEADER = "iRemember/iRemember-Prefix.pch";
 				INFOPLIST_FILE = "iRemember/iRemember-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -391,6 +394,7 @@
 				GCC_PREFIX_HEADER = "iRemember/iRemember-Prefix.pch";
 				INFOPLIST_FILE = "iRemember/iRemember-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -448,6 +452,7 @@
 				232CB0CF161A18EF00737655 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		232CB0D0161A18EF00737655 /* Build configuration list for PBXNativeTarget "iRememberTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +461,7 @@
 				232CB0D2161A18EF00737655 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

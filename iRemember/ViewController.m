@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "LoginViewController.h"
 
 @interface ViewController ()
 
@@ -14,17 +15,21 @@
 
 @implementation ViewController
 
-@synthesize sampleLabel;
-@synthesize sampleLabel2;
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id) sender
+{
+    if ([segue.identifier isEqualToString:@"pushLoginSegue"]) {
+        //LoginViewController *destViewController = segue.destinationViewController;
+
+        
+    }
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    
-    self.sampleLabel.text = @"Good bye cruel world.";
-    self.sampleLabel2.text = @"Hello again!";
+    [[NSBundle mainBundle] loadNibNamed:@"LoginView" owner:self options:nil];
 }
 
 - (void)viewDidUnload
