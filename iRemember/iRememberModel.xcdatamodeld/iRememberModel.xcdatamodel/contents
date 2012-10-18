@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Draw" representedClassName="Draw" parentEntity="Tag" syncable="YES"/>
+    <entity name="Note" representedClassName="Note" parentEntity="Tag" syncable="YES"/>
+    <entity name="Session" representedClassName="Session" syncable="YES">
+        <attribute name="session_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="user_fk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="session_fk" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Tag" representedClassName="Tag" isAbstract="YES" syncable="YES">
+        <attribute name="detail_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="detail_fk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TagDetail" inverseName="tag_fk" inverseEntity="TagDetail" syncable="YES"/>
+        <relationship name="user_fk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tag_fk" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="TagDetail" representedClassName="TagDetail" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="tag_fk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="detail_fk" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="type_fk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TagType" inverseName="detail_fk" inverseEntity="TagType" syncable="YES"/>
+    </entity>
+    <entity name="TagType" representedClassName="TagType" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="detail_fk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TagDetail" inverseName="type_fk" inverseEntity="TagDetail" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="date_created" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="session_fk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="user_fk" inverseEntity="Session" syncable="YES"/>
+        <relationship name="tag_fk" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="user_fk" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Session" positionX="405" positionY="99" width="128" height="88"/>
+        <element name="Tag" positionX="-236" positionY="86" width="128" height="103"/>
+        <element name="TagDetail" positionX="-216" positionY="281" width="128" height="118"/>
+        <element name="TagType" positionX="-27" positionY="297" width="128" height="73"/>
+        <element name="User" positionX="133" positionY="50" width="128" height="133"/>
+        <element name="Note" positionX="-396" positionY="9" width="128" height="43"/>
+        <element name="Draw" positionX="-173" positionY="0" width="128" height="43"/>
+    </elements>
+</model>
