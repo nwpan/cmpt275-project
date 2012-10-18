@@ -16,6 +16,7 @@
 
 @synthesize sampleLabel;
 @synthesize sampleLabel2;
+@synthesize locationManager;
 
 - (void)viewDidLoad
 {
@@ -29,6 +30,7 @@
 
 - (void)viewDidUnload
 {
+    [self setLocationManager:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -42,4 +44,30 @@
     }
 }
 
+- (void)locationManager:(CLLocationManager *)manager
+didUpdateToLocation:(CLLocation *)newLocation
+fromLocation:(CLLocation *)oldLocation
+{
+
+    [manager stopUpdatingLocation];
+    
+    NSLog(@"- Latitude: %f\n", newLocation.coordinate.latitude);
+    NSLog(@"- Longitude: %f\n", newLocation.coordinate.longitude);
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MMM d yyyy, K:mm a, z"];
+    
+    NSDate *now = [[NSDate alloc] init];
+    
+    NSString *dateString = [format stringFromDate: now];
+    
+    NSLog(@"- Timestamp: %@\n", dateString);
+    
+    
+}
+
+- (IBAction)GeoTag:(id)sender {
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
+}
 @end
