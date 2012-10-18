@@ -17,6 +17,7 @@
 @synthesize sampleLabel;
 @synthesize sampleLabel2;
 @synthesize locationManager;
+@synthesize mapView;
 
 - (void)viewDidLoad
 {
@@ -31,6 +32,7 @@
 - (void)viewDidUnload
 {
     [self setLocationManager:nil];
+    [self setMapView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -44,6 +46,9 @@
     }
 }
 
+double latitude;
+double longitude;
+
 - (void)locationManager:(CLLocationManager *)manager
 didUpdateToLocation:(CLLocation *)newLocation
 fromLocation:(CLLocation *)oldLocation
@@ -51,8 +56,11 @@ fromLocation:(CLLocation *)oldLocation
 
     [manager stopUpdatingLocation];
     
-    NSLog(@"- Latitude: %f\n", newLocation.coordinate.latitude);
-    NSLog(@"- Longitude: %f\n", newLocation.coordinate.longitude);
+    latitude = newLocation.coordinate.latitude;
+    longitude = newLocation.coordinate.longitude;
+    
+    NSLog(@"- Latitude: %f\n", latitude);
+    NSLog(@"- Longitude: %f\n", longitude);
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"MMM d yyyy, K:mm a, z"];
@@ -69,5 +77,15 @@ fromLocation:(CLLocation *)oldLocation
 - (IBAction)GeoTag:(id)sender {
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
+}
+
+- (IBAction)MapIt:(id)sender {
+    MKCoordinateRegion region;
+    region.center.latitude = latitude;
+    region.center.longitude = longitude;
+    region.span.longitudeDelta = 0.1;
+    region.span.latitudeDelta = 0.1;
+    [mapView setRegion:region animated:YES];
+    
 }
 @end

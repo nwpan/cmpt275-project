@@ -19,6 +19,10 @@
 
 @property(weak, nonatomic) IBOutlet UILabel *sampleLabel2;
 @property (strong, nonatomic) IBOutlet CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+
 - (IBAction)GeoTag:(id)sender;
+- (IBAction)MapIt:(id)sender;
 
 @end
