@@ -21,6 +21,8 @@
 		232CB0BF161A18EF00737655 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232CB09D161A18EF00737655 /* Foundation.framework */; };
 		232CB0C7161A18EF00737655 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232CB0C5161A18EF00737655 /* InfoPlist.strings */; };
 		232CB0CA161A18EF00737655 /* iRememberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232CB0C9161A18EF00737655 /* iRememberTests.m */; };
+		F34DF8421630A2B700735323 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F34DF8411630A2B700735323 /* CoreLocation.framework */; };
+		F34DF8451630AD2C00735323 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F34DF8441630AD2C00735323 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		232CB0C6161A18EF00737655 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		232CB0C8161A18EF00737655 /* iRememberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRememberTests.h; sourceTree = "<group>"; };
 		232CB0C9161A18EF00737655 /* iRememberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRememberTests.m; sourceTree = "<group>"; };
+		F34DF8411630A2B700735323 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F34DF8441630AD2C00735323 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F34DF8451630AD2C00735323 /* MapKit.framework in Frameworks */,
+				F34DF8421630A2B700735323 /* CoreLocation.framework in Frameworks */,
 				232CB09C161A18EF00737655 /* UIKit.framework in Frameworks */,
 				232CB09E161A18EF00737655 /* Foundation.framework in Frameworks */,
 				232CB0A0161A18EF00737655 /* CoreGraphics.framework in Frameworks */,
@@ -102,6 +108,8 @@
 		232CB09A161A18EF00737655 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F34DF8441630AD2C00735323 /* MapKit.framework */,
+				F34DF8411630A2B700735323 /* CoreLocation.framework */,
 				232CB09B161A18EF00737655 /* UIKit.framework */,
 				232CB09D161A18EF00737655 /* Foundation.framework */,
 				232CB09F161A18EF00737655 /* CoreGraphics.framework */,
@@ -448,6 +456,7 @@
 				232CB0CF161A18EF00737655 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		232CB0D0161A18EF00737655 /* Build configuration list for PBXNativeTarget "iRememberTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +465,7 @@
 				232CB0D2161A18EF00737655 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
