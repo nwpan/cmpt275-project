@@ -7,11 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <CLLocationManagerDelegate>
+{
+    CLLocationManager *locationmanager;
+}
 
 @property(weak, nonatomic) IBOutlet UILabel *sampleLabel;
 
 @property(weak, nonatomic) IBOutlet UILabel *sampleLabel2;
+@property (strong, nonatomic) IBOutlet CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+
+- (IBAction)GeoTag:(id)sender;
+- (IBAction)MapIt:(id)sender;
 
 @end
