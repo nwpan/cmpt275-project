@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface LoginViewController : UIViewController
 
 -(IBAction) btnRegister:(id) sender;
+
+@property (nonatomic, retain) AppDelegate *app;
 
 @end

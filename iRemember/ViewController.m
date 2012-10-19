@@ -17,9 +17,10 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id) sender
 {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Testing Event" delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
     if ([segue.identifier isEqualToString:@"pushLoginSegue"]) {
         //LoginViewController *destViewController = segue.destinationViewController;
-
+        [alert show];
         
     }
 }
@@ -29,7 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [[NSBundle mainBundle] loadNibNamed:@"LoginView" owner:self options:nil];
+    //[[NSBundle mainBundle] loadNibNamed:@"LoginView" owner:self options:nil];
 }
 
 - (void)viewDidUnload
