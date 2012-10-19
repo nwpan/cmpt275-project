@@ -10,8 +10,23 @@
 
 @interface ViewController : UIViewController
 
-@property(weak, nonatomic) IBOutlet UILabel *sampleLabel;
+{
+ 
+    IBOutlet UITextField *field1;
+    IBOutlet UITextField *field2;
+    IBOutlet UITextField *field3;
+    IBOutlet UILabel *label1;
+    
+}
 
-@property(weak, nonatomic) IBOutlet UILabel *sampleLabel2;
+//database actions
+-(IBAction)save:(id)sender;
+-(IBAction)load:(id)sender;
+
+//keyboard dismisses
+-(IBAction)dismiss1:(id)sender;
+-(IBAction)dismiss2:(id)sender;
+-(IBAction)dismiss3:(id)sender;
+
 
 @end
