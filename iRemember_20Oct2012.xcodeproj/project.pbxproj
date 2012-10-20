@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		23BACEFE16335E560071E5B6 /* iRememberModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */; };
-		23BACF4016335EB30071E5B6 /* Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF3F16335EB30071E5B6 /* Draw.m */; };
-		23BACF4316335EB30071E5B6 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF4216335EB30071E5B6 /* Note.m */; };
-		23BACF4616335EB30071E5B6 /* TagDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF4516335EB30071E5B6 /* TagDetail.m */; };
-		23BACF4916335EB30071E5B6 /* TagType.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF4816335EB30071E5B6 /* TagType.m */; };
-		23BACF4C16335EB30071E5B6 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF4B16335EB30071E5B6 /* Session.m */; };
-		23BACF4F16335EB30071E5B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF4E16335EB30071E5B6 /* User.m */; };
-		23BACF5216335EB30071E5B6 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF5116335EB30071E5B6 /* Tag.m */; };
+		23BACF55163361330071E5B6 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF54163361330071E5B6 /* Session.m */; };
+		23BACF58163361330071E5B6 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF57163361330071E5B6 /* Tag.m */; };
+		23BACF5B163361330071E5B6 /* Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF5A163361330071E5B6 /* Draw.m */; };
+		23BACF5E163361330071E5B6 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF5D163361330071E5B6 /* Note.m */; };
+		23BACF61163361330071E5B6 /* TagDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF60163361330071E5B6 /* TagDetail.m */; };
+		23BACF64163361340071E5B6 /* TagType.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF63163361340071E5B6 /* TagType.m */; };
+		23BACF67163361340071E5B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF66163361340071E5B6 /* User.m */; };
+		23BACF69163362680071E5B6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BACF68163362680071E5B6 /* CoreData.framework */; };
 		E8C5298916332E3600BF8231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298816332E3600BF8231 /* UIKit.framework */; };
 		E8C5298B16332E3600BF8231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298A16332E3600BF8231 /* Foundation.framework */; };
 		E8C5298D16332E3600BF8231 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298C16332E3600BF8231 /* CoreGraphics.framework */; };
@@ -47,20 +48,21 @@
 
 /* Begin PBXFileReference section */
 		23BACEFD16335E560071E5B6 /* iRememberModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRememberModel.xcdatamodel; sourceTree = "<group>"; };
-		23BACF3E16335EB30071E5B6 /* Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Draw.h; sourceTree = "<group>"; };
-		23BACF3F16335EB30071E5B6 /* Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Draw.m; sourceTree = "<group>"; };
-		23BACF4116335EB30071E5B6 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		23BACF4216335EB30071E5B6 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
-		23BACF4416335EB30071E5B6 /* TagDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetail.h; sourceTree = "<group>"; };
-		23BACF4516335EB30071E5B6 /* TagDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetail.m; sourceTree = "<group>"; };
-		23BACF4716335EB30071E5B6 /* TagType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagType.h; sourceTree = "<group>"; };
-		23BACF4816335EB30071E5B6 /* TagType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagType.m; sourceTree = "<group>"; };
-		23BACF4A16335EB30071E5B6 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		23BACF4B16335EB30071E5B6 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
-		23BACF4D16335EB30071E5B6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		23BACF4E16335EB30071E5B6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		23BACF5016335EB30071E5B6 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
-		23BACF5116335EB30071E5B6 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		23BACF53163361330071E5B6 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		23BACF54163361330071E5B6 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		23BACF56163361330071E5B6 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		23BACF57163361330071E5B6 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		23BACF59163361330071E5B6 /* Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Draw.h; sourceTree = "<group>"; };
+		23BACF5A163361330071E5B6 /* Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Draw.m; sourceTree = "<group>"; };
+		23BACF5C163361330071E5B6 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		23BACF5D163361330071E5B6 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		23BACF5F163361330071E5B6 /* TagDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetail.h; sourceTree = "<group>"; };
+		23BACF60163361330071E5B6 /* TagDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetail.m; sourceTree = "<group>"; };
+		23BACF62163361340071E5B6 /* TagType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagType.h; sourceTree = "<group>"; };
+		23BACF63163361340071E5B6 /* TagType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagType.m; sourceTree = "<group>"; };
+		23BACF65163361340071E5B6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		23BACF66163361340071E5B6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		23BACF68163362680071E5B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E8C5298416332E3600BF8231 /* iRemember_20Oct2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRemember_20Oct2012.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C5298816332E3600BF8231 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E8C5298A16332E3600BF8231 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23BACF69163362680071E5B6 /* CoreData.framework in Frameworks */,
 				E8C5298916332E3600BF8231 /* UIKit.framework in Frameworks */,
 				E8C5298B16332E3600BF8231 /* Foundation.framework in Frameworks */,
 				E8C5298D16332E3600BF8231 /* CoreGraphics.framework in Frameworks */,
@@ -118,6 +121,7 @@
 		E8C5297916332E3600BF8231 = {
 			isa = PBXGroup;
 			children = (
+				23BACF68163362680071E5B6 /* CoreData.framework */,
 				E8C5298E16332E3600BF8231 /* iRemember_20Oct2012 */,
 				E8C529AF16332E3600BF8231 /* iRemember_20Oct2012Tests */,
 				E8C5298716332E3600BF8231 /* Frameworks */,
@@ -149,20 +153,20 @@
 			isa = PBXGroup;
 			children = (
 				23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */,
-				23BACF5016335EB30071E5B6 /* Tag.h */,
-				23BACF5116335EB30071E5B6 /* Tag.m */,
-				23BACF4D16335EB30071E5B6 /* User.h */,
-				23BACF4E16335EB30071E5B6 /* User.m */,
-				23BACF4A16335EB30071E5B6 /* Session.h */,
-				23BACF4B16335EB30071E5B6 /* Session.m */,
-				23BACF4716335EB30071E5B6 /* TagType.h */,
-				23BACF4816335EB30071E5B6 /* TagType.m */,
-				23BACF4416335EB30071E5B6 /* TagDetail.h */,
-				23BACF4516335EB30071E5B6 /* TagDetail.m */,
-				23BACF4116335EB30071E5B6 /* Note.h */,
-				23BACF4216335EB30071E5B6 /* Note.m */,
-				23BACF3E16335EB30071E5B6 /* Draw.h */,
-				23BACF3F16335EB30071E5B6 /* Draw.m */,
+				23BACF65163361340071E5B6 /* User.h */,
+				23BACF66163361340071E5B6 /* User.m */,
+				23BACF62163361340071E5B6 /* TagType.h */,
+				23BACF63163361340071E5B6 /* TagType.m */,
+				23BACF5F163361330071E5B6 /* TagDetail.h */,
+				23BACF60163361330071E5B6 /* TagDetail.m */,
+				23BACF5C163361330071E5B6 /* Note.h */,
+				23BACF5D163361330071E5B6 /* Note.m */,
+				23BACF59163361330071E5B6 /* Draw.h */,
+				23BACF5A163361330071E5B6 /* Draw.m */,
+				23BACF56163361330071E5B6 /* Tag.h */,
+				23BACF57163361330071E5B6 /* Tag.m */,
+				23BACF53163361330071E5B6 /* Session.h */,
+				23BACF54163361330071E5B6 /* Session.m */,
 				E8C5299716332E3600BF8231 /* AppDelegate.h */,
 				E8C5299816332E3600BF8231 /* AppDelegate.m */,
 				E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */,
@@ -328,13 +332,13 @@
 				E8C529CA1633302500BF8231 /* SecondEditViewController.m in Sources */,
 				E8C529D216333AF900BF8231 /* openURLViewController.m in Sources */,
 				23BACEFE16335E560071E5B6 /* iRememberModel.xcdatamodeld in Sources */,
-				23BACF4016335EB30071E5B6 /* Draw.m in Sources */,
-				23BACF4316335EB30071E5B6 /* Note.m in Sources */,
-				23BACF4616335EB30071E5B6 /* TagDetail.m in Sources */,
-				23BACF4916335EB30071E5B6 /* TagType.m in Sources */,
-				23BACF4C16335EB30071E5B6 /* Session.m in Sources */,
-				23BACF4F16335EB30071E5B6 /* User.m in Sources */,
-				23BACF5216335EB30071E5B6 /* Tag.m in Sources */,
+				23BACF55163361330071E5B6 /* Session.m in Sources */,
+				23BACF58163361330071E5B6 /* Tag.m in Sources */,
+				23BACF5B163361330071E5B6 /* Draw.m in Sources */,
+				23BACF5E163361330071E5B6 /* Note.m in Sources */,
+				23BACF61163361330071E5B6 /* TagDetail.m in Sources */,
+				23BACF64163361340071E5B6 /* TagType.m in Sources */,
+				23BACF67163361340071E5B6 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
