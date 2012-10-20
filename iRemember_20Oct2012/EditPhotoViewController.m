@@ -14,6 +14,7 @@
 @end
 
 @implementation EditPhotoViewController
+@synthesize locationManager;
 
 @synthesize secondViewData;
 
@@ -91,6 +92,7 @@
 
 - (void)viewDidUnload
 {
+    [self setLocationManager:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -100,4 +102,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)geotag:(id)sender {
+}
+- (void)dealloc {
+    [locationManager release];
+    [super dealloc];
+}
 @end

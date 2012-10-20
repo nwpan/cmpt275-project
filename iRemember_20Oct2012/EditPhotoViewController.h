@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SecondEditViewController.h"
+#import "CoreLocation/CoreLocation.h"
 
-@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
+@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>{
     
     //IBOutlet UISegmentedControl *sc;
     IBOutlet UIImageView *imageView;
@@ -22,10 +23,12 @@
 }
 
 @property(nonatomic, retain)SecondEditViewController *secondViewData;
-
+@property (retain, nonatomic) IBOutlet CLLocationManager *locationManager;
 -(IBAction)camera;
 -(IBAction)gallery;
 -(IBAction)edit;
+- (IBAction)geotag:(id)sender;
+
 
 @end
 
