@@ -20,7 +20,15 @@
 		232CB0BF161A18EF00737655 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232CB09D161A18EF00737655 /* Foundation.framework */; };
 		232CB0C7161A18EF00737655 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232CB0C5161A18EF00737655 /* InfoPlist.strings */; };
 		232CB0CA161A18EF00737655 /* iRememberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232CB0C9161A18EF00737655 /* iRememberTests.m */; };
-		81FE2794162AACB800F8DEFF /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81FE2793162AACB800F8DEFF /* LoginView.xib */; };
+		23B282BF1633572800B7E7DE /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B282BE1633572800B7E7DE /* Note.m */; };
+		23B282C21633572900B7E7DE /* TagType.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B282C11633572900B7E7DE /* TagType.m */; };
+		23B282C51633572900B7E7DE /* TagDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B282C41633572900B7E7DE /* TagDetail.m */; };
+		23B282C81633572900B7E7DE /* Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B282C71633572900B7E7DE /* Draw.m */; };
+		23B282CB1633572900B7E7DE /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B282CA1633572900B7E7DE /* Tag.m */; };
+		23B282CE1633572900B7E7DE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B282CD1633572900B7E7DE /* User.m */; };
+		23B282D11633572900B7E7DE /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B282D01633572900B7E7DE /* Session.m */; };
+		813F543D1630BA940074A8E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813F543C1630BA940074A8E9 /* CoreData.framework */; };
+		8143627A162CD30500360FCD /* iRememberModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81436278162CD30500360FCD /* iRememberModel.xcdatamodeld */; };
 		81FE2796162AAD5E00F8DEFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FE2795162AAD5E00F8DEFF /* Default-568h@2x.png */; };
 		81FE2799162AADFB00F8DEFF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE2798162AADFB00F8DEFF /* LoginViewController.m */; };
 /* End PBXBuildFile section */
@@ -55,7 +63,22 @@
 		232CB0C6161A18EF00737655 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		232CB0C8161A18EF00737655 /* iRememberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRememberTests.h; sourceTree = "<group>"; };
 		232CB0C9161A18EF00737655 /* iRememberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRememberTests.m; sourceTree = "<group>"; };
-		81FE2793162AACB800F8DEFF /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		23B282BD1633572800B7E7DE /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		23B282BE1633572800B7E7DE /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		23B282C01633572900B7E7DE /* TagType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagType.h; sourceTree = "<group>"; };
+		23B282C11633572900B7E7DE /* TagType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagType.m; sourceTree = "<group>"; };
+		23B282C31633572900B7E7DE /* TagDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDetail.h; sourceTree = "<group>"; };
+		23B282C41633572900B7E7DE /* TagDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagDetail.m; sourceTree = "<group>"; };
+		23B282C61633572900B7E7DE /* Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Draw.h; sourceTree = "<group>"; };
+		23B282C71633572900B7E7DE /* Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Draw.m; sourceTree = "<group>"; };
+		23B282C91633572900B7E7DE /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		23B282CA1633572900B7E7DE /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		23B282CC1633572900B7E7DE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		23B282CD1633572900B7E7DE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		23B282CF1633572900B7E7DE /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		23B282D01633572900B7E7DE /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		813F543C1630BA940074A8E9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		81436279162CD30500360FCD /* iRememberModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRememberModel.xcdatamodel; sourceTree = "<group>"; };
 		81FE2795162AAD5E00F8DEFF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		81FE2797162AADFB00F8DEFF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		81FE2798162AADFB00F8DEFF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -66,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813F543D1630BA940074A8E9 /* CoreData.framework in Frameworks */,
 				232CB09C161A18EF00737655 /* UIKit.framework in Frameworks */,
 				232CB09E161A18EF00737655 /* Foundation.framework in Frameworks */,
 				232CB0A0161A18EF00737655 /* CoreGraphics.framework in Frameworks */,
@@ -88,6 +112,7 @@
 		232CB08C161A18EF00737655 = {
 			isa = PBXGroup;
 			children = (
+				813F543C1630BA940074A8E9 /* CoreData.framework */,
 				81FE2795162AAD5E00F8DEFF /* Default-568h@2x.png */,
 				232CB0A1161A18EF00737655 /* iRemember */,
 				232CB0C2161A18EF00737655 /* iRememberTests */,
@@ -124,8 +149,22 @@
 				232CB0AD161A18EF00737655 /* MainStoryboard_iPhone.storyboard */,
 				232CB0B3161A18EF00737655 /* ViewController.h */,
 				232CB0B4161A18EF00737655 /* ViewController.m */,
+				81436278162CD30500360FCD /* iRememberModel.xcdatamodeld */,
+				23B282CF1633572900B7E7DE /* Session.h */,
+				23B282D01633572900B7E7DE /* Session.m */,
+				23B282CC1633572900B7E7DE /* User.h */,
+				23B282CD1633572900B7E7DE /* User.m */,
+				23B282C91633572900B7E7DE /* Tag.h */,
+				23B282CA1633572900B7E7DE /* Tag.m */,
+				23B282C61633572900B7E7DE /* Draw.h */,
+				23B282C71633572900B7E7DE /* Draw.m */,
+				23B282C31633572900B7E7DE /* TagDetail.h */,
+				23B282C41633572900B7E7DE /* TagDetail.m */,
+				23B282C01633572900B7E7DE /* TagType.h */,
+				23B282C11633572900B7E7DE /* TagType.m */,
+				23B282BD1633572800B7E7DE /* Note.h */,
+				23B282BE1633572800B7E7DE /* Note.m */,
 				232CB0A2161A18EF00737655 /* Supporting Files */,
-				81FE2793162AACB800F8DEFF /* LoginView.xib */,
 				81FE2797162AADFB00F8DEFF /* LoginViewController.h */,
 				81FE2798162AADFB00F8DEFF /* LoginViewController.m */,
 			);
@@ -235,7 +274,6 @@
 			files = (
 				232CB0A6161A18EF00737655 /* InfoPlist.strings in Resources */,
 				232CB0AF161A18EF00737655 /* MainStoryboard_iPhone.storyboard in Resources */,
-				81FE2794162AACB800F8DEFF /* LoginView.xib in Resources */,
 				81FE2796162AAD5E00F8DEFF /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +313,14 @@
 				232CB0AC161A18EF00737655 /* AppDelegate.m in Sources */,
 				232CB0B5161A18EF00737655 /* ViewController.m in Sources */,
 				81FE2799162AADFB00F8DEFF /* LoginViewController.m in Sources */,
+				8143627A162CD30500360FCD /* iRememberModel.xcdatamodeld in Sources */,
+				23B282BF1633572800B7E7DE /* Note.m in Sources */,
+				23B282C21633572900B7E7DE /* TagType.m in Sources */,
+				23B282C51633572900B7E7DE /* TagDetail.m in Sources */,
+				23B282C81633572900B7E7DE /* Draw.m in Sources */,
+				23B282CB1633572900B7E7DE /* Tag.m in Sources */,
+				23B282CE1633572900B7E7DE /* User.m in Sources */,
+				23B282D11633572900B7E7DE /* Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +510,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		81436278162CD30500360FCD /* iRememberModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81436279162CD30500360FCD /* iRememberModel.xcdatamodel */,
+			);
+			currentVersion = 81436279162CD30500360FCD /* iRememberModel.xcdatamodel */;
+			path = iRememberModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 232CB08E161A18EF00737655 /* Project object */;
 }
