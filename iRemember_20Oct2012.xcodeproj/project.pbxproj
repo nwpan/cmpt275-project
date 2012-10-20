@@ -13,7 +13,6 @@
 		E8C5299316332E3600BF8231 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8C5299116332E3600BF8231 /* InfoPlist.strings */; };
 		E8C5299516332E3600BF8231 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C5299416332E3600BF8231 /* main.m */; };
 		E8C5299916332E3600BF8231 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C5299816332E3600BF8231 /* AppDelegate.m */; };
-		E8C5299F16332E3600BF8231 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C5299D16332E3600BF8231 /* MainStoryboard_iPad.storyboard */; };
 		E8C529A216332E3600BF8231 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529A116332E3600BF8231 /* ViewController.m */; };
 		E8C529AA16332E3600BF8231 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C529A916332E3600BF8231 /* SenTestingKit.framework */; };
 		E8C529AB16332E3600BF8231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298816332E3600BF8231 /* UIKit.framework */; };
@@ -49,7 +48,6 @@
 		E8C5299616332E3600BF8231 /* iRemember_20Oct2012-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRemember_20Oct2012-Prefix.pch"; sourceTree = "<group>"; };
 		E8C5299716332E3600BF8231 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8C5299816332E3600BF8231 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E8C5299E16332E3600BF8231 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		E8C529A016332E3600BF8231 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E8C529A116332E3600BF8231 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E8C529A816332E3600BF8231 /* iRemember_20Oct2012Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRemember_20Oct2012Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +128,6 @@
 				E8C5299716332E3600BF8231 /* AppDelegate.h */,
 				E8C5299816332E3600BF8231 /* AppDelegate.m */,
 				E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */,
-				E8C5299D16332E3600BF8231 /* MainStoryboard_iPad.storyboard */,
 				E8C529A016332E3600BF8231 /* ViewController.h */,
 				E8C529A116332E3600BF8231 /* ViewController.m */,
 				E8C5298F16332E3600BF8231 /* Supporting Files */,
@@ -249,7 +246,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8C5299316332E3600BF8231 /* InfoPlist.strings in Resources */,
-				E8C5299F16332E3600BF8231 /* MainStoryboard_iPad.storyboard in Resources */,
 				E8C529C116332EC600BF8231 /* iRemember.jpg in Resources */,
 				E8C529CC163335A900BF8231 /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
@@ -323,14 +319,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		E8C5299D16332E3600BF8231 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E8C5299E16332E3600BF8231 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		E8C529B216332E3600BF8231 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -400,6 +388,7 @@
 				GCC_PREFIX_HEADER = "iRemember_20Oct2012/iRemember_20Oct2012-Prefix.pch";
 				INFOPLIST_FILE = "iRemember_20Oct2012/iRemember_20Oct2012-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -411,6 +400,7 @@
 				GCC_PREFIX_HEADER = "iRemember_20Oct2012/iRemember_20Oct2012-Prefix.pch";
 				INFOPLIST_FILE = "iRemember_20Oct2012/iRemember_20Oct2012-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -468,6 +458,7 @@
 				E8C529BC16332E3600BF8231 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E8C529BD16332E3600BF8231 /* Build configuration list for PBXNativeTarget "iRemember_20Oct2012Tests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +467,7 @@
 				E8C529BF16332E3600BF8231 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
