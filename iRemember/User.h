@@ -2,7 +2,7 @@
 //  User.h
 //  iRemember
 //
-//  Created by Nicholas Pan on 2012-10-15.
+//  Created by Nicholas Pan on 10/20/12.
 //  Copyright (c) 2012 Group 11. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSDate * date_created;
 @property (nonatomic, retain) NSString * first_name;
 @property (nonatomic, retain) NSString * last_name;
-@property (nonatomic, retain) NSNumber * user_id;
+@property (nonatomic, retain) NSString * user_id;
 @property (nonatomic, retain) Session *session_fk;
 @property (nonatomic, retain) Tag *tag_fk;
 

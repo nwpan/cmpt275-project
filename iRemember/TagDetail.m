@@ -2,7 +2,7 @@
 //  TagDetail.m
 //  iRemember
 //
-//  Created by Nicholas Pan on 2012-10-15.
+//  Created by Nicholas Pan on 10/20/12.
 //  Copyright (c) 2012 Group 11. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 @dynamic data;
 @dynamic title;
 @dynamic type_id;
-@dynamic type_fk;
 @dynamic tag_fk;
+@dynamic type_fk;
 
 @end

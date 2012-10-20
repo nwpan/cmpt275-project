@@ -17,12 +17,17 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id) sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Testing Event" delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[[UIDevice currentDevice] name] delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
     if ([segue.identifier isEqualToString:@"pushLoginSegue"]) {
-        //LoginViewController *destViewController = segue.destinationViewController;
         [alert show];
         
     }
+    
+    /*
+     
+     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[self generateUuidString] delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+     [alert show];
+     */
 }
 
 

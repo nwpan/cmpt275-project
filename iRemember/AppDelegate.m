@@ -17,40 +17,11 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-/*
--(void) createData {
-    NSManagedObjectContext *context = [self managedObjectContext];
-
-    User *detail = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-    detail.first_name = @"Hello";
-    detail.last_name = @"Goodbye";
-
-    NSError *error;
-
-    if (![context save:&error])
-    {
-        NSLog(@"Error, fool!");
-    }
-
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
-    [request setEntity:entity];
-
-    NSArray *arr = [context executeFetchRequest:request error:&error];
-
-    for (User *u in arr)
-    {
-        NSLog(@"First name, %@", u.first_name);
-        NSLog(@"Last name, %@", u.last_name);
-    }
-}
- */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-
+    /*
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     LoginViewController *ctrl = [[LoginViewController alloc] init];
@@ -58,7 +29,8 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
 
     self.window.rootViewController = nav;
-
+     */
+    
     return YES;
 }
 							

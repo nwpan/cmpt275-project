@@ -2,7 +2,7 @@
 //  TagDetail.h
 //  iRemember
 //
-//  Created by Nicholas Pan on 2012-10-15.
+//  Created by Nicholas Pan on 10/20/12.
 //  Copyright (c) 2012 Group 11. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSString * data;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * type_id;
-@property (nonatomic, retain) TagType *type_fk;
 @property (nonatomic, retain) Tag *tag_fk;
+@property (nonatomic, retain) TagType *type_fk;
 
 @end
