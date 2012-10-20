@@ -121,7 +121,6 @@
 		E8C5297916332E3600BF8231 = {
 			isa = PBXGroup;
 			children = (
-				23BACF68163362680071E5B6 /* CoreData.framework */,
 				E8C5298E16332E3600BF8231 /* iRemember_20Oct2012 */,
 				E8C529AF16332E3600BF8231 /* iRemember_20Oct2012Tests */,
 				E8C5298716332E3600BF8231 /* Frameworks */,
@@ -141,6 +140,7 @@
 		E8C5298716332E3600BF8231 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23BACF68163362680071E5B6 /* CoreData.framework */,
 				E8C5298816332E3600BF8231 /* UIKit.framework */,
 				E8C5298A16332E3600BF8231 /* Foundation.framework */,
 				E8C5298C16332E3600BF8231 /* CoreGraphics.framework */,
