@@ -119,20 +119,25 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WED-We-aG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4A6-Bu-eQi" customClass="AboutUsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bbu-8L-b9o" customClass="UIWebView">
+                    <textView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="BcF-7I-2cE">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Double One:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="BZR-wO-3ZK">
-                                <rect key="frame" x="54" y="43" width="145" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <mutableString key="text">If you forget, don’t worry; iRemember.
+
+iRemember is a class project iPhone application targeting people of all ages who struggle with memory impairment or learning disabilities of any sort. It will allow the user to use an existing photo, pick a photo from the phone’s memory, or take pictures throughout the day, and tag them with notes, descriptions or even drawings. iRemember will then store all the images and information for the user to view at their leisure, either by flipping through recent days or view all pictures with certain tags.
+
+Our team of developers consists of the following people:
+Nicholas Pan, Matt Numsen, Steven Tjendana, Charles Shin, &amp; Jake Nagazine
+
+For more detailed information, please visited our project site:
+http://projects.nicholaspan.com/cmpt275/
+
+© 2012 SFU CMPT 275 Group 11</mutableString>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
                     <navigationItem key="navigationItem" id="vIS-1p-XGo"/>
                 </viewController>
             </objects>
