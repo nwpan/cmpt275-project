@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface MainMenuViewController : UIViewController{
-    IBOutlet UIImageView *imageView;
-}
+@interface MainMenuViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, retain) AppDelegate *app;
 

@@ -8,7 +8,7 @@
 
 #import "MainMenuViewController.h"
 
-@interface MainMenuViewController ()
+@interface MainMenuViewController () 
 
 @end
 
@@ -19,7 +19,7 @@
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
     picker.sourceType =UIImagePickerControllerSourceTypePhotoLibrary;
     picker.delegate = self;
-    picker.allowsImageEditing = YES;
+    picker.allowsEditing = YES;
     [[self navigationController] presentModalViewController:picker animated:YES];
 }
 
@@ -57,10 +57,10 @@
 {
     //Get image
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageView *imageView = nil;
+    //UIImageView *imageView = nil;
     
-    [imageView setImage:image];
-    //Take image picker off the screen (required)
+    [self.imageView setImage:image];
+    // Take image picker off the screen (required)
     [self dismissModalViewControllerAnimated:YES];
 }
 
