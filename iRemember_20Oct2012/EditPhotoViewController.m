@@ -15,11 +15,15 @@
 @end
 
 @implementation EditPhotoViewController
-@synthesize locationManager;
-@synthesize mapView;
+
+@synthesize imageView;
+@synthesize picker2;
+@synthesize gallery;
+@synthesize locationmanager;
 
 @synthesize secondViewData;
-
+@synthesize locationManager;
+@synthesize mapView;
 
 -(void)takePicture:(id)sender
 {
@@ -48,13 +52,15 @@
     [self setupAppearance];
 }
 
--(void) setupAppearance{
+-(void) setupAppearance
+{
     UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePicture:)];
     
     [[self navigationItem] setRightBarButtonItem:cameraBarButtonItem];
 }
 
--(IBAction)edit:(id)sender{
+-(IBAction)editAction:(id)sender
+{
     SecondEditViewController *second = [[SecondEditViewController alloc]initWithNibName:nil bundle:nil];
     
     self.secondViewData = second;
@@ -68,7 +74,8 @@
 }
 
 
--(IBAction)gallery{
+-(IBAction)galleryAction
+{
     picker2 = [[UIImagePickerController alloc]init];
     picker2.delegate = self;
     [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -77,8 +84,8 @@
 
 
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:image];
     
@@ -87,8 +94,8 @@
 
 
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -150,12 +157,14 @@ double latitude;
     
 }
 
-- (IBAction)geotag:(id)sender {
+- (IBAction)geotagAction:(id)sender
+{
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
 }
 
-- (IBAction)view:(id)sender {
+- (IBAction)viewAction:(id)sender
+{
     MKCoordinateRegion region;
     region.center.latitude = latitude;
     region.center.longitude = longitude;
@@ -163,8 +172,5 @@ double latitude;
     region.span.latitudeDelta = 0.1;
     [mapView setRegion:region animated:YES];
 }
-- (void)dealloc {
-    [locationManager release];
-    [super dealloc];
-}
+
 @end

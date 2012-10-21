@@ -82,8 +82,8 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[defaults objectForKey:@"user_id"] delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
-    [alert show];
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[defaults objectForKey:@"user_id"] delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+    //[alert show];
     [self setup];
 }
 

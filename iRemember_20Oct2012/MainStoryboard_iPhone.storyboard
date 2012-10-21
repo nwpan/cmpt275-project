@@ -119,20 +119,25 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WED-We-aG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4A6-Bu-eQi" customClass="AboutUsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bbu-8L-b9o" customClass="UIWebView">
+                    <textView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="BcF-7I-2cE">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Double One:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="BZR-wO-3ZK">
-                                <rect key="frame" x="54" y="43" width="145" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <mutableString key="text">If you forget, don’t worry; iRemember.
+
+iRemember is a class project iPhone application targeting people of all ages who struggle with memory impairment or learning disabilities of any sort. It will allow the user to use an existing photo, pick a photo from the phone’s memory, or take pictures throughout the day, and tag them with notes, descriptions or even drawings. iRemember will then store all the images and information for the user to view at their leisure, either by flipping through recent days or view all pictures with certain tags.
+
+Our team of developers consists of the following people:
+Nicholas Pan, Matt Numsen, Steven Tjendana, Charles Shin, &amp; Jake Nagazine
+
+For more detailed information, please visited our project site:
+http://projects.nicholaspan.com/cmpt275/
+
+© 2012 SFU CMPT 275 Group 11</mutableString>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
                     <navigationItem key="navigationItem" id="vIS-1p-XGo"/>
                 </viewController>
             </objects>
@@ -209,7 +214,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="gallery" destination="gfd-N3-8sy" eventType="touchUpInside" id="7ze-Zq-RVb"/>
+                                    <action selector="galleryAction" destination="gfd-N3-8sy" eventType="touchUpInside" id="1TB-Up-ARw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sSZ-z4-XhT">
@@ -239,7 +244,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="geotag:" destination="gfd-N3-8sy" eventType="touchUpInside" id="Bm3-fx-UEj"/>
+                                    <action selector="geotagAction:" destination="gfd-N3-8sy" eventType="touchUpInside" id="JUn-MK-gCn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gGD-6w-sf3">
@@ -254,7 +259,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="view:" destination="gfd-N3-8sy" eventType="touchUpInside" id="Z9c-96-A6m"/>
+                                    <action selector="viewAction:" destination="gfd-N3-8sy" eventType="touchUpInside" id="eDy-F1-QJC"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="NUT-aE-InA">
@@ -421,6 +426,58 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="iRemember.jpg" width="569" height="88"/>
     </resources>
+    <classes>
+        <class className="AboutUsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutUsViewController.h"/>
+        </class>
+        <class className="CLLocationManager" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLLocationManager.h"/>
+        </class>
+        <class className="EditPhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPhotoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="editAction"/>
+                <relationship kind="action" name="editAction:"/>
+                <relationship kind="action" name="galleryAction"/>
+                <relationship kind="action" name="geotagAction:"/>
+                <relationship kind="action" name="viewAction:"/>
+                <relationship kind="outlet" name="gallery" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="locationManager" candidateClass="CLLocationManager"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="HelpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="btnStartAction:"/>
+                <relationship kind="outlet" name="btnStart" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lblStatus" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="gallery"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SearchByDayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByDayViewController.h"/>
+        </class>
+        <class className="SearchByTagsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByTagsViewController.h"/>
+        </class>
+        <class className="SecondEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondEditViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
