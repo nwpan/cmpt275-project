@@ -7,7 +7,7 @@
 //
 
 #import "openURLViewController.h"
-
+#import "MainMenuViewController.h"
 @interface openURLViewController ()
 
 @end
@@ -25,7 +25,11 @@
     [webView loadRequest:request];
 }
 
-
+-(IBAction)goBackMenu:(id)sender
+{
+    //UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:self.];
+    [self presentModalViewController:navController animated:YES];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

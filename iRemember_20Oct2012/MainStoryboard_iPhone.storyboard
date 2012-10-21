@@ -42,11 +42,11 @@
                     <navigationItem key="navigationItem" id="vJu-KL-DgI"/>
                     <connections>
                         <outlet property="lblStatus" destination="6jX-10-e2U" id="SML-es-2uu"/>
-                        <segue destination="D58-Pp-UcT" kind="modal" identifier="yoloSegue" id="JJU-GL-jEe"/>
+                        <segue destination="D58-Pp-UcT" kind="push" identifier="yoloSegue" id="JJU-GL-jEe"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1054" y="-572"/>
+            <point key="canvasLocation" x="1238" y="395"/>
         </scene>
         <!--OpenURL View Controller - Title-->
         <scene sceneID="ZXI-5b-J27">
@@ -68,7 +68,7 @@
                                 <items>
                                     <barButtonItem title="back to menu" id="k7H-7y-fgQ">
                                         <connections>
-                                            <segue destination="FeO-Na-HzX" kind="modal" id="hpV-g5-YTS"/>
+                                            <action selector="goBackMenu:" destination="Oqj-6L-CXz" id="R0J-2T-Kxf"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="DDV-TT-UMO">
@@ -117,7 +117,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1989" y="-436"/>
+            <point key="canvasLocation" x="2373" y="344"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="kFk-5s-omU">
@@ -125,11 +125,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5v-7Q-fNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="D58-Pp-UcT" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jqW-r3-lzz">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="iRemember.jpg" id="BCY-An-8kT">
-                                <rect key="frame" x="37" y="65" width="263" height="137"/>
+                                <rect key="frame" x="37" y="65" width="263" height="93"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3bJ-xM-t9z">
@@ -144,7 +144,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gfd-N3-8sy" kind="push" id="dxG-Ii-aEi"/>
+                                    <segue destination="gfd-N3-8sy" kind="push" id="oxV-dd-GF8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vaZ-OW-dPw">
@@ -159,7 +159,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Oqj-6L-CXz" kind="modal" id="xNk-SD-mqx"/>
+                                    <segue destination="Oqj-6L-CXz" kind="modal" id="xJ7-8P-txZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="m6n-Hh-ff8">
@@ -174,7 +174,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0MW-GD-LOI" kind="push" id="5rx-co-jfM"/>
+                                    <segue destination="0MW-GD-LOI" kind="push" id="1cz-JL-JWV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LCl-kV-yhX">
@@ -189,16 +189,16 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4A6-Bu-eQi" kind="push" id="Pi5-L6-w6e"/>
+                                    <segue destination="4A6-Bu-eQi" kind="push" id="nZY-WE-XMj"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aSd-w2-Qxa"/>
+                    <navigationItem key="navigationItem" id="oyq-iw-KUW"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1189" y="182"/>
+            <point key="canvasLocation" x="1573" y="962"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="BO5-cz-Tqi">
@@ -206,7 +206,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WED-We-aG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4A6-Bu-eQi" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bbu-8L-b9o">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Double One:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="BZR-wO-3ZK">
@@ -222,7 +222,7 @@
                     <navigationItem key="navigationItem" id="vIS-1p-XGo"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1256" y="826"/>
+            <point key="canvasLocation" x="1642" y="1609"/>
         </scene>
         <!--Edit Photo View Controller-->
         <scene sceneID="8wj-YQ-l22">
@@ -230,11 +230,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRt-Tw-Y02" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gfd-N3-8sy" customClass="EditPhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CPP-mW-WEg">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="AO3-a1-Q6N">
-                                <rect key="frame" x="34" y="65" width="260" height="336"/>
+                                <rect key="frame" x="34" y="65" width="260" height="292"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ciO-TU-aW3">
@@ -291,7 +291,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1989" y="182"/>
+            <point key="canvasLocation" x="2373" y="962"/>
         </scene>
         <!--Second Edit View Controller-->
         <scene sceneID="fLe-Mb-VKy">
@@ -321,15 +321,15 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2516" y="180"/>
+            <point key="canvasLocation" x="2900" y="960"/>
         </scene>
-        <!--View Controller-->
+        <!--Help View Controller-->
         <scene sceneID="ASm-gc-dQA">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeV-oS-4ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="0MW-GD-LOI" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="0MW-GD-LOI" customClass="HelpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6bK-NT-Vp4">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This page is for help" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="4el-qE-qNL">
@@ -347,9 +347,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hbQ-gs-5Y1"/>
+                    <connections>
+                        <outlet property="view" destination="6bK-NT-Vp4" id="gj5-Pf-pGy"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1983" y="799"/>
+            <point key="canvasLocation" x="2373" y="1615"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5KO-06-2SO">
@@ -368,7 +371,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="425" y="-560"/>
+            <point key="canvasLocation" x="788" y="395"/>
         </scene>
     </scenes>
     <resources>
@@ -385,6 +388,9 @@
                 <relationship kind="outlet" name="gallery" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
+        </class>
+        <class className="HelpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
@@ -407,12 +413,11 @@
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-        </class>
         <class className="openURLViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/openURLViewController.h"/>
             <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="action" name="goBackMenu:"/>
                 <relationship kind="action" name="refresh:"/>
                 <relationship kind="action" name="search:"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UITextField"/>

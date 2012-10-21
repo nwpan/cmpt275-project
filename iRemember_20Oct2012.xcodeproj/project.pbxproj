@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		233CD015163384920056B3AF /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 233CD014163384920056B3AF /* HelpViewController.m */; };
 		23BACEFE16335E560071E5B6 /* iRememberModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */; };
 		23BACF55163361330071E5B6 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF54163361330071E5B6 /* Session.m */; };
 		23BACF58163361330071E5B6 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF57163361330071E5B6 /* Tag.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		233CD013163384920056B3AF /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		233CD014163384920056B3AF /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		23BACEFD16335E560071E5B6 /* iRememberModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRememberModel.xcdatamodel; sourceTree = "<group>"; };
 		23BACF53163361330071E5B6 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		23BACF54163361330071E5B6 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				E8C529C91633302500BF8231 /* SecondEditViewController.m */,
 				E8C529D016333AF900BF8231 /* openURLViewController.h */,
 				E8C529D116333AF900BF8231 /* openURLViewController.m */,
+				233CD013163384920056B3AF /* HelpViewController.h */,
+				233CD014163384920056B3AF /* HelpViewController.m */,
 			);
 			path = iRemember_20Oct2012;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				23BACF64163361340071E5B6 /* TagType.m in Sources */,
 				23BACF67163361340071E5B6 /* User.m in Sources */,
 				23BACF70163367950071E5B6 /* LoginViewController.m in Sources */,
+				233CD015163384920056B3AF /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
