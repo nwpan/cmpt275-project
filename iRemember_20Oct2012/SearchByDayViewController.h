@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchByDayViewController : UIViewController
+@interface SearchByDayViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+{
+    UIDatePicker *datePicker;
+    UILabel *label;
+}
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+-(IBAction) getSelection;
 
 @end

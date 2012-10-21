@@ -42,9 +42,9 @@
 {
     //Get image
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageView *imageView = nil;
+    UIImageView *iv = nil;
     
-    [imageView setImage:image];
+    [iv setImage:image];
     //Take image picker off the screen (required)
     [self dismissModalViewControllerAnimated:YES];
 }

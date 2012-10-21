@@ -15,6 +15,8 @@
 @end
 
 @implementation EditPhotoViewController
+    
+
 @synthesize locationManager;
 @synthesize mapView;
 

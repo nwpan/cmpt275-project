@@ -14,6 +14,18 @@
 
 @implementation SearchByDayViewController
 
+@synthesize datePicker, dateLabel;
+
+-(void)getSelection
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MMM d yyyy"];
+    
+    NSDate *pickerDate = [datePicker date];
+    NSString *selectionString = [format stringFromDate:pickerDate];
+    dateLabel.text = selectionString;
+}
+
 -(void)takePicture:(id)sender
 {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
