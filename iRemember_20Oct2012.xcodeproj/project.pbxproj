@@ -35,6 +35,8 @@
 		E8C529CA1633302500BF8231 /* SecondEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529C91633302500BF8231 /* SecondEditViewController.m */; };
 		E8C529CC163335A900BF8231 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */; };
 		E8C529D216333AF900BF8231 /* openURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529D116333AF900BF8231 /* openURLViewController.m */; };
+		F389FE94163364150043C395 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE93163364150043C395 /* CoreLocation.framework */; };
+		F389FE96163364280043C395 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE95163364280043C395 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		E8C529D016333AF900BF8231 /* openURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openURLViewController.h; sourceTree = "<group>"; };
 		E8C529D116333AF900BF8231 /* openURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openURLViewController.m; sourceTree = "<group>"; };
+		F389FE93163364150043C395 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F389FE95163364280043C395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F389FE96163364280043C395 /* MapKit.framework in Frameworks */,
+				F389FE94163364150043C395 /* CoreLocation.framework in Frameworks */,
 				23BACF69163362680071E5B6 /* CoreData.framework in Frameworks */,
 				E8C5298916332E3600BF8231 /* UIKit.framework in Frameworks */,
 				E8C5298B16332E3600BF8231 /* Foundation.framework in Frameworks */,
@@ -143,6 +149,8 @@
 		E8C5298716332E3600BF8231 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F389FE93163364150043C395 /* CoreLocation.framework */,
+				F389FE95163364280043C395 /* MapKit.framework */,
 				23BACF68163362680071E5B6 /* CoreData.framework */,
 				E8C5298816332E3600BF8231 /* UIKit.framework */,
 				E8C5298A16332E3600BF8231 /* Foundation.framework */,
