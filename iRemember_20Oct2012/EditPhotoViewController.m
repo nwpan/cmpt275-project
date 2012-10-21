@@ -25,8 +25,6 @@
 @synthesize locationmanager;
 
 @synthesize secondViewData;
-@synthesize locationManager;
-@synthesize mapView;
 
 -(void)takePicture:(id)sender
 {
