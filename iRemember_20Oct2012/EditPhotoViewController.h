@@ -27,7 +27,6 @@
 @property(nonatomic, retain)SecondEditViewController *secondViewData;
 @property (retain, nonatomic) IBOutlet CLLocationManager *locationManager;
 @property (retain, nonatomic) IBOutlet MKMapView *mapView;
--(IBAction)camera;
 -(IBAction)gallery;
 -(IBAction)edit;
 - (IBAction)geotag:(id)sender;

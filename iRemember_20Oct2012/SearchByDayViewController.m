@@ -1,22 +1,18 @@
 //
-//  SecondEditViewController.m
+//  SearchByDayViewController.m
 //  iRemember_20Oct2012
 //
-//  Created by Steven Tjendana on 10/20/12.
+//  Created by Matt Numsen on 10/20/12.
 //  Copyright (c) 2012 Steven Tjendana. All rights reserved.
 //
 
+#import "SearchByDayViewController.h"
 
-#import "SecondEditViewController.h"
-#import "EditPhotoViewController.h"
-
-@interface SecondEditViewController ()
+@interface SearchByDayViewController ()
 
 @end
 
-@implementation SecondEditViewController
-
-@synthesize imagePassed;
+@implementation SearchByDayViewController
 
 -(void)takePicture:(id)sender
 {
@@ -71,15 +67,13 @@
 
 - (void)viewDidLoad
 {
-    [imageView setImage:imagePassed];
     [super viewDidLoad];
-    [self setup];
 	// Do any additional setup after loading the view.
+    [self setup];
 }
 
 - (void)viewDidUnload
 {
-    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

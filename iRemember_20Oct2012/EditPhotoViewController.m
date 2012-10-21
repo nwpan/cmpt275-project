@@ -76,23 +76,6 @@
 }
 
 
--(IBAction) camera{
-    
-    picker2 = [[UIImagePickerController alloc]init];
-    picker2.delegate = self;
-    
-    /*
-     if (sc.selectedSegmentIndex == 0){
-     [picker2 setSourceType:UIImagePickerControllerSourceTypeCamera];
-     }else if (sc.selectedSegmentIndex == 1){
-     [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-     }*/
-    
-    [picker2 setSourceType:UIImagePickerControllerSourceTypeCamera];
-    
-    [self presentModalViewController:picker2 animated:YES];
-    //[picker2 release];
-}
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
