@@ -11,27 +11,21 @@
 #import "CoreLocation/CoreLocation.h"
 #import <MapKit/MapKit.h>
 
-@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>{
-    
-    //IBOutlet UISegmentedControl *sc;
-    IBOutlet UIImageView *imageView;
-    UIImagePickerController *picker2;
-    IBOutlet UIButton *gallery;
-    CLLocationManager *locationmanager;
-    
-    SecondEditViewController *secondViewData;
-    
-    
-}
+@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate> 
 
-@property(nonatomic, retain)SecondEditViewController *secondViewData;
-@property (retain, nonatomic) IBOutlet CLLocationManager *locationManager;
-@property (retain, nonatomic) IBOutlet MKMapView *mapView;
--(IBAction)gallery;
--(IBAction)edit;
-- (IBAction)geotag:(id)sender;
-- (IBAction)view:(id)sender;
+@property(nonatomic, retain) IBOutlet UIImageView *imageView;
+@property(nonatomic, retain) UIImagePickerController *picker2;
+@property(nonatomic, retain) IBOutlet UIButton *gallery;
+@property(nonatomic, retain) CLLocationManager *locationmanager;
 
+@property(nonatomic, retain) SecondEditViewController *secondViewData;
+@property(nonatomic, retain) IBOutlet CLLocationManager *locationManager;
+@property(nonatomic, retain) IBOutlet MKMapView *mapView;
+
+- (IBAction)galleryAction;
+- (IBAction)editAction;
+- (IBAction)geotagAction:(id)sender;
+- (IBAction)viewAction:(id)sender;
 
 @end
 

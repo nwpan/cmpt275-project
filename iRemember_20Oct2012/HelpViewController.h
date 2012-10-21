@@ -10,4 +10,6 @@
 
 @interface HelpViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+- (IBAction)viewDocs:(id)sender;
+
 @end
