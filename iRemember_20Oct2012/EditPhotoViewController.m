@@ -20,6 +20,40 @@
 
 @synthesize secondViewData;
 
+
+-(void)takePicture:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    //Use camera if device has one otherwise use photo library
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePicker setDelegate:self];
+    
+    //Show image picker
+    [self presentModalViewController:imagePicker animated:YES];
+}
+
+
+
+-(void) setup
+{
+    [self setupAppearance];
+}
+
+-(void) setupAppearance{
+    UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePicture:)];
+    
+    [[self navigationItem] setRightBarButtonItem:cameraBarButtonItem];
+}
+
 -(IBAction)edit:(id)sender{
     SecondEditViewController *second = [[SecondEditViewController alloc]initWithNibName:nil bundle:nil];
     
@@ -88,6 +122,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setup];
 	// Do any additional setup after loading the view.
     //sc.selectedSegmentIndex = -1;
 }

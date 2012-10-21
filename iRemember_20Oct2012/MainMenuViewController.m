@@ -33,6 +33,48 @@
     return self;
 }
 
+-(void)takePicture:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    //Use camera if device has one otherwise use photo library
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePicker setDelegate:self];
+    
+    //Show image picker
+    [self presentModalViewController:imagePicker animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //Get image
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImageView *imageView = nil;
+    
+    [imageView setImage:image];
+    //Take image picker off the screen (required)
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void) setup
+{
+    [self setupAppearance];
+}
+
+-(void) setupAppearance{
+    UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePicture:)];
+    
+    [[self navigationItem] setRightBarButtonItem:cameraBarButtonItem];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,7 +84,7 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[defaults objectForKey:@"user_id"] delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
     [alert show];
-    
+    [self setup];
 }
 
 - (void)viewDidUnload
