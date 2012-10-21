@@ -16,13 +16,13 @@
 		23BACF64163361340071E5B6 /* TagType.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF63163361340071E5B6 /* TagType.m */; };
 		23BACF67163361340071E5B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF66163361340071E5B6 /* User.m */; };
 		23BACF69163362680071E5B6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BACF68163362680071E5B6 /* CoreData.framework */; };
+		23BACF70163367950071E5B6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BACF6F163367950071E5B6 /* LoginViewController.m */; };
 		E8C5298916332E3600BF8231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298816332E3600BF8231 /* UIKit.framework */; };
 		E8C5298B16332E3600BF8231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298A16332E3600BF8231 /* Foundation.framework */; };
 		E8C5298D16332E3600BF8231 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298C16332E3600BF8231 /* CoreGraphics.framework */; };
 		E8C5299316332E3600BF8231 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8C5299116332E3600BF8231 /* InfoPlist.strings */; };
 		E8C5299516332E3600BF8231 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C5299416332E3600BF8231 /* main.m */; };
 		E8C5299916332E3600BF8231 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C5299816332E3600BF8231 /* AppDelegate.m */; };
-		E8C529A216332E3600BF8231 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529A116332E3600BF8231 /* ViewController.m */; };
 		E8C529AA16332E3600BF8231 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C529A916332E3600BF8231 /* SenTestingKit.framework */; };
 		E8C529AB16332E3600BF8231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298816332E3600BF8231 /* UIKit.framework */; };
 		E8C529AC16332E3600BF8231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298A16332E3600BF8231 /* Foundation.framework */; };
@@ -63,6 +63,8 @@
 		23BACF65163361340071E5B6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		23BACF66163361340071E5B6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		23BACF68163362680071E5B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		23BACF6E163367950071E5B6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		23BACF6F163367950071E5B6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E8C5298416332E3600BF8231 /* iRemember_20Oct2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRemember_20Oct2012.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C5298816332E3600BF8231 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E8C5298A16332E3600BF8231 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,8 +75,6 @@
 		E8C5299616332E3600BF8231 /* iRemember_20Oct2012-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRemember_20Oct2012-Prefix.pch"; sourceTree = "<group>"; };
 		E8C5299716332E3600BF8231 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8C5299816332E3600BF8231 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E8C529A016332E3600BF8231 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E8C529A116332E3600BF8231 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E8C529A816332E3600BF8231 /* iRemember_20Oct2012Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRemember_20Oct2012Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C529A916332E3600BF8231 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E8C529B116332E3600BF8231 /* iRemember_20Oct2012Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRemember_20Oct2012Tests-Info.plist"; sourceTree = "<group>"; };
@@ -153,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */,
+				23BACF6E163367950071E5B6 /* LoginViewController.h */,
+				23BACF6F163367950071E5B6 /* LoginViewController.m */,
 				23BACF65163361340071E5B6 /* User.h */,
 				23BACF66163361340071E5B6 /* User.m */,
 				23BACF62163361340071E5B6 /* TagType.h */,
@@ -170,8 +172,6 @@
 				E8C5299716332E3600BF8231 /* AppDelegate.h */,
 				E8C5299816332E3600BF8231 /* AppDelegate.m */,
 				E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */,
-				E8C529A016332E3600BF8231 /* ViewController.h */,
-				E8C529A116332E3600BF8231 /* ViewController.m */,
 				E8C5298F16332E3600BF8231 /* Supporting Files */,
 				E8C529C21633300800BF8231 /* MainMenuViewController.h */,
 				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
@@ -326,7 +326,6 @@
 			files = (
 				E8C5299516332E3600BF8231 /* main.m in Sources */,
 				E8C5299916332E3600BF8231 /* AppDelegate.m in Sources */,
-				E8C529A216332E3600BF8231 /* ViewController.m in Sources */,
 				E8C529C41633300800BF8231 /* MainMenuViewController.m in Sources */,
 				E8C529C71633301600BF8231 /* EditPhotoViewController.m in Sources */,
 				E8C529CA1633302500BF8231 /* SecondEditViewController.m in Sources */,
@@ -339,6 +338,7 @@
 				23BACF61163361330071E5B6 /* TagDetail.m in Sources */,
 				23BACF64163361340071E5B6 /* TagType.m in Sources */,
 				23BACF67163361340071E5B6 /* User.m in Sources */,
+				23BACF70163367950071E5B6 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
