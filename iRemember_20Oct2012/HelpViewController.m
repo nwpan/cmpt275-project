@@ -83,4 +83,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)viewDocs:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://projects.nicholaspan.com/cmpt275/assets/Group-11-Requirements.pdf"]];
+}
 @end
