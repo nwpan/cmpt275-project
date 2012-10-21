@@ -180,8 +180,9 @@ double latitude;
     region.span.latitudeDelta = 0.1;
     [mapView setRegion:region animated:YES];
 }
+/*
 - (void)dealloc {
     [locationManager release];
     [super dealloc];
-}
+}//*/
 @end
