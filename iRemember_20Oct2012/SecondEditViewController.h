@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondEditViewController : UIViewController{
+@interface SecondEditViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+{
     IBOutlet UIImageView *imageView;
     UIImage *imagePassed;
 }

@@ -1,22 +1,18 @@
 //
-//  SecondEditViewController.m
+//  SearchByTagsViewController.m
 //  iRemember_20Oct2012
 //
-//  Created by Steven Tjendana on 10/20/12.
+//  Created by Matt Numsen on 10/20/12.
 //  Copyright (c) 2012 Steven Tjendana. All rights reserved.
 //
 
+#import "SearchByTagsViewController.h"
 
-#import "SecondEditViewController.h"
-#import "EditPhotoViewController.h"
-
-@interface SecondEditViewController ()
+@interface SearchByTagsViewController ()
 
 @end
 
-@implementation SecondEditViewController
-
-@synthesize imagePassed;
+@implementation SearchByTagsViewController
 
 -(void)takePicture:(id)sender
 {
@@ -42,9 +38,9 @@
 {
     //Get image
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageView *iv = nil;
+    UIImageView *imageView = nil;
     
-    [iv setImage:image];
+    [imageView setImage:image];
     //Take image picker off the screen (required)
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -71,15 +67,13 @@
 
 - (void)viewDidLoad
 {
-    [imageView setImage:imagePassed];
     [super viewDidLoad];
-    [self setup];
 	// Do any additional setup after loading the view.
+    [self setup];
 }
 
 - (void)viewDidUnload
 {
-    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

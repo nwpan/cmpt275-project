@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HelpViewController : UIViewController
+@interface HelpViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+- (IBAction)viewDocs:(id)sender;
 
 @end

@@ -32,6 +32,9 @@
 		9EFE2FB91633AB7A00EB264C /* overlook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2FAB1633AB7A00EB264C /* overlook.png */; };
 		9EFE2FBA1633AB7A00EB264C /* winery.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2FAC1633AB7A00EB264C /* winery.png */; };
 		9EFE2FBB1633AB7A00EB264C /* tags.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2FAD1633AB7A00EB264C /* tags.txt */; };
+		91C84B08163397C700B3C77A /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C84B07163397C700B3C77A /* AboutUsViewController.m */; };
+		91C84B0C16339AF300B3C77A /* SearchByDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C84B0B16339AF300B3C77A /* SearchByDayViewController.m */; };
+		91C84B0F16339B1300B3C77A /* SearchByTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C84B0E16339B1300B3C77A /* SearchByTagsViewController.m */; };
 		E8C5298916332E3600BF8231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298816332E3600BF8231 /* UIKit.framework */; };
 		E8C5298B16332E3600BF8231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298A16332E3600BF8231 /* Foundation.framework */; };
 		E8C5298D16332E3600BF8231 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298C16332E3600BF8231 /* CoreGraphics.framework */; };
@@ -99,6 +102,12 @@
 		9EFE2FAB1633AB7A00EB264C /* overlook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlook.png; sourceTree = "<group>"; };
 		9EFE2FAC1633AB7A00EB264C /* winery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winery.png; sourceTree = "<group>"; };
 		9EFE2FAD1633AB7A00EB264C /* tags.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tags.txt; sourceTree = "<group>"; };
+		91C84B06163397C600B3C77A /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		91C84B07163397C700B3C77A /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		91C84B0A16339AF300B3C77A /* SearchByDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchByDayViewController.h; sourceTree = "<group>"; };
+		91C84B0B16339AF300B3C77A /* SearchByDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchByDayViewController.m; sourceTree = "<group>"; };
+		91C84B0D16339B1300B3C77A /* SearchByTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchByTagsViewController.h; path = ../SearchByTagsViewController.h; sourceTree = "<group>"; };
+		91C84B0E16339B1300B3C77A /* SearchByTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchByTagsViewController.m; path = ../SearchByTagsViewController.m; sourceTree = "<group>"; };
 		E8C5298416332E3600BF8231 /* iRemember_20Oct2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRemember_20Oct2012.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C5298816332E3600BF8231 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E8C5298A16332E3600BF8231 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -260,12 +269,18 @@
 				9EFE2F9A1633AB7A00EB264C /* MarkUp */,
 				E8C5298F16332E3600BF8231 /* Supporting Files */,
 				E8C529C21633300800BF8231 /* MainMenuViewController.h */,
+				91C84B0A16339AF300B3C77A /* SearchByDayViewController.h */,
+				91C84B0B16339AF300B3C77A /* SearchByDayViewController.m */,
 				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
 				E8C529C51633301600BF8231 /* EditPhotoViewController.h */,
 				E8C529C61633301600BF8231 /* EditPhotoViewController.m */,
 				E8C529C81633302500BF8231 /* SecondEditViewController.h */,
 				E8C529C91633302500BF8231 /* SecondEditViewController.m */,
+				91C84B0D16339B1300B3C77A /* SearchByTagsViewController.h */,
+				91C84B0E16339B1300B3C77A /* SearchByTagsViewController.m */,
 				233CD013163384920056B3AF /* HelpViewController.h */,
+				91C84B06163397C600B3C77A /* AboutUsViewController.h */,
+				91C84B07163397C700B3C77A /* AboutUsViewController.m */,
 				233CD014163384920056B3AF /* HelpViewController.m */,
 			);
 			path = iRemember_20Oct2012;
@@ -439,6 +454,9 @@
 				233CD015163384920056B3AF /* HelpViewController.m in Sources */,
 				9EFE2FAE1633AB7A00EB264C /* MarkUpControl.m in Sources */,
 				9EFE2FAF1633AB7A00EB264C /* fileIOController.m in Sources */,
+				91C84B08163397C700B3C77A /* AboutUsViewController.m in Sources */,
+				91C84B0C16339AF300B3C77A /* SearchByDayViewController.m in Sources */,
+				91C84B0F16339B1300B3C77A /* SearchByTagsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
