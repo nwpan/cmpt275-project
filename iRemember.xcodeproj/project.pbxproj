@@ -46,7 +46,7 @@
 		E8C529AB16332E3600BF8231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298816332E3600BF8231 /* UIKit.framework */; };
 		E8C529AC16332E3600BF8231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8C5298A16332E3600BF8231 /* Foundation.framework */; };
 		E8C529B416332E3600BF8231 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8C529B216332E3600BF8231 /* InfoPlist.strings */; };
-		E8C529B716332E3600BF8231 /* iRemember_20Oct2012Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529B616332E3600BF8231 /* iRemember_20Oct2012Tests.m */; };
+		E8C529B716332E3600BF8231 /* iRemember_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529B616332E3600BF8231 /* iRemember_Tests.m */; };
 		E8C529C116332EC600BF8231 /* iRemember.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8C529C016332EC600BF8231 /* iRemember.jpg */; };
 		E8C529C41633300800BF8231 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529C31633300800BF8231 /* MainMenuViewController.m */; };
 		E8C529C71633301600BF8231 /* EditPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529C61633301600BF8231 /* EditPhotoViewController.m */; };
@@ -123,8 +123,8 @@
 		E8C529A916332E3600BF8231 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E8C529B116332E3600BF8231 /* iRememberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRememberTests-Info.plist"; sourceTree = "<group>"; };
 		E8C529B316332E3600BF8231 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E8C529B516332E3600BF8231 /* iRemember_20Oct2012Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRemember_20Oct2012Tests.h; sourceTree = "<group>"; };
-		E8C529B616332E3600BF8231 /* iRemember_20Oct2012Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRemember_20Oct2012Tests.m; sourceTree = "<group>"; };
+		E8C529B516332E3600BF8231 /* iRemember_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRemember_Tests.h; sourceTree = "<group>"; };
+		E8C529B616332E3600BF8231 /* iRemember_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRemember_Tests.m; sourceTree = "<group>"; };
 		E8C529C016332EC600BF8231 /* iRemember.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iRemember.jpg; sourceTree = "<group>"; };
 		E8C529C21633300800BF8231 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		E8C529C31633300800BF8231 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
@@ -258,8 +258,8 @@
 		E8C5297916332E3600BF8231 = {
 			isa = PBXGroup;
 			children = (
-				E8C5298E16332E3600BF8231 /* iRemember_20Oct2012 */,
-				E8C529AF16332E3600BF8231 /* iRemember_20Oct2012Tests */,
+				E8C5298E16332E3600BF8231 /* iRemember */,
+				E8C529AF16332E3600BF8231 /* iRemember */,
 				E8C5298716332E3600BF8231 /* Frameworks */,
 				E8C5298516332E3600BF8231 /* Products */,
 			);
@@ -288,7 +288,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E8C5298E16332E3600BF8231 /* iRemember_20Oct2012 */ = {
+		E8C5298E16332E3600BF8231 /* iRemember */ = {
 			isa = PBXGroup;
 			children = (
 				23BACF6E163367950071E5B6 /* LoginViewController.h */,
@@ -306,6 +306,7 @@
 				CE393C22163540CB00563248 /* data */,
 				E8C5298F16332E3600BF8231 /* Supporting Files */,
 			);
+			name = iRemember;
 			path = iRemember_20Oct2012;
 			sourceTree = "<group>";
 		};
@@ -322,13 +323,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E8C529AF16332E3600BF8231 /* iRemember_20Oct2012Tests */ = {
+		E8C529AF16332E3600BF8231 /* iRemember */ = {
 			isa = PBXGroup;
 			children = (
-				E8C529B516332E3600BF8231 /* iRemember_20Oct2012Tests.h */,
-				E8C529B616332E3600BF8231 /* iRemember_20Oct2012Tests.m */,
+				E8C529B516332E3600BF8231 /* iRemember_Tests.h */,
+				E8C529B616332E3600BF8231 /* iRemember_Tests.m */,
 				E8C529B016332E3600BF8231 /* Supporting Files */,
 			);
+			name = iRemember;
 			path = iRemember_20Oct2012Tests;
 			sourceTree = "<group>";
 		};
@@ -488,7 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8C529B716332E3600BF8231 /* iRemember_20Oct2012Tests.m in Sources */,
+				E8C529B716332E3600BF8231 /* iRemember_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

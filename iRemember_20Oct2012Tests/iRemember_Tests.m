@@ -1,14 +1,14 @@
 //
-//  iRemember_20Oct2012Tests.m
-//  iRemember_20Oct2012Tests
+//  iRemember_Tests.m
+//  iRemember_Tests
 //
 //  Created by Steven Tjendana on 10/20/12.
 //  Copyright (c) 2012 Steven Tjendana. All rights reserved.
 //
 
-#import "iRemember_20Oct2012Tests.h"
+#import "iRemember_Tests.h"
 
-@implementation iRemember_20Oct2012Tests
+@implementation iRemember_Tests
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in iRemember_20Oct2012Tests");
+    STFail(@"Unit tests are not implemented yet in iRemember_Tests");
 }
 
 @end
