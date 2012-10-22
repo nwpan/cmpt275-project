@@ -233,7 +233,7 @@
 			path = MarkUp;
 			sourceTree = "<group>";
 		};
-		CE393C22163540CB00563248 /* data */ = {
+		CE393C22163540CB00563248 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */,
@@ -252,14 +252,14 @@
 				23BACF53163361330071E5B6 /* Session.h */,
 				23BACF54163361330071E5B6 /* Session.m */,
 			);
-			name = data;
+			name = Data;
 			sourceTree = "<group>";
 		};
 		E8C5297916332E3600BF8231 = {
 			isa = PBXGroup;
 			children = (
 				E8C5298E16332E3600BF8231 /* iRemember */,
-				E8C529AF16332E3600BF8231 /* iRemember */,
+				E8C529AF16332E3600BF8231 /* iRemember_Tests */,
 				E8C5298716332E3600BF8231 /* Frameworks */,
 				E8C5298516332E3600BF8231 /* Products */,
 			);
@@ -303,7 +303,7 @@
 				CE393C21163540AC00563248 /* InfoPage */,
 				CE393C1F1635408C00563248 /* Search */,
 				9EFE2F9A1633AB7A00EB264C /* MarkUp */,
-				CE393C22163540CB00563248 /* data */,
+				CE393C22163540CB00563248 /* Data */,
 				E8C5298F16332E3600BF8231 /* Supporting Files */,
 			);
 			name = iRemember;
@@ -323,14 +323,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E8C529AF16332E3600BF8231 /* iRemember */ = {
+		E8C529AF16332E3600BF8231 /* iRemember_Tests */ = {
 			isa = PBXGroup;
 			children = (
 				E8C529B516332E3600BF8231 /* iRemember_Tests.h */,
 				E8C529B616332E3600BF8231 /* iRemember_Tests.m */,
 				E8C529B016332E3600BF8231 /* Supporting Files */,
 			);
-			name = iRemember;
+			name = iRemember_Tests;
 			path = iRemember_20Oct2012Tests;
 			sourceTree = "<group>";
 		};

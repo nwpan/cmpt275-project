@@ -45,6 +45,32 @@
 @synthesize gallery;
 @synthesize locationmanager;
 
+/* Instance variables */
+double longitude;
+double latitude;
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+
+    [manager stopUpdatingLocation];
+
+    latitude = newLocation.coordinate.latitude;
+    longitude = newLocation.coordinate.longitude;
+
+    NSLog(@"- Latitude: %f\n", latitude);
+    NSLog(@"- Longitude: %f\n", longitude);
+
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MMM d yyyy, K:mm a, z"];
+
+    NSDate *now = [[NSDate alloc] init];
+
+    NSString *dateString = [format stringFromDate: now];
+
+    NSLog(@"- Timestamp: %@\n", dateString);
+}
 
 /*
  * When the user press 'Edit' button, the view will be segue to Markup view.
@@ -104,8 +130,6 @@
     [self presentModalViewController:picker2 animated:YES];
 }
 
-
-
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -113,8 +137,6 @@
     
     [self dismissModalViewControllerAnimated:YES];
 }
-
-
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
@@ -148,34 +170,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-double longitude;
-double latitude;
-
-- (void)locationManager:(CLLocationManager *)manager
-    didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation
-{
-    
-    [manager stopUpdatingLocation];
-    
-    latitude = newLocation.coordinate.latitude;
-    longitude = newLocation.coordinate.longitude;
-    
-    NSLog(@"- Latitude: %f\n", latitude);
-    NSLog(@"- Longitude: %f\n", longitude);
-    
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"MMM d yyyy, K:mm a, z"];
-    
-    NSDate *now = [[NSDate alloc] init];
-    
-    NSString *dateString = [format stringFromDate: now];
-    
-    NSLog(@"- Timestamp: %@\n", dateString);
-    
-    
 }
 
 - (IBAction)geotagAction:(id)sender

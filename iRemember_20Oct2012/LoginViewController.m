@@ -98,7 +98,7 @@
         return;
     }
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Success! Continue to the main menu." delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Success! Forwarding you to the main menu." delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
     [alert show];
     lblStatus.text = @"Success in user creation.";
     [self performSegueWithIdentifier:@"yoloSegue" sender:self];
