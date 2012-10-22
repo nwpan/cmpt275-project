@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SecondEditViewController.h"
+#import "MarkUpControl.h"
+
 #import "CoreLocation/CoreLocation.h"
 #import <MapKit/MapKit.h>
 
@@ -16,14 +17,12 @@
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
 @property(nonatomic, retain) UIImagePickerController *picker2;
 @property(nonatomic, retain) IBOutlet UIButton *gallery;
-@property(nonatomic, retain) CLLocationManager *locationmanager;
 
-@property(nonatomic, retain) SecondEditViewController *secondViewData;
+@property(nonatomic, retain) CLLocationManager *locationmanager;
 @property(nonatomic, retain) IBOutlet CLLocationManager *locationManager;
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 
 - (IBAction)galleryAction;
-- (IBAction)editAction;
 - (IBAction)geotagAction:(id)sender;
 - (IBAction)viewAction:(id)sender;
 

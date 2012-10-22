@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="FeO-Na-HzX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="FeO-Na-HzX">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="hg5-4O-lG2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dEj-hS-dkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dgf-P4-G7A" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2gk-5C-TTl">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -59,13 +58,13 @@ We noticed this is the first time you're launching this app. Click the button ab
                         <segue destination="D58-Pp-UcT" kind="push" identifier="yoloSegue" id="JJU-GL-jEe"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dEj-hS-dkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238" y="395"/>
+            <point key="canvasLocation" x="610" y="219"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="kFk-5s-omU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v5v-7Q-fNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="D58-Pp-UcT" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jqW-r3-lzz">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -125,13 +124,13 @@ We noticed this is the first time you're launching this app. Click the button ab
                     </view>
                     <navigationItem key="navigationItem" id="oyq-iw-KUW"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v5v-7Q-fNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1573" y="962"/>
+            <point key="canvasLocation" x="945" y="786"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="BO5-cz-Tqi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WED-We-aG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4A6-Bu-eQi" customClass="AboutUsViewController" sceneMemberID="viewController">
                     <textView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="BcF-7I-2cE">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -154,13 +153,13 @@ http://projects.nicholaspan.com/cmpt275/
                     </textView>
                     <navigationItem key="navigationItem" id="vIS-1p-XGo"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WED-We-aG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="1609"/>
+            <point key="canvasLocation" x="1014" y="1433"/>
         </scene>
         <!--Search By Day View Controller-->
         <scene sceneID="Hxu-OP-XLp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="peX-cd-xn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="txK-y7-nAW" customClass="SearchByDayViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NpM-Nq-dng">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -226,13 +225,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="datePicker" destination="Lo6-yS-Mkt" id="xb4-rU-yD0"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="peX-cd-xn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2373" y="269"/>
+            <point key="canvasLocation" x="1745" y="93"/>
         </scene>
         <!--Edit Photo View Controller-->
         <scene sceneID="8wj-YQ-l22">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WRt-Tw-Y02" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gfd-N3-8sy" customClass="EditPhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CPP-mW-WEg">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -269,7 +268,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="c2B-ru-lV5" kind="push" id="Lar-4T-olB"/>
+                                    <segue destination="kCP-oH-Ztz" kind="modal" identifier="markUpSegue" id="G5V-wh-F1t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fYA-Kf-EJK">
@@ -346,9 +345,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="mapView" destination="NUT-aE-InA" id="GTH-ZA-XtL"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WRt-Tw-Y02" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="6co-MF-U08" customClass="CLLocationManager"/>
             </objects>
-            <point key="canvasLocation" x="2373" y="962"/>
+            <point key="canvasLocation" x="1745" y="786"/>
         </scene>
         <!--Second Edit View Controller-->
         <scene sceneID="fLe-Mb-VKy">
@@ -356,7 +356,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnP-nu-ogs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="c2B-ru-lV5" customClass="SecondEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EYx-lW-cVx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This page is for editing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="jcy-wn-0hV">
@@ -379,12 +379,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2900" y="960"/>
+            <point key="canvasLocation" x="2272" y="784"/>
         </scene>
         <!--Search By Tags View Controller-->
         <scene sceneID="Q7O-Tw-w9b">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ss0-gi-hOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0Rc-y9-JoF" customClass="SearchByTagsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iUh-qT-c5U">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -393,13 +392,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" id="64T-sp-gXA"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ss0-gi-hOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="333"/>
+            <point key="canvasLocation" x="2272" y="157"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="ASm-gc-dQA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yeV-oS-4ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0MW-GD-LOI" customClass="HelpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6bK-NT-Vp4">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -440,13 +439,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="view" destination="6bK-NT-Vp4" id="gj5-Pf-pGy"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeV-oS-4ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2373" y="1615"/>
+            <point key="canvasLocation" x="1745" y="1439"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5KO-06-2SO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Axz-FM-YA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="FeO-Na-HzX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BD3-Fo-vsh"/>
@@ -459,13 +458,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="dgf-P4-G7A" kind="relationship" relationship="rootViewController" id="jno-Kb-sqF"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Axz-FM-YA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="395"/>
+            <point key="canvasLocation" x="160" y="219"/>
         </scene>
         <!--Mark Up Control-->
         <scene sceneID="XbT-ft-8FS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wNx-23-i7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="kCP-oH-Ztz" customClass="MarkUpControl" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZMi-sT-aXN">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -474,8 +473,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" id="CTQ-TN-f3E"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wNx-23-i7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2775" y="968"/>
+            <point key="canvasLocation" x="2272" y="1428"/>
         </scene>
     </scenes>
     <resources>
@@ -492,7 +492,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPhotoViewController.h"/>
             <relationships>
                 <relationship kind="action" name="editAction"/>
-                <relationship kind="action" name="editAction:"/>
                 <relationship kind="action" name="galleryAction"/>
                 <relationship kind="action" name="geotagAction:"/>
                 <relationship kind="action" name="viewAction:"/>
@@ -523,14 +522,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
-        <class className="SearchByDayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByDayViewController.h"/>
-        </class>
-        <class className="SearchByTagsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByTagsViewController.h"/>
-        </class>
-        <class className="SecondEditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondEditViewController.h"/>
+        <class className="MarkUpControl" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MarkUpControl.h"/>
             <relationships>
                 <relationship kind="action" name="alert"/>
                 <relationship kind="action" name="doneAction:"/>
@@ -547,6 +540,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="naviItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="naviTitle" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="SearchByDayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByDayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getSelection"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="SearchByTagsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByTagsViewController.h"/>
+        </class>
+        <class className="SecondEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondEditViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
     </classes>

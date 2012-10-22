@@ -7,7 +7,7 @@
 //
 
 #import "EditPhotoViewController.h"
-#import "SecondEditViewController.h"
+#import "MarkUpControl.h"
 
 
 @interface EditPhotoViewController ()
@@ -23,8 +23,6 @@
 @synthesize picker2;
 @synthesize gallery;
 @synthesize locationmanager;
-
-@synthesize secondViewData;
 
 -(void)takePicture:(id)sender
 {
@@ -60,18 +58,13 @@
     [[self navigationItem] setRightBarButtonItem:cameraBarButtonItem];
 }
 
--(IBAction)editAction:(id)sender
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SecondEditViewController *second = [[SecondEditViewController alloc]initWithNibName:nil bundle:nil];
-    
-    self.secondViewData = second;
-    
-    //UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    secondViewData.imagePassed = imageView.image;
-    
-    [self presentModalViewController:second animated:YES];
-    
+    if ([segue.identifier isEqualToString:@"markUpSegue"])
+    {
+        MarkUpControl *markUpPhoto = [segue destinationViewController];
+        markUpPhoto.photoImage = imageView.image;
+    }
 }
 
 

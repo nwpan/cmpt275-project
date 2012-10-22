@@ -1,10 +1,37 @@
-//
-//  MarkUpControl.m
-//  iRemember
-//
-//  Created by Charles Shin on 10/18/12.
-//  Copyright (c) 2012 Group 11. All rights reserved.
-//
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * MarkUpControl.m
+ * iRemember
+ *
+ * Created by Charles Shin on 10/18/12.
+ * Copyright (c) 2012 Group 11. All rights reserved.
+ *
+ * Programmer: Charles Shin
+ * Team Name: Double One
+ * Project Name: iRemember
+ * Version: Version 1.0
+ *
+ * This object manages mark up function of a photo.
+ * A user can add a one word tag which can be used in search.
+ * A one word tag is limited to 45 character since the longest word on a dictionary is 45 character long.
+ * Also a user can add a descriptive note to a photo.
+ * A photo will be selected from the album.
+ *
+ *
+ * Changes:
+ *   2012-10-18 Created
+ *   2012-10-18 Created general layout of the view using storyboard and assign NSLog to each button to test 
+ *              if right button is clicked.
+ *   2012-10-19 Implement add note function using fileIOController. Also implemented Tag function using alert.
+ *   2012-10-20 Recreated layout of the view using codes to minimize merge conflict. 
+ *              Implement adding, editing, and removing of a tag using fileIOController.
+ *   2012-10-21 Fixed minor bugs. Add comments
+ *
+ * Know bugs: No bugs
+ *
+ * To do: Implement draw and option button
+ *
+ * Last revised on 2012-10-21
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #import "MarkUpControl.h"
 #import "fileIOController.h"
@@ -17,35 +44,40 @@
 
 @synthesize textView,imageView,naviTitle, photoImage, noteFile, textFieldString, textData, saveField, naviItem;
 @synthesize buttonDone,buttonNote,buttonOption,buttonTag, buttonDraw;
-@synthesize tagPath, filePath;
+@synthesize tagFilePath, myNoteFilePath;
 
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Alert is used to add, edit, or remove a tag on a photo.
+ * Tags will be saved as string type.
+ * When remove the tag, the empty string tag will be saved as the tag.
+ * Tags have to be 45 characters or less.
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 -(IBAction)alert
 {
+    //alert with tag options: add, edit, or remove.
     UIAlertView *alertMenu = [[UIAlertView alloc] initWithTitle:@"Tag options" message:@"You can add, edit, or remove a tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", @"Edit", @"Remove", nil];
     
-    [alertMenu show];
-    
-    
-    
+    [alertMenu show];   
+        
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    NSString *tagPath = [[NSString alloc] init];
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex]; //stores title of buttons on the alert
         
-    if([title isEqualToString:@"Add"])
+    if([title isEqualToString:@"Add"]) //add the tag to the photo when add is touched
     {
-        NSLog(@"In Add");
+        //alert with textfield will be created for a user to enter the tag.
         UIAlertView *alertAddMenu = [[UIAlertView alloc] initWithTitle:@"Add a new tag" message:@"Please enter a one word tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",  nil];
                 
         [alertAddMenu addSubview:saveField];
-        saveField.text = @"";
+        saveField.text = @""; //clear the saveField.
         [alertAddMenu show];
         
     }
     
-    else if([title isEqualToString:@"Edit"])
+    else if([title isEqualToString:@"Edit"]) //edit the tag on the photo when edit is touched
     {
         UIAlertView *alertEditMenu = [[UIAlertView alloc] initWithTitle:@"Edit an existing tag" message:@"Please edit an existing tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
         
@@ -53,33 +85,31 @@
         [alertEditMenu show];    
         
         NSString *fieldText = [[NSString alloc]init];
-        fieldText = [[NSString alloc] initWithData: [noteFile readTheFile:tagPath] encoding:NSUTF8StringEncoding];
+        fieldText = [[NSString alloc] initWithData: [noteFile readTheFile:tagFilePath] encoding:NSUTF8StringEncoding];
         
         saveField.text = fieldText;
         
         
     }    
-    else if([title isEqualToString:@"Remove"])
+    else if([title isEqualToString:@"Remove"]) //remove the tag on the photo when remove is touched
     {
-        NSLog(@"REmove");
-        [noteFile writeOnTheFile:tagPath dataFrom: @""];
+        [noteFile writeOnTheFile:tagFilePath dataFrom: @""];
     }
     
-    else if([title isEqualToString:@"Save"])
+    else if([title isEqualToString:@"Save"]) //save new or changed tag to file storing tags data.
     {
-        NSLog(@"save");
-        
-        if([self isLong:saveField.text])
+        if([self isLong:saveField.text]) //warns a user if one types more than 45 characters
         {
-            UIAlertView *alertLength = [[UIAlertView alloc] initWithTitle:@"The tag is too long" message:@"Please enter words less than 40 character." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alertLength = [[UIAlertView alloc] initWithTitle:@"The tag is too long" message:@"Please enter words less than 45 character." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertLength show];
         }
         else
-            [noteFile writeOnTheFile:tagPath dataFrom: saveField.text];
+            [noteFile writeOnTheFile:tagFilePath dataFrom: saveField.text]; //write to file if tag is valid.
     }
     
 }
 
+//creats text field used in alert
 -(UITextField *)alertTextField
 {
     UITextField *alertTextField = [[UITextField alloc] initWithFrame:CGRectMake(12,45,260,25)];
@@ -88,9 +118,10 @@
     return alertTextField;
 }
 
+//checks length of the text user typed.
 -(BOOL) isLong:(NSString *)fieldText
 {
-    if ([fieldText length] > 41)
+    if ([fieldText length] > 46)
         return YES;
     else
         return NO;
@@ -105,33 +136,41 @@
     return self;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* When view is loaded, displayViewDesign will be called to create appearance of the view.
+* Also set title of view and set filepath for tag and note as well as load the image from the album
+* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    [self viewDesign];
+    [self displayViewDesign];
     
     naviItem = [[UINavigationItem alloc] initWithTitle:@"Mark Up Page"];
     [naviTitle pushNavigationItem:naviItem animated:YES];
-    [[naviTitle topItem]setTitle:@"Mark Up Page"];
-    self.photoImage = [UIImage imageNamed:@"beach.png"];
+    
     [self.imageView setImage:photoImage];
-    [self setIconImage];    
+    
     self.noteFile = [[fileIOController alloc] init];
     self.saveField = [[UITextField alloc]init];
     saveField = [self alertTextField];
     
-    tagPath = [[NSString alloc] init];
-    filePath  = [[NSString alloc]init];
+    self.tagFilePath = [[NSString alloc] init];
+    self.myNoteFilePath  = [[NSString alloc]init];
     
-    tagPath =  @"/Users/ycs3/Desktop/new/cmpt275-project/iRemember/tags.txt";
-    filePath = @"/Volumes/KINGSTON/asg3/cmpt275-project/iRemember/output.txt";
-    
+    //set the path of each file to devices local storage
+    self.tagFilePath = [[NSBundle mainBundle] pathForResource:@"tags" ofType:@"txt"];    
+    self.myNoteFilePath = [[NSBundle mainBundle] pathForResource:@"output" ofType:@"txt"];    
     
 }
 
--(void)viewDesign
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * This will create graphic user interface of the view
+ *
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+-(void)displayViewDesign
 {
     //create buttons
     buttonDone = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -164,18 +203,25 @@
     [buttonNote addTarget:self action:@selector(noteAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonNote];
     
+    //creates views and title bar
     textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 44, 320, 189)];
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 44, 320, 318)];
     naviTitle = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, -1, 320, 44)];
     
+    //show or hide objeccts
     textView.hidden = YES;
+    textView.delegate = self;
     naviTitle.hidden = NO;
+    //Draw and option will be implemented on Version 2. Therefore, it will be hidden.
+    buttonOption.hidden = YES;
+    buttonDraw.hidden = YES;
        
     
     [self.view addSubview:naviTitle];
     [self.view addSubview:imageView];
     [self.view addSubview:textView];
     
+    [self setIconImage];
     
 }
 
@@ -205,7 +251,7 @@
     [[naviTitle topItem]setTitle:@"Note"];
     textView.hidden = NO;
     
-    self.textData = [self.noteFile readTheFile:filePath];
+    self.textData = [self.noteFile readTheFile:myNoteFilePath];
     self.textFieldString = [[NSString alloc] initWithData:textData encoding:NSUTF8StringEncoding];
     [textView setText:textFieldString];
     
@@ -224,7 +270,8 @@
 
 - (IBAction)drawAction:(id)sender {
     [[naviTitle topItem]setTitle:@"Draw"];
-    naviTitle.topItem.leftBarButtonItem = nil;
+    naviTitle.topItem.leftBarButtonItem = nil;    
+    textView.hidden = YES;
     
 }
 
@@ -232,12 +279,9 @@
     [self.textView resignFirstResponder];
     [[naviTitle topItem]setTitle:@"Note"];
     naviTitle.topItem.rightBarButtonItem = nil;
-    naviTitle.topItem.leftBarButtonItem = nil;
+    naviTitle.topItem.leftBarButtonItem = nil;    
     
-    NSString *filePath = [[NSString alloc] init];
-    
-    
-    [noteFile writeOnTheFile:filePath dataFrom:self.textView.text];
+    [noteFile writeOnTheFile:myNoteFilePath dataFrom:self.textView.text];
     
 }
 
@@ -294,12 +338,6 @@
     [buttonTag setImage:tagImage forState:UIControlStateNormal];
     
     
-}//*/
-/*
--(void) drawOnImage
-{
-    UITouch *touch = [touches anyObject];
-    CGPoint currentPoint = [touch locationInView:drawImage];
 }//*/
 
 
