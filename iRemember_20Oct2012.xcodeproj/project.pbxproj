@@ -65,8 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		233CD013163384920056B3AF /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
-		233CD014163384920056B3AF /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		233CD013163384920056B3AF /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpViewController.h; path = ../HelpViewController.h; sourceTree = "<group>"; };
+		233CD014163384920056B3AF /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpViewController.m; path = ../HelpViewController.m; sourceTree = "<group>"; };
 		23BACEFD16335E560071E5B6 /* iRememberModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRememberModel.xcdatamodel; sourceTree = "<group>"; };
 		23BACF53163361330071E5B6 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		23BACF54163361330071E5B6 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
@@ -85,10 +85,10 @@
 		23BACF68163362680071E5B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		23BACF6E163367950071E5B6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		23BACF6F163367950071E5B6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		91C84B06163397C600B3C77A /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
-		91C84B07163397C700B3C77A /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
-		91C84B0A16339AF300B3C77A /* SearchByDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchByDayViewController.h; sourceTree = "<group>"; };
-		91C84B0B16339AF300B3C77A /* SearchByDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchByDayViewController.m; sourceTree = "<group>"; };
+		91C84B06163397C600B3C77A /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsViewController.h; path = ../AboutUsViewController.h; sourceTree = "<group>"; };
+		91C84B07163397C700B3C77A /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutUsViewController.m; path = ../AboutUsViewController.m; sourceTree = "<group>"; };
+		91C84B0A16339AF300B3C77A /* SearchByDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchByDayViewController.h; path = ../SearchByDayViewController.h; sourceTree = "<group>"; };
+		91C84B0B16339AF300B3C77A /* SearchByDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchByDayViewController.m; path = ../SearchByDayViewController.m; sourceTree = "<group>"; };
 		91C84B0D16339B1300B3C77A /* SearchByTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchByTagsViewController.h; path = ../SearchByTagsViewController.h; sourceTree = "<group>"; };
 		91C84B0E16339B1300B3C77A /* SearchByTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchByTagsViewController.m; path = ../SearchByTagsViewController.m; sourceTree = "<group>"; };
 		9EFE2F9B1633AB7A00EB264C /* MarkUpControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkUpControl.h; sourceTree = "<group>"; };
@@ -207,6 +207,52 @@
 			path = photos;
 			sourceTree = "<group>";
 		};
+		CE393C1F1635408C00563248 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				91C84B0A16339AF300B3C77A /* SearchByDayViewController.h */,
+				91C84B0B16339AF300B3C77A /* SearchByDayViewController.m */,
+				91C84B0D16339B1300B3C77A /* SearchByTagsViewController.h */,
+				91C84B0E16339B1300B3C77A /* SearchByTagsViewController.m */,
+			);
+			name = Search;
+			path = MarkUp;
+			sourceTree = "<group>";
+		};
+		CE393C21163540AC00563248 /* InfoPage */ = {
+			isa = PBXGroup;
+			children = (
+				233CD013163384920056B3AF /* HelpViewController.h */,
+				233CD014163384920056B3AF /* HelpViewController.m */,
+				91C84B06163397C600B3C77A /* AboutUsViewController.h */,
+				91C84B07163397C700B3C77A /* AboutUsViewController.m */,
+			);
+			name = InfoPage;
+			path = MarkUp;
+			sourceTree = "<group>";
+		};
+		CE393C22163540CB00563248 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */,
+				23BACF65163361340071E5B6 /* User.h */,
+				23BACF66163361340071E5B6 /* User.m */,
+				23BACF62163361340071E5B6 /* TagType.h */,
+				23BACF63163361340071E5B6 /* TagType.m */,
+				23BACF5F163361330071E5B6 /* TagDetail.h */,
+				23BACF60163361330071E5B6 /* TagDetail.m */,
+				23BACF5C163361330071E5B6 /* Note.h */,
+				23BACF5D163361330071E5B6 /* Note.m */,
+				23BACF59163361330071E5B6 /* Draw.h */,
+				23BACF5A163361330071E5B6 /* Draw.m */,
+				23BACF56163361330071E5B6 /* Tag.h */,
+				23BACF57163361330071E5B6 /* Tag.m */,
+				23BACF53163361330071E5B6 /* Session.h */,
+				23BACF54163361330071E5B6 /* Session.m */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
 		E8C5297916332E3600BF8231 = {
 			isa = PBXGroup;
 			children = (
@@ -243,40 +289,20 @@
 		E8C5298E16332E3600BF8231 /* iRemember_20Oct2012 */ = {
 			isa = PBXGroup;
 			children = (
-				23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */,
 				23BACF6E163367950071E5B6 /* LoginViewController.h */,
 				23BACF6F163367950071E5B6 /* LoginViewController.m */,
-				23BACF65163361340071E5B6 /* User.h */,
-				23BACF66163361340071E5B6 /* User.m */,
-				23BACF62163361340071E5B6 /* TagType.h */,
-				23BACF63163361340071E5B6 /* TagType.m */,
-				23BACF5F163361330071E5B6 /* TagDetail.h */,
-				23BACF60163361330071E5B6 /* TagDetail.m */,
-				23BACF5C163361330071E5B6 /* Note.h */,
-				23BACF5D163361330071E5B6 /* Note.m */,
-				23BACF59163361330071E5B6 /* Draw.h */,
-				23BACF5A163361330071E5B6 /* Draw.m */,
-				23BACF56163361330071E5B6 /* Tag.h */,
-				23BACF57163361330071E5B6 /* Tag.m */,
-				23BACF53163361330071E5B6 /* Session.h */,
-				23BACF54163361330071E5B6 /* Session.m */,
+				E8C529C21633300800BF8231 /* MainMenuViewController.h */,
+				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
+				E8C529C51633301600BF8231 /* EditPhotoViewController.h */,
+				E8C529C61633301600BF8231 /* EditPhotoViewController.m */,
 				E8C5299716332E3600BF8231 /* AppDelegate.h */,
 				E8C5299816332E3600BF8231 /* AppDelegate.m */,
 				E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */,
+				CE393C21163540AC00563248 /* InfoPage */,
+				CE393C1F1635408C00563248 /* Search */,
 				9EFE2F9A1633AB7A00EB264C /* MarkUp */,
+				CE393C22163540CB00563248 /* data */,
 				E8C5298F16332E3600BF8231 /* Supporting Files */,
-				E8C529C21633300800BF8231 /* MainMenuViewController.h */,
-				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
-				91C84B0A16339AF300B3C77A /* SearchByDayViewController.h */,
-				91C84B0B16339AF300B3C77A /* SearchByDayViewController.m */,
-				E8C529C51633301600BF8231 /* EditPhotoViewController.h */,
-				E8C529C61633301600BF8231 /* EditPhotoViewController.m */,
-				91C84B0D16339B1300B3C77A /* SearchByTagsViewController.h */,
-				91C84B0E16339B1300B3C77A /* SearchByTagsViewController.m */,
-				233CD013163384920056B3AF /* HelpViewController.h */,
-				233CD014163384920056B3AF /* HelpViewController.m */,
-				91C84B06163397C600B3C77A /* AboutUsViewController.h */,
-				91C84B07163397C700B3C77A /* AboutUsViewController.m */,
 			);
 			path = iRemember_20Oct2012;
 			sourceTree = "<group>";
