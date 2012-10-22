@@ -10,6 +10,9 @@
 
 @implementation AppDelegate
 
+@synthesize window2;
+@synthesize webView;
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;

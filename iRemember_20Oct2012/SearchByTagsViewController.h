@@ -17,7 +17,7 @@
  *   2012-10-20 Created
  *   2012-10-21 Add comments
  *
- * Know bugs: No bugs
+ * Known bugs: No bugs
  *
  * To do: Implementation of all functions
  *

@@ -16,7 +16,7 @@
  *   2012-10-20 Created
  *   2012-10-21 Add comments
  *
- * Know bugs: No bugs
+ * Known bugs: No bugs
  *
  *
  * Last revised on 2012-10-21
@@ -96,7 +96,7 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[defaults objectForKey:@"user_id"] delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
     //[alert show];

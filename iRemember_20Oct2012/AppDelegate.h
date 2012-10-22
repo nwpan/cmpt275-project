@@ -12,10 +12,6 @@
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-{
-    UIWindow *window2;
-    UIWindow *webView;
-}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIWindow *window2;
