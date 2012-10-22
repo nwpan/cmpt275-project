@@ -1,10 +1,31 @@
-//
-//  EditPhotoViewController.m
-//  iRemember_20Oct2012
-//
-//  Created by Steven Tjendana on 10/20/12.
-//  Copyright (c) 2012 Steven Tjendana. All rights reserved.
-//
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * EditPhotoViewController.m
+ * iRemember
+ *
+ * Created by Steven Tjendana on 10/20/12.
+ * Copyright (c) 2012 Group 11. All rights reserved.
+ *
+ * Programmer: Steven Tjendana, Jake Nagazine
+ * Team Name: Double One
+ * Project Name: iRemember
+ * Version: Version 1.0
+ *
+ * This object manages photo album and geographical location.
+ * A user can browse different photo albums to select desired photo.
+ * When the user selected the photo it will displayed on the screen. 
+ * The user can mark up this photo by touching mark up button.
+ * The user can also get current location information.
+ *
+ *
+ * Changes:
+ *   2012-10-20 Created
+ *   2012-10-21 Add comments
+ *
+ * Know bugs: No bugs
+ *
+ *
+ * Last revised on 2012-10-21
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #import "EditPhotoViewController.h"
 #import "MarkUpControl.h"
@@ -23,6 +44,21 @@
 @synthesize picker2;
 @synthesize gallery;
 @synthesize locationmanager;
+
+
+/*
+ * When the user press 'Edit' button, the view will be segue to Markup view.
+ * The user selected photo will be transfer to markup view to be marked up.
+ *
+ */
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"markUpSegue"])
+    {
+        MarkUpControl *markUpPhoto = [segue destinationViewController];
+        markUpPhoto.photoImage = imageView.image;
+    }
+}
 
 -(void)takePicture:(id)sender
 {
@@ -58,18 +94,10 @@
     [[self navigationItem] setRightBarButtonItem:cameraBarButtonItem];
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"markUpSegue"])
-    {
-        MarkUpControl *markUpPhoto = [segue destinationViewController];
-        markUpPhoto.photoImage = imageView.image;
-    }
-}
-
-
+//a function to open the gallery
 -(IBAction)galleryAction
 {
+    
     picker2 = [[UIImagePickerController alloc]init];
     picker2.delegate = self;
     [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -108,7 +136,6 @@
     [super viewDidLoad];
     [self setup];
 	// Do any additional setup after loading the view.
-    //sc.selectedSegmentIndex = -1;
 }
 
 - (void)viewDidUnload

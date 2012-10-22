@@ -34,15 +34,23 @@
 
 
 @property (nonatomic, strong) NSFileManager *fileManager;
-@property (nonatomic, strong) NSString *filePaths;
 @property (nonatomic, strong) NSData *fileData;
-@property (nonatomic, strong) NSData *fileDataBuffer;
 @property (nonatomic, strong) NSFileHandle *fileHandle;
 
+/* read the file in filePath given by the user. The filepath must include filename and extension.
+   File path example: /Users/User/Desktop/sampleProject/example.txt
+   Also filepath has to be in string format. If file given by filepath exist, it will read the contents
+   of the file and return them as NSData format.
+ */
 -(NSData *) readTheFile:(NSString *)filePath;
+
+/* This method checks if the file exist in the given filepath.
+ */
 -(BOOL) isFileExist:(NSString *)filePath;
+
+/* This method gets string format data and write it into the file given by the user.
+ */
 -(void) writeOnTheFile:(NSString *) saveTo dataFrom: (NSString *) textFrom;
--(NSData *)toDataBuffer;
 
 
 @end

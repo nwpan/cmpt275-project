@@ -49,7 +49,6 @@
 		E8C529C116332EC600BF8231 /* iRemember.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8C529C016332EC600BF8231 /* iRemember.jpg */; };
 		E8C529C41633300800BF8231 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529C31633300800BF8231 /* MainMenuViewController.m */; };
 		E8C529C71633301600BF8231 /* EditPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529C61633301600BF8231 /* EditPhotoViewController.m */; };
-		E8C529CA1633302500BF8231 /* SecondEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529C91633302500BF8231 /* SecondEditViewController.m */; };
 		E8C529CC163335A900BF8231 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */; };
 		F389FE94163364150043C395 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE93163364150043C395 /* CoreLocation.framework */; };
 		F389FE96163364280043C395 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE95163364280043C395 /* MapKit.framework */; };
@@ -129,8 +128,6 @@
 		E8C529C31633300800BF8231 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		E8C529C51633301600BF8231 /* EditPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPhotoViewController.h; sourceTree = "<group>"; };
 		E8C529C61633301600BF8231 /* EditPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPhotoViewController.m; sourceTree = "<group>"; };
-		E8C529C81633302500BF8231 /* SecondEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondEditViewController.h; sourceTree = "<group>"; };
-		E8C529C91633302500BF8231 /* SecondEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondEditViewController.m; sourceTree = "<group>"; };
 		E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F389FE93163364150043C395 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F389FE95163364280043C395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -269,19 +266,17 @@
 				9EFE2F9A1633AB7A00EB264C /* MarkUp */,
 				E8C5298F16332E3600BF8231 /* Supporting Files */,
 				E8C529C21633300800BF8231 /* MainMenuViewController.h */,
+				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
 				91C84B0A16339AF300B3C77A /* SearchByDayViewController.h */,
 				91C84B0B16339AF300B3C77A /* SearchByDayViewController.m */,
-				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
 				E8C529C51633301600BF8231 /* EditPhotoViewController.h */,
 				E8C529C61633301600BF8231 /* EditPhotoViewController.m */,
-				E8C529C81633302500BF8231 /* SecondEditViewController.h */,
-				E8C529C91633302500BF8231 /* SecondEditViewController.m */,
 				91C84B0D16339B1300B3C77A /* SearchByTagsViewController.h */,
 				91C84B0E16339B1300B3C77A /* SearchByTagsViewController.m */,
 				233CD013163384920056B3AF /* HelpViewController.h */,
+				233CD014163384920056B3AF /* HelpViewController.m */,
 				91C84B06163397C600B3C77A /* AboutUsViewController.h */,
 				91C84B07163397C700B3C77A /* AboutUsViewController.m */,
-				233CD014163384920056B3AF /* HelpViewController.m */,
 			);
 			path = iRemember_20Oct2012;
 			sourceTree = "<group>";
@@ -363,7 +358,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0440;
-				ORGANIZATIONNAME = "Steven Tjendana";
+				ORGANIZATIONNAME = "Double One";
 			};
 			buildConfigurationList = E8C5297E16332E3600BF8231 /* Build configuration list for PBXProject "iRemember_20Oct2012" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -441,7 +436,6 @@
 				E8C5299916332E3600BF8231 /* AppDelegate.m in Sources */,
 				E8C529C41633300800BF8231 /* MainMenuViewController.m in Sources */,
 				E8C529C71633301600BF8231 /* EditPhotoViewController.m in Sources */,
-				E8C529CA1633302500BF8231 /* SecondEditViewController.m in Sources */,
 				23BACEFE16335E560071E5B6 /* iRememberModel.xcdatamodeld in Sources */,
 				23BACF55163361330071E5B6 /* Session.m in Sources */,
 				23BACF58163361330071E5B6 /* Tag.m in Sources */,

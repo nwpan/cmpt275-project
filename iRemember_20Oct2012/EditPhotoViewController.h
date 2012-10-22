@@ -1,10 +1,32 @@
-//
-//  EditPhotoViewController.h
-//  iRemember_20Oct2012
-//
-//  Created by Steven Tjendana on 10/20/12.
-//  Copyright (c) 2012 Steven Tjendana. All rights reserved.
-//
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * EditPhotoViewController.h
+ * iRemember
+ *
+ * Created by Steven Tjendana on 10/20/12.
+ * Copyright (c) 2012 Group 11. All rights reserved.
+ *
+ * Programmer: Steven Tjendana, Jake Nagazine
+ * Team Name: Double One
+ * Project Name: iRemember
+ * Version: Version 1.0
+ *
+ * This object manages photo album and geographical location.
+ * A user can browse different photo albums to select desired photo.
+ * When the user selected the photo it will displayed on the screen.
+ * The user can mark up this photo by touching mark up button.
+ * The user can also get current location information.
+ *
+ *
+ * Changes:
+ *   2012-10-20 Created
+ *   2012-10-21 Add comments
+ *
+ * Know bugs: No bugs
+ *
+ *
+ * Last revised on 2012-10-21
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 #import <UIKit/UIKit.h>
 #import "MarkUpControl.h"

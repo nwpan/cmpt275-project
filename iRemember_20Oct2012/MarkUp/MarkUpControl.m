@@ -225,96 +225,10 @@
     
 }
 
-- (void)viewDidUnload
-{
-    [self setNaviTitle:nil];
-    [self setButtonTag:nil];
-    [self setButtonNote:nil];
-    [self setButtonOption:nil];
-    [self setButtonDone:nil];
-    [self setButtonDraw:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (IBAction)optionAction:(id)sender {
-    [[naviTitle topItem]setTitle:@"Option"];
-    naviTitle.topItem.leftBarButtonItem = nil;
-    textView.hidden = YES;
-}
-
-- (IBAction)doneAction:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (IBAction)noteAction:(id)sender {
-    [[naviTitle topItem]setTitle:@"Note"];
-    textView.hidden = NO;
-    
-    self.textData = [self.noteFile readTheFile:myNoteFilePath];
-    self.textFieldString = [[NSString alloc] initWithData:textData encoding:NSUTF8StringEncoding];
-    [textView setText:textFieldString];
-    
-    UIBarButtonItem* doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                target:self
-                                                                                action:@selector(cancelAction:)];
-    naviTitle.topItem.leftBarButtonItem = doneItem;
-}
-
-- (IBAction)tagAction:(id)sender {
-    [[naviTitle topItem]setTitle:@"Tag"];
-    naviTitle.topItem.leftBarButtonItem = nil;
-    textView.hidden = YES;
-    [self alert];
-}
-
-- (IBAction)drawAction:(id)sender {
-    [[naviTitle topItem]setTitle:@"Draw"];
-    naviTitle.topItem.leftBarButtonItem = nil;    
-    textView.hidden = YES;
-    
-}
-
-- (void)saveAction:(id)sender {
-    [self.textView resignFirstResponder];
-    [[naviTitle topItem]setTitle:@"Note"];
-    naviTitle.topItem.rightBarButtonItem = nil;
-    naviTitle.topItem.leftBarButtonItem = nil;    
-    
-    [noteFile writeOnTheFile:myNoteFilePath dataFrom:self.textView.text];
-    
-}
-
-- (void)cancelAction:(id)sender {
-    
-    [self.textView resignFirstResponder];
-    [[naviTitle topItem]setTitle:@"Note"];
-    naviTitle.topItem.rightBarButtonItem = nil;
-    naviTitle.topItem.leftBarButtonItem = nil;
-    textView.hidden = YES;
-
-}
-
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    [[naviTitle topItem]setTitle:@"Editing"];
-    UIBarButtonItem* saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
-                                                                              target:self
-                                                                              action:@selector(saveAction:)];
-    
-    naviTitle.topItem.rightBarButtonItem = saveItem;
-    
-    UIBarButtonItem* cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                              target:self
-                                                                              action:@selector(cancelAction:)];
-    naviTitle.topItem.leftBarButtonItem = cancelItem;
-}
-
--(void)textViewDidEndEditing:(UITextView *)textView
-{
-    self.textView.hidden = YES;
-}
-
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * This will set icons with custom images.
+ * 
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 -(void)setIconImage
 {
     //set done button image
@@ -338,8 +252,131 @@
     [buttonTag setImage:tagImage forState:UIControlStateNormal];
     
     
-}//*/
+}
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * optionAction and drawAction will be fully implemented on Version 2
+ * 
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+- (IBAction)optionAction:(id)sender {
+    [[naviTitle topItem]setTitle:@"Option"];
+    naviTitle.topItem.leftBarButtonItem = nil;
+    textView.hidden = YES;
+}
+
+- (IBAction)drawAction:(id)sender {
+    [[naviTitle topItem]setTitle:@"Draw"];
+    naviTitle.topItem.leftBarButtonItem = nil;
+    textView.hidden = YES;    
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * doneAction, noteAction, and tagAction will be perform action when the related button is touched
+ *
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+//Exit from Mark up view
+- (IBAction)doneAction:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Add a descriptive note about the photo
+*If there is a note attached to the photo, it will be automatically loaded.
+*Only one note per photo will be allowed.
+*A user can save and edit the note.
+*When the note appears, done button will also be appeared on the left of title navigation bar.
+*Done button is used to make note disappear.
+*The note will also disappear when other button is touched.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+- (IBAction)noteAction:(id)sender {
+    [[naviTitle topItem]setTitle:@"Note"];
+    textView.hidden = NO;
+    
+    self.textData = [self.noteFile readTheFile:myNoteFilePath];
+    self.textFieldString = [[NSString alloc] initWithData:textData encoding:NSUTF8StringEncoding];
+    [textView setText:textFieldString];
+    
+    //creat done button
+    UIBarButtonItem* doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                target:self
+                                                                                action:@selector(cancelAction:)];
+    naviTitle.topItem.leftBarButtonItem = doneItem;
+}
+
+//Tag related options, add, edit, and remove, will be loaded using alert
+- (IBAction)tagAction:(id)sender {
+    [[naviTitle topItem]setTitle:@"Tag"];
+    naviTitle.topItem.leftBarButtonItem = nil;
+    textView.hidden = YES;
+    [self alert]; //alert will be loaded with tag options
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * saveAction and cancelAction attached to save and cancel button.
+ * These two buttons will only be appear when the user edits the note.
+ * When the user done editing, these buttons will be deleted.
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+//Save the contents of the note to note file using fileIOController
+- (void)saveAction:(id)sender {
+    [self.textView resignFirstResponder];
+    [[naviTitle topItem]setTitle:@"Note"];
+    naviTitle.topItem.rightBarButtonItem = nil;
+    naviTitle.topItem.leftBarButtonItem = nil;    
+    
+    [noteFile writeOnTheFile:myNoteFilePath dataFrom:self.textView.text];
+    
+}
+
+//Dismiss the note without saving edited contents
+- (void)cancelAction:(id)sender {
+    
+    [self.textView resignFirstResponder];
+    [[naviTitle topItem]setTitle:@"Note"];
+    naviTitle.topItem.rightBarButtonItem = nil;
+    naviTitle.topItem.leftBarButtonItem = nil;
+    textView.hidden = YES;
+
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * When textView, which displays and edits the note, is loaded, begin editing,
+ * save and cancel button will be created on the navigation title bar.
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    [[naviTitle topItem]setTitle:@"Editing"];
+    UIBarButtonItem* saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+                                                                              target:self
+                                                                              action:@selector(saveAction:)];
+    
+    naviTitle.topItem.rightBarButtonItem = saveItem;
+    
+    UIBarButtonItem* cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                              target:self
+                                                                              action:@selector(cancelAction:)];
+    naviTitle.topItem.leftBarButtonItem = cancelItem;
+}
+
+//The note will be disappear when the user done editing
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.textView.hidden = YES;
+}
+
+- (void)viewDidUnload
+{
+    [self setNaviTitle:nil];
+    [self setButtonTag:nil];
+    [self setButtonNote:nil];
+    [self setButtonOption:nil];
+    [self setButtonDone:nil];
+    [self setButtonDraw:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

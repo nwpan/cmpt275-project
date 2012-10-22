@@ -32,7 +32,7 @@
 #import <UIKit/UIKit.h>
 #import "fileIOController.h"
 
-@interface MarkUpControl : UIViewController
+@interface MarkUpControl : UIViewController <UITextViewDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITextView *textView;

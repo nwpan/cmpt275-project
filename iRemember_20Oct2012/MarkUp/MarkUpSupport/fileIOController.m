@@ -33,7 +33,7 @@
 @implementation fileIOController
 
 
-@synthesize filePaths, fileData, fileDataBuffer, fileManager, fileHandle;
+@synthesize fileData, fileManager, fileHandle;
 
 -(NSData *) readTheFile:(NSString *)filePath
 {
@@ -74,10 +74,6 @@
     
 }
 
--(NSData *)toDataBuffer
-{
-    return fileDataBuffer;
-}
 
 
 @end
