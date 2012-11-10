@@ -106,6 +106,7 @@
 		E8C529CC163335A900BF8231 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */; };
 		F389FE94163364150043C395 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE93163364150043C395 /* CoreLocation.framework */; };
 		F389FE96163364280043C395 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE95163364280043C395 /* MapKit.framework */; };
+		F3CAD42C164EFB0E0096EFC3 /* ViewGeotagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CAD42B164EFB0E0096EFC3 /* ViewGeotagViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +235,8 @@
 		E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F389FE93163364150043C395 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F389FE95163364280043C395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F3CAD42A164EFB0E0096EFC3 /* ViewGeotagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewGeotagViewController.h; path = ../ViewGeotagViewController.h; sourceTree = "<group>"; };
+		F3CAD42B164EFB0E0096EFC3 /* ViewGeotagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewGeotagViewController.m; path = ../ViewGeotagViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,6 +493,8 @@
 				810B7857164EE34800BED1BD /* MagicalRecord */,
 				23BACF6E163367950071E5B6 /* LoginViewController.h */,
 				23BACF6F163367950071E5B6 /* LoginViewController.m */,
+				F3CAD42A164EFB0E0096EFC3 /* ViewGeotagViewController.h */,
+				F3CAD42B164EFB0E0096EFC3 /* ViewGeotagViewController.m */,
 				E8C529C21633300800BF8231 /* MainMenuViewController.h */,
 				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
 				E8C529C51633301600BF8231 /* EditPhotoViewController.h */,
