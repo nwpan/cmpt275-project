@@ -7,10 +7,16 @@
 //
 
 #import "Image.h"
+#import "Geotag.h"
+#import "Note.h"
+#import "Tag.h"
 
 
 @implementation Image
 
 @dynamic image_path;
+@dynamic geotags;
+@dynamic notes;
+@dynamic tags;
 
 @end

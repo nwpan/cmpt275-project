@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Image;
 
 @interface Geotag : NSManagedObject
 
@@ -16,5 +17,6 @@
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) Image *images;
 
 @end

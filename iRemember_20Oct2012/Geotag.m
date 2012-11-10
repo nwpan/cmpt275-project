@@ -7,6 +7,7 @@
 //
 
 #import "Geotag.h"
+#import "Image.h"
 
 
 @implementation Geotag
@@ -15,5 +16,6 @@
 @dynamic longitude;
 @dynamic latitude;
 @dynamic date;
+@dynamic images;
 
 @end

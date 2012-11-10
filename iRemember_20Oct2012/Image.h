@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Geotag, Note, Tag;
 
 @interface Image : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * image_path;
+@property (nonatomic, retain) Geotag *geotags;
+@property (nonatomic, retain) Note *notes;
+@property (nonatomic, retain) Tag *tags;
 
 @end

@@ -7,11 +7,13 @@
 //
 
 #import "Tag.h"
+#import "Image.h"
 
 
 @implementation Tag
 
 @dynamic image_id;
 @dynamic word;
+@dynamic images;
 
 @end

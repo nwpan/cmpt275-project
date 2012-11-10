@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Image;
 
 @interface Note : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * image_id;
 @property (nonatomic, retain) NSString * desc;
+@property (nonatomic, retain) Image *images;
 
 @end

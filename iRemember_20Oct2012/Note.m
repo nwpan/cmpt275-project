@@ -7,11 +7,13 @@
 //
 
 #import "Note.h"
+#import "Image.h"
 
 
 @implementation Note
 
 @dynamic image_id;
 @dynamic desc;
+@dynamic images;
 
 @end
