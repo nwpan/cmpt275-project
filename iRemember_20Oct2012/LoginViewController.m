@@ -26,6 +26,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #import "LoginViewController.h"
+#import "User.h"
 
 @interface LoginViewController ()
 
@@ -33,15 +34,15 @@
 
 @implementation LoginViewController
 
-@synthesize app;
 @synthesize btnStart;
 @synthesize lblStatus;
+
+NSManagedObjectContext *context;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-         app = [[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -49,18 +50,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSManagedObjectContext *context = [app managedObjectContext];
-	if (context == nil)
-    {
-        context = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-        NSLog(@"After managedObjectContext: %@",  context);
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        if ([[defaults objectForKey:@"user_id"] length] != 0)
-            [self performSegueWithIdentifier:@"yoloSegue" sender:self];
-        
-    }
 }
 
 /*
@@ -87,7 +76,18 @@
      */
     lblStatus.text = @"Initializing user data.";
     [btnStart setEnabled:NO];
-    
+/*
+    NSArray *persons            = [User MR_findAll];
+
+    NSArray *personsSorted      = [User MR_findAllSortedBy:@"first_name" ascending:YES];
+    NSArray *personsWhoHave22   = [User MR_findByAttribute:@"age" withValue:[NSNumber numberWithInt:25]];
+*/
+    User *firstUser              = [User MR_findFirst];
+
+    NSLog(@"First Name: %@", firstUser.first_name);
+    NSLog(@"Last Name: %@", firstUser.last_name);
+    NSLog(@"User ID: %@", firstUser.user_id);
+
     @try
     {
         [self initUser];
@@ -106,11 +106,22 @@
 
 - (void)initUser
 {
+    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:nil forKey:@"first_name"];
     [defaults setObject:nil forKey:@"last_name"];
     [defaults setObject:[self generateUuidString] forKey:@"user_id"];
     [defaults synchronize];
+    */
+    //NSManagedObjectContext *context = [app managedObjectContext];
+    NSManagedObjectContext *localContext  = [NSManagedObjectContext MR_contextForCurrentThread];
+    User *addUser = [User MR_createInContext:localContext];
+    addUser.first_name = @"Doctor";
+    addUser.last_name = @"Who!";
+    addUser.user_id = [self generateUuidString];
+    
+    [localContext MR_saveNestedContexts];
+
     NSLog(@"User data saved");
 }
 

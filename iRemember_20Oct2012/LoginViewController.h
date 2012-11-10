@@ -28,11 +28,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "User.h"
 
 @interface LoginViewController : UIViewController
-
-@property (nonatomic, retain) AppDelegate *app;
 
 @property (nonatomic, retain) IBOutlet UIButton *btnStart;
 @property (nonatomic, retain) IBOutlet UILabel *lblStatus;

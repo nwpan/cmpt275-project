@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="11G63" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Draw" representedClassName="Draw" parentEntity="Tag" syncable="YES"/>
     <entity name="Note" representedClassName="Note" parentEntity="Tag" syncable="YES"/>
     <entity name="Session" representedClassName="Session" syncable="YES">
@@ -8,37 +8,45 @@
         <relationship name="user_fk" optional="YES" transient="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="session_fk" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" isAbstract="YES" syncable="YES">
-        <attribute name="detail_id" optional="YES" transient="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
-        <attribute name="user_id" optional="YES" transient="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="detail_id" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <relationship name="detail_fk" optional="YES" transient="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TagDetail" inverseName="tag_fk" inverseEntity="TagDetail" syncable="YES"/>
         <relationship name="user_fk" optional="YES" transient="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tag_fk" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="TagDetail" representedClassName="TagDetail" syncable="YES">
-        <attribute name="data" optional="YES" transient="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="title" optional="YES" transient="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="type_id" optional="YES" transient="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="data" optional="YES" attributeType="String" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="type_id" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
         <relationship name="tag_fk" optional="YES" transient="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="detail_fk" inverseEntity="Tag" syncable="YES"/>
         <relationship name="type_fk" optional="YES" transient="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TagType" inverseName="detail_fk" inverseEntity="TagType" syncable="YES"/>
     </entity>
     <entity name="TagType" representedClassName="TagType" syncable="YES">
-        <attribute name="name" optional="YES" transient="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
         <relationship name="detail_fk" optional="YES" transient="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TagDetail" inverseName="type_fk" inverseEntity="TagDetail" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
-        <attribute name="date_created" optional="YES" transient="YES" attributeType="Date" indexed="YES" syncable="YES"/>
-        <attribute name="first_name" optional="YES" transient="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="last_name" optional="YES" transient="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="user_id" transient="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="date_created" optional="YES" attributeType="Date" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="first_name" optional="YES" attributeType="String" indexed="YES" storedInTruthFile="YES" syncable="YES">
+            <userInfo>
+                <entry key="key" value="value"/>
+            </userInfo>
+        </attribute>
+        <attribute name="last_name" optional="YES" attributeType="String" indexed="YES" storedInTruthFile="YES" syncable="YES">
+            <userInfo>
+                <entry key="key" value="value"/>
+            </userInfo>
+        </attribute>
+        <attribute name="user_id" attributeType="String" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
         <relationship name="session_fk" optional="YES" transient="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="user_fk" inverseEntity="Session" syncable="YES"/>
         <relationship name="tag_fk" optional="YES" transient="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="user_fk" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Draw" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Note" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Session" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Tag" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TagDetail" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TagType" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Draw" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Note" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Session" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Tag" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="TagDetail" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="TagType" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="User" positionX="0" positionY="0" width="128" height="135"/>
     </elements>
 </model>
