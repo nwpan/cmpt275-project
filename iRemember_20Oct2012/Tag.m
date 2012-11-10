@@ -7,15 +7,11 @@
 //
 
 #import "Tag.h"
-#import "TagDetail.h"
-#import "User.h"
 
 
 @implementation Tag
 
-@dynamic detail_id;
-@dynamic user_id;
-@dynamic detail_fk;
-@dynamic user_fk;
+@dynamic image_id;
+@dynamic word;
 
 @end

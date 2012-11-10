@@ -1,5 +1,5 @@
 //
-//  TagType.h
+//  Image.h
 //  iRemember
 //
 //  Created by Nicholas Pan on 2012-11-10.
@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TagDetail;
 
-@interface TagType : NSManagedObject
+@interface Image : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) TagDetail *detail_fk;
+@property (nonatomic, retain) NSNumber * image_path;
 
 @end

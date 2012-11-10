@@ -106,21 +106,9 @@ NSManagedObjectContext *context;
 
 - (void)initUser
 {
-    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:nil forKey:@"first_name"];
-    [defaults setObject:nil forKey:@"last_name"];
     [defaults setObject:[self generateUuidString] forKey:@"user_id"];
     [defaults synchronize];
-    */
-    //NSManagedObjectContext *context = [app managedObjectContext];
-    NSManagedObjectContext *localContext  = [NSManagedObjectContext MR_contextForCurrentThread];
-    User *addUser = [User MR_createInContext:localContext];
-    addUser.first_name = @"Doctor";
-    addUser.last_name = @"Who!";
-    addUser.user_id = [self generateUuidString];
-    
-    [localContext MR_saveNestedContexts];
 
     NSLog(@"User data saved");
 }

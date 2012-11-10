@@ -9,13 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class TagDetail, User;
 
 @interface Tag : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * detail_id;
-@property (nonatomic, retain) NSNumber * user_id;
-@property (nonatomic, retain) TagDetail *detail_fk;
-@property (nonatomic, retain) User *user_fk;
+@property (nonatomic, retain) NSNumber * image_id;
+@property (nonatomic, retain) NSString * word;
 
 @end
