@@ -30,6 +30,7 @@
 #import "EditPhotoViewController.h"
 #import "MarkUpControl.h"
 #import "ViewGeotagViewController.h"
+#import "Geotag.h"
 
 
 @interface EditPhotoViewController ()
@@ -75,13 +76,43 @@ NSURL *imageURL;
     NSLog(@"- Timestamp: %@\n", dateString);
     
     NSString *URLString = [imageURL absoluteString];
+ /*
+  * NSArray* foo = [URLString componentsSeparatedByString: @"="];
+  * NSString* URLPart1 = [foo objectAtIndex: 1];
+  * NSString* URLPart2 = [foo objectAtIndex: 2];
+  * NSString* URLPart3 = [URLPart1 stringByAppendingString:@"="];
+  * NSString* URLID = [URLPart3 stringByAppendingString:URLPart2];
+  */  
+    NSLog(@"- ID: %@\n", URLString);
     
-    NSArray* foo = [URLString componentsSeparatedByString: @"="];
-    NSString* URLPart1 = [foo objectAtIndex: 1];
-    NSString* URLPart2 = [foo objectAtIndex: 2];
-    //NSString* URLID = [URLPart1 stringbyappendingstring:@"JPG"];
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     
-    //NSLog(@"- ID: %@\n", URLID);
+    Geotag *geotagFound = [Geotag MR_findByAttribute:@"image_id" withValue:URLString inContext:localContext].lastObject;
+    
+    // If a geotag already exists
+    if (geotagFound)
+    {
+        // Update the tag info
+        NSLog(@"UPDATING EXISTING GEOTAG INFO");
+        geotagFound.image_id = URLString;
+        geotagFound.latitude = [NSNumber numberWithDouble:latitude];
+        geotagFound.longitude = [NSNumber numberWithDouble:longitude];
+        geotagFound.date = now;
+        
+        [localContext MR_saveNestedContexts];
+    }
+    
+    else
+    {
+        NSLog(@"CREAING NEW GEOTAG");
+        Geotag *geotag = [Geotag MR_createInContext:localContext];
+        geotag.image_id = URLString;
+        geotagFound.latitude = [NSNumber numberWithDouble:latitude];
+        geotagFound.longitude = [NSNumber numberWithDouble:longitude];
+        geotag.date = now;
+        
+        [localContext MR_saveNestedContexts];
+    }
 }
 
 /*
@@ -199,6 +230,17 @@ NSURL *imageURL;
 
 - (IBAction)viewAction:(id)sender
 {
+    //NSString *URLString = [imageURL absoluteString];
+    //NSArray *found = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
+    
+    //latitude = [found objectAtIndex:0].latitude;
+    //longitude = [found objectAtIndex:0].longitude;
+    
+    Geotag *found = [Geotag MR_findFirst];
+    
+    latitude = [found.latitude doubleValue];
+    longitude = [found.longitude doubleValue];
+    
     MKCoordinateRegion region;
     region.center.latitude = latitude;
     region.center.longitude = longitude;

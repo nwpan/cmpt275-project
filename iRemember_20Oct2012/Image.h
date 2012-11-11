@@ -2,7 +2,7 @@
 //  Image.h
 //  iRemember
 //
-//  Created by Nicholas Pan on 2012-11-10.
+//  Created by Jake Nagazine on 11/11/12.
 //  Copyright (c) 2012 Double One. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 
 @interface Image : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * image_path;
+@property (nonatomic, retain) NSString * image_path;
 @property (nonatomic, retain) Geotag *geotags;
 @property (nonatomic, retain) Note *notes;
 @property (nonatomic, retain) Tag *tags;
