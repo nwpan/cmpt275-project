@@ -77,7 +77,7 @@ NSURL *imageURL;
     
     NSString *URLString = [imageURL absoluteString];
  /*
-  * NSArray* foo = [URLString componentsSeparatedByString: @"="];
+  * NSArray* foo = [URLString componentsSeparatedByString: @"="]; // This code extracts only the ID from the URL.  For simplicity, we are not extracting the ID
   * NSString* URLPart1 = [foo objectAtIndex: 1];
   * NSString* URLPart2 = [foo objectAtIndex: 2];
   * NSString* URLPart3 = [URLPart1 stringByAppendingString:@"="];
@@ -102,6 +102,7 @@ NSURL *imageURL;
         [localContext MR_saveNestedContexts];
     }
     
+    //Otherwise make a new geotag associated with the picture displayed
     else
     {
         NSLog(@"CREAING NEW GEOTAG");
@@ -230,13 +231,10 @@ NSURL *imageURL;
 
 - (IBAction)viewAction:(id)sender
 {
-    //NSString *URLString = [imageURL absoluteString];
-    //NSArray *found = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
+    NSString *URLString = [imageURL absoluteString];
+    NSArray *foundArray = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
     
-    //latitude = [found objectAtIndex:0].latitude;
-    //longitude = [found objectAtIndex:0].longitude;
-    
-    Geotag *found = [Geotag MR_findFirst];
+    Geotag *found = [foundArray objectAtIndex:0];
     
     latitude = [found.latitude doubleValue];
     longitude = [found.longitude doubleValue];
