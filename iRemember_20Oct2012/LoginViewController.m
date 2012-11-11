@@ -49,6 +49,10 @@ NSManagedObjectContext *context;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    if ([[defaults objectForKey:@"user_id"] length] != 0)
+        [self performSegueWithIdentifier:@"yoloSegue" sender:self];
 }
 
 /*
@@ -98,6 +102,34 @@ NSManagedObjectContext *context;
     [defaults setObject:[self generateUuidString] forKey:@"user_id"];
     [defaults synchronize];
 
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    ALAssetsLibrary *assets = [[ALAssetsLibrary alloc] init];
+    __block Image *img;
+
+    [Image MR_truncateAll];
+    [localContext MR_saveNestedContexts];
+
+    [assets enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
+                          usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+                              [group enumerateAssetsUsingBlock:^(ALAsset *asset, NSUInteger index, BOOL *stop) {
+                                  if (asset != nil)
+                                  {
+                                      img = [Image MR_createInContext:localContext];
+                                  }
+                                  NSURL *url = [[asset defaultRepresentation] url];
+                                  if (url != nil)
+                                  {
+                                      img.image_path = [url absoluteString];
+                                      [localContext MR_saveNestedContexts];
+                                  }
+                              }];
+
+                          }
+                        failureBlock:^(NSError *error) {
+                            //something went wrong, you can't access the photo gallery
+                        }
+     ];
+    
     NSLog(@"User data saved");
 }
 

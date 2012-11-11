@@ -16,33 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"iRemember.sqlite"];
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    ALAssetsLibrary *assets = [[ALAssetsLibrary alloc] init];
-    __block Image *img;
-
-    [Image MR_truncateAll];
-    [localContext MR_saveNestedContexts];
-    
-    [assets enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
-                          usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-                              [group enumerateAssetsUsingBlock:^(ALAsset *asset, NSUInteger index, BOOL *stop) {
-                                  if (asset != nil)
-                                  {
-                                      img = [Image MR_createInContext:localContext];
-                                  }
-                                  NSURL *url = [[asset defaultRepresentation] url];
-                                  if (url != nil)
-                                  {
-                                      img.image_path = [url absoluteString];
-                                      [localContext MR_saveNestedContexts];
-                                  }
-                              }];
-                              
-                          }
-                        failureBlock:^(NSError *error) {
-                            //something went wrong, you can't access the photo gallery
-                        }
-     ];
+     
     return YES;
 }
 							
