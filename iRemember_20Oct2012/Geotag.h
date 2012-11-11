@@ -13,10 +13,10 @@
 
 @interface Geotag : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * image_id;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * image_id;
+@property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) Image *images;
 
 @end

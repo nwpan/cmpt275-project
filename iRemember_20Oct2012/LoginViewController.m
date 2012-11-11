@@ -26,7 +26,6 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #import "LoginViewController.h"
-#import "User.h"
 
 @interface LoginViewController ()
 
@@ -76,17 +75,6 @@ NSManagedObjectContext *context;
      */
     lblStatus.text = @"Initializing user data.";
     [btnStart setEnabled:NO];
-/*
-    NSArray *persons            = [User MR_findAll];
-
-    NSArray *personsSorted      = [User MR_findAllSortedBy:@"first_name" ascending:YES];
-    NSArray *personsWhoHave22   = [User MR_findByAttribute:@"age" withValue:[NSNumber numberWithInt:25]];
-*/
-    User *firstUser              = [User MR_findFirst];
-
-    NSLog(@"First Name: %@", firstUser.first_name);
-    NSLog(@"Last Name: %@", firstUser.last_name);
-    NSLog(@"User ID: %@", firstUser.user_id);
 
     @try
     {

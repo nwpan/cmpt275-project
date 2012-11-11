@@ -12,8 +12,8 @@
 
 @implementation Note
 
-@dynamic image_id;
 @dynamic desc;
+@dynamic image_id;
 @dynamic images;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-
+#import "Image.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

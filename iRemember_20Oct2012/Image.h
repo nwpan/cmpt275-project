@@ -13,7 +13,7 @@
 
 @interface Image : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * image_path;
+@property (nonatomic, retain) NSString * image_path;
 @property (nonatomic, retain) Geotag *geotags;
 @property (nonatomic, retain) Note *notes;
 @property (nonatomic, retain) Tag *tags;

@@ -13,8 +13,8 @@
 
 @interface Note : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * image_id;
 @property (nonatomic, retain) NSString * desc;
+@property (nonatomic, retain) NSNumber * image_id;
 @property (nonatomic, retain) Image *images;
 
 @end

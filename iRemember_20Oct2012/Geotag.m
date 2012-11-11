@@ -12,10 +12,10 @@
 
 @implementation Geotag
 
-@dynamic image_id;
-@dynamic longitude;
-@dynamic latitude;
 @dynamic date;
+@dynamic image_id;
+@dynamic latitude;
+@dynamic longitude;
 @dynamic images;
 
 @end
