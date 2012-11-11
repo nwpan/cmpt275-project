@@ -29,6 +29,7 @@
 
 #import "EditPhotoViewController.h"
 #import "MarkUpControl.h"
+#import "ViewGeotagViewController.h"
 
 
 @interface EditPhotoViewController ()
@@ -48,6 +49,8 @@
 /* Instance variables */
 double longitude;
 double latitude;
+
+NSURL *imageURL;
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
@@ -70,6 +73,15 @@ double latitude;
     NSString *dateString = [format stringFromDate: now];
 
     NSLog(@"- Timestamp: %@\n", dateString);
+    
+    NSString *URLString = [imageURL absoluteString];
+    
+    NSArray* foo = [URLString componentsSeparatedByString: @"="];
+    NSString* URLPart1 = [foo objectAtIndex: 1];
+    NSString* URLPart2 = [foo objectAtIndex: 2];
+    //NSString* URLID = [URLPart1 stringbyappendingstring:@"JPG"];
+    
+    //NSLog(@"- ID: %@\n", URLID);
 }
 
 /*
@@ -84,6 +96,12 @@ double latitude;
         MarkUpControl *markUpPhoto = [segue destinationViewController];
         markUpPhoto.photoImage = imageView.image;
     }
+    
+    //if([segue.identifier isEqualToString:@"geotagSegue"])
+    //{
+    //    ViewGeotagViewController *viewGeotag = [segue destinationViewController];
+    //    viewGeotag.region = region;
+    //}
 }
 
 -(void)takePicture:(id)sender
@@ -133,6 +151,7 @@ double latitude;
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    imageURL = [info objectForKey:UIImagePickerControllerReferenceURL];
     [imageView setImage:image];
     
     [self dismissModalViewControllerAnimated:YES];

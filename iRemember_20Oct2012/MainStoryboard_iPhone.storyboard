@@ -257,7 +257,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sSZ-z4-XhT">
-                                <rect key="frame" x="214" y="408" width="84" height="44"/>
+                                <rect key="frame" x="214" y="370" width="84" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Mark Up">
@@ -272,7 +272,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fYA-Kf-EJK">
-                                <rect key="frame" x="20" y="403" width="81" height="23"/>
+                                <rect key="frame" x="22" y="370" width="81" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Geotag">
@@ -287,7 +287,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gGD-6w-sf3">
-                                <rect key="frame" x="20" y="429" width="81" height="23"/>
+                                <rect key="frame" x="22" y="393" width="81" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="View">
@@ -299,7 +299,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="viewAction:" destination="gfd-N3-8sy" eventType="touchUpInside" id="eDy-F1-QJC"/>
-                                    <segue destination="RXN-BV-FeS" kind="push" id="nzS-th-VgU"/>
+                                    <segue destination="RXN-BV-FeS" kind="push" identifier="geotagSegue" id="F0r-hV-VTF"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="NUT-aE-InA">
@@ -487,81 +487,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="iRemember.jpg" width="569" height="88"/>
     </resources>
-    <classes>
-        <class className="AboutUsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutUsViewController.h"/>
-        </class>
-        <class className="CLLocationManager" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLLocationManager.h"/>
-        </class>
-        <class className="EditPhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPhotoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="galleryAction"/>
-                <relationship kind="action" name="geotagAction:"/>
-                <relationship kind="action" name="viewAction:"/>
-                <relationship kind="outlet" name="gallery" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="locationManager" candidateClass="CLLocationManager"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="HelpViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="viewDocs:"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnStartAction:"/>
-                <relationship kind="outlet" name="btnStart" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblStatus" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MainMenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="gallery"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MarkUpControl" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MarkUpControl.h"/>
-            <relationships>
-                <relationship kind="action" name="alert"/>
-                <relationship kind="action" name="doneAction:"/>
-                <relationship kind="action" name="drawAction:"/>
-                <relationship kind="action" name="noteAction:"/>
-                <relationship kind="action" name="optionAction:"/>
-                <relationship kind="action" name="tagAction:"/>
-                <relationship kind="outlet" name="buttonDone" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonDraw" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonNote" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonOption" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonTag" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="naviItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="naviTitle" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SearchByDayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByDayViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="getSelection"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="SearchByTagsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByTagsViewController.h"/>
-        </class>
-        <class className="ViewGeotagViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewGeotagViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
