@@ -47,7 +47,7 @@
 @synthesize tagFilePath, myNoteFilePath;
 
 Tag *currentTag;
-
+Note *currentNote;
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Alert is used to add, edit, or remove a tag on a photo.
  * Tags will be saved as string type.
@@ -99,6 +99,8 @@ Tag *currentTag;
         }
         else
         {
+            currentTag = [Tag MR_createInContext:localContext];
+            currentTag.word = @"";
             fieldText = currentTag.word;
         }
         saveField.text = fieldText;
@@ -133,7 +135,6 @@ Tag *currentTag;
                 currentTag.word = saveField.text;
             }
             currentTag.image_path = [photoUrl absoluteString];
-            NSLog(@"%@", [photoUrl absoluteString]);
             
             [localContext MR_saveNestedContexts]; //write to file if tag is valid.
         }
@@ -323,11 +324,24 @@ Tag *currentTag;
 *The note will also disappear when other button is touched.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 - (IBAction)noteAction:(id)sender {
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    
+    
+    Note *noteFounded = [Note MR_findByAttribute:@"image_path" withValue:[photoUrl absoluteString] inContext:localContext].lastObject;
+
+    if (noteFounded)
+    {
+        currentNote = noteFounded;
+    }
+    else
+    {
+        currentNote = [Note MR_createInContext:localContext];
+    }
+
     [[naviTitle topItem]setTitle:@"Note"];
     textView.hidden = NO;
     
-    self.textData = [self.noteFile readTheFile:myNoteFilePath];
-    self.textFieldString = [[NSString alloc] initWithData:textData encoding:NSUTF8StringEncoding];
+    self.textFieldString = [currentNote desc];
     [textView setText:textFieldString];
     
     //creat done button
@@ -357,9 +371,24 @@ Tag *currentTag;
     [self.textView resignFirstResponder];
     [[naviTitle topItem]setTitle:@"Note"];
     naviTitle.topItem.rightBarButtonItem = nil;
-    naviTitle.topItem.leftBarButtonItem = nil;    
+    naviTitle.topItem.leftBarButtonItem = nil;
     
-    [noteFile writeOnTheFile:myNoteFilePath dataFrom:self.textView.text];
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    Note *noteFounded = [Note MR_findByAttribute:@"image_path" withValue:[photoUrl absoluteString] inContext:localContext].lastObject;
+
+    if (noteFounded)
+    {
+        currentNote = noteFounded;
+    }
+    else
+    {
+        currentNote = [Note MR_createInContext:localContext];
+    }
+
+    currentNote.image_path = [photoUrl absoluteString];
+    currentNote.desc = self.textView.text;
+
+    [localContext MR_saveNestedContexts];
     
 }
 

@@ -32,7 +32,7 @@
 #import <UIKit/UIKit.h>
 #import "fileIOController.h"
 #import "Tag.h"
-
+#import "Note.h"
 @interface MarkUpControl : UIViewController <UITextViewDelegate>
 
 

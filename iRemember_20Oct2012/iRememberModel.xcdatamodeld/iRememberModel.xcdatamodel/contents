@@ -15,7 +15,7 @@
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
-        <attribute name="image_id" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="image_path" optional="YES" attributeType="String" indexed="YES" storedInTruthFile="YES" syncable="YES"/>
         <relationship name="images" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="notes" inverseEntity="Image" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
