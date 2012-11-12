@@ -238,7 +238,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="AO3-a1-Q6N">
-                                <rect key="frame" x="22" y="53" width="276" height="267"/>
+                                <rect key="frame" x="22" y="64" width="276" height="292"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LQg-Vk-Q6a">
@@ -257,7 +257,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sSZ-z4-XhT">
-                                <rect key="frame" x="214" y="365" width="84" height="44"/>
+                                <rect key="frame" x="214" y="370" width="84" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Mark Up">
@@ -272,7 +272,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fYA-Kf-EJK">
-                                <rect key="frame" x="20" y="360" width="81" height="23"/>
+                                <rect key="frame" x="22" y="370" width="81" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Geotag">
@@ -287,7 +287,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gGD-6w-sf3">
-                                <rect key="frame" x="20" y="386" width="81" height="23"/>
+                                <rect key="frame" x="22" y="393" width="81" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="View">
@@ -299,11 +299,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="viewAction:" destination="gfd-N3-8sy" eventType="touchUpInside" id="eDy-F1-QJC"/>
-                                    <segue destination="RXN-BV-FeS" kind="push" id="nzS-th-VgU"/>
+                                    <segue destination="MBe-YH-AiR" kind="push" identifier="geotagSegue" id="pqa-rA-9eX"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="NUT-aE-InA">
-                                <rect key="frame" x="113" y="328" width="94" height="54"/>
+                                <rect key="frame" x="113" y="359" width="94" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wTM-eS-wG6">
@@ -368,40 +368,30 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="1745" y="786"/>
         </scene>
         <!--View Geotag View Controller-->
-        <scene sceneID="l2O-NA-62G">
+        <scene sceneID="fdG-9a-jiq">
             <objects>
-                <viewController id="RXN-BV-FeS" userLabel="View Geotag View Controller" customClass="ViewGeotagViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wx4-EM-92n">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgh-UB-hjL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="MBe-YH-AiR" customClass="ViewGeotagViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bye-sT-DqO">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qFE-Dn-eg1">
-                                <rect key="frame" x="20" y="423" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gfd-N3-8sy" kind="push" id="JHE-5L-Rt2"/>
-                                </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="qbg-DU-Elt">
-                                <rect key="frame" x="1" y="-44" width="320" height="422"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="zh9-pg-ogD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZYK-FK-RFk"/>
+                    <navigationItem key="navigationItem" id="PDN-RG-xg4"/>
+                    <connections>
+                        <outlet property="locationmanager" destination="ONc-7x-RlG" id="jiv-YL-Jxu"/>
+                        <outlet property="mapView" destination="zh9-pg-ogD" id="704-CA-ibQ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hAY-cC-Eb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="ONc-7x-RlG" customClass="CLLocationManager"/>
             </objects>
-            <point key="canvasLocation" x="2209" y="786"/>
+            <point key="canvasLocation" x="2231" y="788"/>
         </scene>
         <!--Search By Tags View Controller-->
         <scene sceneID="Q7O-Tw-w9b">

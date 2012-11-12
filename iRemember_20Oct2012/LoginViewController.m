@@ -79,6 +79,12 @@ NSManagedObjectContext *context;
      */
     lblStatus.text = @"Initializing user data.";
     [btnStart setEnabled:NO];
+/*
+    NSArray *persons            = [User MR_findAll];
+
+    NSArray *personsSorted      = [User MR_findAllSortedBy:@"first_name" ascending:YES];
+    NSArray *personsWhoHave22   = [User MR_findByAttribute:@"age" withValue:[NSNumber numberWithInt:25]];
+*/
 
     @try
     {

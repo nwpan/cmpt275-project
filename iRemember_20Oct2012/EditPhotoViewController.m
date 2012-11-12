@@ -29,6 +29,8 @@
 
 #import "EditPhotoViewController.h"
 #import "MarkUpControl.h"
+#import "ViewGeotagViewController.h"
+#import "Geotag.h"
 
 
 @interface EditPhotoViewController ()
@@ -51,6 +53,7 @@ double longitude;
 double latitude;
 
 NSURL * imgPickerUrl;
+NSURL *imageURL;
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
@@ -73,6 +76,46 @@ NSURL * imgPickerUrl;
     NSString *dateString = [format stringFromDate: now];
 
     NSLog(@"- Timestamp: %@\n", dateString);
+    
+    NSString *URLString = [imageURL absoluteString];
+ /*
+  * NSArray* foo = [URLString componentsSeparatedByString: @"="]; // This code extracts only the ID from the URL.  For simplicity, we are not extracting the ID
+  * NSString* URLPart1 = [foo objectAtIndex: 1];
+  * NSString* URLPart2 = [foo objectAtIndex: 2];
+  * NSString* URLPart3 = [URLPart1 stringByAppendingString:@"="];
+  * NSString* URLID = [URLPart3 stringByAppendingString:URLPart2];
+  */  
+    NSLog(@"- ID: %@\n", URLString);
+    
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    
+    Geotag *geotagFound = [Geotag MR_findByAttribute:@"image_id" withValue:URLString inContext:localContext].lastObject;
+    
+    // If a geotag already exists
+    if (geotagFound)
+    {
+        // Update the tag info
+        NSLog(@"UPDATING EXISTING GEOTAG INFO");
+        geotagFound.image_id = URLString;
+        geotagFound.latitude = [NSNumber numberWithDouble:latitude];
+        geotagFound.longitude = [NSNumber numberWithDouble:longitude];
+        geotagFound.date = now;
+        
+        [localContext MR_saveNestedContexts];
+    }
+    
+    //Otherwise make a new geotag associated with the picture displayed
+    else
+    {
+        NSLog(@"CREAING NEW GEOTAG");
+        Geotag *geotag = [Geotag MR_createInContext:localContext];
+        geotag.image_id = URLString;
+        geotag.latitude = [NSNumber numberWithDouble:latitude];
+        geotag.longitude = [NSNumber numberWithDouble:longitude];
+        geotag.date = now;
+        
+        [localContext MR_saveNestedContexts];
+    }
 }
 
 /*
@@ -87,6 +130,24 @@ NSURL * imgPickerUrl;
         MarkUpControl *markUpPhoto = [segue destinationViewController];
         markUpPhoto.photoImage = imageView.image;
         markUpPhoto.photoUrl = imgPickerUrl;
+    }
+    
+    //If the user presses the "View" button, the little map beside the button should
+    //transfer to a fullsized map.  The small map will be retained
+    if([segue.identifier isEqualToString:@"geotagSegue"])
+    {
+        NSString *URLString = [imageURL absoluteString];
+        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+        Geotag *geotag = [Geotag MR_findByAttribute:@"image_id" withValue:URLString inContext:localContext].lastObject;
+        MKCoordinateRegion regionSent;
+        double latitude = [geotag.latitude doubleValue];
+        double longitude = [geotag.longitude doubleValue];
+        regionSent.center.latitude = latitude;
+        regionSent.center.longitude = longitude;
+        regionSent.span.longitudeDelta = 0.1;
+        regionSent.span.latitudeDelta = 0.1;
+        ViewGeotagViewController *viewGeotag = [segue destinationViewController];
+        viewGeotag.region = regionSent;
     }
 }
 
@@ -137,6 +198,7 @@ NSURL * imgPickerUrl;
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    imageURL = [info objectForKey:UIImagePickerControllerReferenceURL];
     [imageView setImage:image];
     imgPickerUrl = [info valueForKey: UIImagePickerControllerReferenceURL];
     [self dismissModalViewControllerAnimated:YES];
@@ -184,12 +246,29 @@ NSURL * imgPickerUrl;
 
 - (IBAction)viewAction:(id)sender
 {
-    MKCoordinateRegion region;
-    region.center.latitude = latitude;
-    region.center.longitude = longitude;
-    region.span.longitudeDelta = 0.1;
-    region.span.latitudeDelta = 0.1;
-    [mapView setRegion:region animated:YES];
+    NSString *URLString = [imageURL absoluteString];
+    NSArray *foundArray = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
+    
+    if ([foundArray count] > 0)
+    {
+        Geotag *found = [foundArray objectAtIndex:0];
+    
+        latitude = [found.latitude doubleValue];
+        longitude = [found.longitude doubleValue];
+    
+        MKCoordinateRegion region;
+        region.center.latitude = latitude;
+        region.center.longitude = longitude;
+        region.span.longitudeDelta = 0.1;
+        region.span.latitudeDelta = 0.1;
+        [mapView setRegion:region animated:YES];
+    }
+    
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"This picture has no geotag.  Display failed." delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (IBAction)openURLAction:(id)sender

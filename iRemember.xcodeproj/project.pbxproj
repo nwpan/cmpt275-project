@@ -103,6 +103,11 @@
 		E8C529CC163335A900BF8231 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */; };
 		F389FE94163364150043C395 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE93163364150043C395 /* CoreLocation.framework */; };
 		F389FE96163364280043C395 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE95163364280043C395 /* MapKit.framework */; };
+		F3F0B4D8165047AC0008EFCF /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B4D7165047AC0008EFCF /* Note.m */; };
+		F3F0B4DC165047AC0008EFCF /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B4DB165047AC0008EFCF /* Image.m */; };
+		F3F0B4DF165047AD0008EFCF /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B4DE165047AD0008EFCF /* Tag.m */; };
+		F3F0B4E2165047AD0008EFCF /* Geotag.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B4E1165047AD0008EFCF /* Geotag.m */; };
+		F3F0B591165077860008EFCF /* ViewGeotagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B590165077860008EFCF /* ViewGeotagViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,8 +237,16 @@
 		E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F389FE93163364150043C395 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F389FE95163364280043C395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F3CAD42A164EFB0E0096EFC3 /* ViewGeotagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewGeotagViewController.h; path = ../ViewGeotagViewController.h; sourceTree = "<group>"; };
-		F3CAD42B164EFB0E0096EFC3 /* ViewGeotagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewGeotagViewController.m; path = ../ViewGeotagViewController.m; sourceTree = "<group>"; };
+		F3F0B4D6165047AC0008EFCF /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		F3F0B4D7165047AC0008EFCF /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		F3F0B4DA165047AC0008EFCF /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		F3F0B4DB165047AC0008EFCF /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		F3F0B4DD165047AD0008EFCF /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		F3F0B4DE165047AD0008EFCF /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		F3F0B4E0165047AD0008EFCF /* Geotag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geotag.h; sourceTree = "<group>"; };
+		F3F0B4E1165047AD0008EFCF /* Geotag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geotag.m; sourceTree = "<group>"; };
+		F3F0B58F165077860008EFCF /* ViewGeotagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewGeotagViewController.h; sourceTree = "<group>"; };
+		F3F0B590165077860008EFCF /* ViewGeotagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewGeotagViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,10 +457,14 @@
 				810B78FC164F250B00BED1BD /* Geotag.h */,
 				810B78FD164F250B00BED1BD /* Geotag.m */,
 				23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */,
-				81B4AC9B1650CFEA00306E0C /* Note.h */,
-				81B4AC9C1650CFEA00306E0C /* Note.m */,
-				810B790216505C3300BED1BD /* Tag.h */,
-				810B790316505C3300BED1BD /* Tag.m */,
+				F3F0B4E0165047AD0008EFCF /* Geotag.h */,
+				F3F0B4E1165047AD0008EFCF /* Geotag.m */,
+				F3F0B4DD165047AD0008EFCF /* Tag.h */,
+				F3F0B4DE165047AD0008EFCF /* Tag.m */,
+				F3F0B4DA165047AC0008EFCF /* Image.h */,
+				F3F0B4DB165047AC0008EFCF /* Image.m */,
+				F3F0B4D6165047AC0008EFCF /* Note.h */,
+				F3F0B4D7165047AC0008EFCF /* Note.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -492,8 +509,6 @@
 				810B7857164EE34800BED1BD /* MagicalRecord */,
 				23BACF6E163367950071E5B6 /* LoginViewController.h */,
 				23BACF6F163367950071E5B6 /* LoginViewController.m */,
-				F3CAD42A164EFB0E0096EFC3 /* ViewGeotagViewController.h */,
-				F3CAD42B164EFB0E0096EFC3 /* ViewGeotagViewController.m */,
 				E8C529C21633300800BF8231 /* MainMenuViewController.h */,
 				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
 				E8C529C51633301600BF8231 /* EditPhotoViewController.h */,
@@ -501,6 +516,8 @@
 				E8C5299716332E3600BF8231 /* AppDelegate.h */,
 				E8C5299816332E3600BF8231 /* AppDelegate.m */,
 				E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */,
+				F3F0B58F165077860008EFCF /* ViewGeotagViewController.h */,
+				F3F0B590165077860008EFCF /* ViewGeotagViewController.m */,
 				CE393C21163540AC00563248 /* InfoPage */,
 				CE393C1F1635408C00563248 /* Search */,
 				9EFE2F9A1633AB7A00EB264C /* MarkUp */,
@@ -703,10 +720,11 @@
 				810B78C1164EE34800BED1BD /* MagicalRecord+Setup.m in Sources */,
 				810B78C3164EE34800BED1BD /* MagicalRecord+ShorthandSupport.m in Sources */,
 				810B78C5164EE34800BED1BD /* MagicalRecord.m in Sources */,
-				810B78FE164F250B00BED1BD /* Geotag.m in Sources */,
-				810B7901164F250B00BED1BD /* Image.m in Sources */,
-				810B790416505C3300BED1BD /* Tag.m in Sources */,
-				81B4AC9D1650CFEA00306E0C /* Note.m in Sources */,
+				F3F0B4D8165047AC0008EFCF /* Note.m in Sources */,
+				F3F0B4DC165047AC0008EFCF /* Image.m in Sources */,
+				F3F0B4DF165047AD0008EFCF /* Tag.m in Sources */,
+				F3F0B4E2165047AD0008EFCF /* Geotag.m in Sources */,
+				F3F0B591165077860008EFCF /* ViewGeotagViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,7 +859,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iRemember_20Oct2012/iRemember-Prefix.pch";
+                GCC_PREFIX_HEADER = "iRemember_20Oct2012/iRemember-Prefix.pch";
 				INFOPLIST_FILE = "iRemember_20Oct2012/iRemember-Info.plist";
 				PRODUCT_NAME = iRemember;
 				TARGETED_DEVICE_FAMILY = 1;
