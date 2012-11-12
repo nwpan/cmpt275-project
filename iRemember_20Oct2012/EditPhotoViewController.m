@@ -49,6 +49,8 @@
 double longitude;
 double latitude;
 
+NSURL * imgPickerUrl;
+
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
@@ -83,6 +85,7 @@ double latitude;
     {
         MarkUpControl *markUpPhoto = [segue destinationViewController];
         markUpPhoto.photoImage = imageView.image;
+        markUpPhoto.photoUrl = imgPickerUrl;
     }
 }
 
@@ -134,7 +137,7 @@ double latitude;
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [imageView setImage:image];
-    
+    imgPickerUrl = [info valueForKey: UIImagePickerControllerReferenceURL];
     [self dismissModalViewControllerAnimated:YES];
 }
 

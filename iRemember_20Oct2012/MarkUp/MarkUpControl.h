@@ -31,6 +31,7 @@
 
 #import <UIKit/UIKit.h>
 #import "fileIOController.h"
+#import "Tag.h"
 
 @interface MarkUpControl : UIViewController <UITextViewDelegate>
 
@@ -47,6 +48,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonDone;
 
 @property (weak, nonatomic) UIImage *photoImage;
+@property (weak, nonatomic) NSURL *photoUrl;
 @property (strong, nonatomic) UITextField *saveField;
 @property (strong, nonatomic) fileIOController *noteFile;
 @property (strong, nonatomic) NSString *textFieldString;

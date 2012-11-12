@@ -42,10 +42,11 @@
 
 @implementation MarkUpControl
 
-@synthesize textView,imageView,naviTitle, photoImage, noteFile, textFieldString, textData, saveField, naviItem;
+@synthesize textView,imageView,naviTitle, photoImage, photoUrl, noteFile, textFieldString, textData, saveField, naviItem;
 @synthesize buttonDone,buttonNote,buttonOption,buttonTag, buttonDraw;
 @synthesize tagFilePath, myNoteFilePath;
 
+Tag *currentTag;
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Alert is used to add, edit, or remove a tag on a photo.
@@ -65,12 +66,14 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex]; //stores title of buttons on the alert
-        
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     if([title isEqualToString:@"Add"]) //add the tag to the photo when add is touched
     {
         //alert with textfield will be created for a user to enter the tag.
         UIAlertView *alertAddMenu = [[UIAlertView alloc] initWithTitle:@"Add a new tag" message:@"Please enter a one word tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",  nil];
-                
+
+        currentTag = [Tag MR_createInContext:localContext];
+        
         [alertAddMenu addSubview:saveField];
         saveField.text = @""; //clear the saveField.
         [alertAddMenu show];
@@ -79,21 +82,37 @@
     
     else if([title isEqualToString:@"Edit"]) //edit the tag on the photo when edit is touched
     {
+        
+        Tag *tagFounded = [Tag MR_findByAttribute:@"image_path" withValue:[photoUrl absoluteString] inContext:localContext].lastObject;
+        NSLog(@"But that's not even...");
         UIAlertView *alertEditMenu = [[UIAlertView alloc] initWithTitle:@"Edit an existing tag" message:@"Please edit an existing tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
         
         [alertEditMenu addSubview:saveField];
         [alertEditMenu show];    
         
         NSString *fieldText = [[NSString alloc]init];
-        fieldText = [[NSString alloc] initWithData: [noteFile readTheFile:tagFilePath] encoding:NSUTF8StringEncoding];
-        
+
+        if (tagFounded)
+        {
+            fieldText = [[NSString alloc] initWithString:[tagFounded word]];
+            currentTag = tagFounded;
+        }
+        else
+        {
+            fieldText = currentTag.word;
+        }
         saveField.text = fieldText;
-        
-        
     }    
     else if([title isEqualToString:@"Remove"]) //remove the tag on the photo when remove is touched
     {
-        [noteFile writeOnTheFile:tagFilePath dataFrom: @""];
+        Tag *tagFounded = [Tag MR_findByAttribute:@"image_path" withValue:[photoUrl absoluteString] inContext:localContext].lastObject;
+
+        if (tagFounded)
+        {
+            [tagFounded MR_deleteInContext:localContext];
+        }
+
+        [localContext MR_saveNestedContexts];
     }
     
     else if([title isEqualToString:@"Save"]) //save new or changed tag to file storing tags data.
@@ -104,7 +123,20 @@
             [alertLength show];
         }
         else
-            [noteFile writeOnTheFile:tagFilePath dataFrom: saveField.text]; //write to file if tag is valid.
+        {
+            if (!currentTag)
+            {
+                currentTag = [Tag MR_createInContext:localContext];
+            }
+            else
+            {
+                currentTag.word = saveField.text;
+            }
+            currentTag.image_path = [photoUrl absoluteString];
+            NSLog(@"%@", [photoUrl absoluteString]);
+            
+            [localContext MR_saveNestedContexts]; //write to file if tag is valid.
+        }
     }
     
 }
@@ -162,8 +194,9 @@
     
     //set the path of each file to devices local storage
     self.tagFilePath = [[NSBundle mainBundle] pathForResource:@"tags" ofType:@"txt"];    
-    self.myNoteFilePath = [[NSBundle mainBundle] pathForResource:@"output" ofType:@"txt"];    
-    
+    self.myNoteFilePath = [[NSBundle mainBundle] pathForResource:@"output" ofType:@"txt"];
+
+
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

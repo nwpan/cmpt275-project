@@ -2,7 +2,7 @@
 //  Tag.m
 //  iRemember
 //
-//  Created by Nicholas Pan on 2012-11-10.
+//  Created by Nicholas Pan on 2012-11-11.
 //  Copyright (c) 2012 Double One. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @implementation Tag
 
-@dynamic image_id;
+@dynamic image_path;
 @dynamic word;
 @dynamic images;
 
