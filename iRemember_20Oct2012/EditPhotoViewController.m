@@ -44,6 +44,7 @@
 @synthesize picker2;
 @synthesize gallery;
 @synthesize locationmanager;
+@synthesize myTextField;
 
 /* Instance variables */
 double longitude;
@@ -189,5 +190,37 @@ NSURL * imgPickerUrl;
     region.span.longitudeDelta = 0.1;
     region.span.latitudeDelta = 0.1;
     [mapView setRegion:region animated:YES];
+}
+
+- (IBAction)openURLAction:(id)sender
+{
+    UIAlertView *openURLAlert = [[UIAlertView alloc] initWithTitle:@"Enter URL here" message:@"Please Enter URL" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    
+    myTextField = [[UITextField alloc] initWithFrame: CGRectMake(12.0, 50.0, 260.0, 25.0)];
+    [myTextField setBackgroundColor:[UIColor whiteColor]];
+    [openURLAlert addSubview: myTextField];
+    myTextField.placeholder = @"Type here";
+    myTextField.borderStyle = UITextBorderStyleBezel;
+    myTextField.returnKeyType = UIReturnKeyDone;
+    myTextField.delegate = self;
+    
+    [openURLAlert show];
+}
+
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    UIAlertView *noURLAlert = [[UIAlertView alloc] initWithTitle:@"ALERT" message:@"You have not put any URL" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    
+    if (buttonIndex == 1) {
+        
+        if([myTextField.text length]==0){
+            [noURLAlert show];
+        }else{
+            NSString *URL;
+            URL = myTextField.text;
+            imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: URL]]];         
+            }                  
+        }           
 }
 @end

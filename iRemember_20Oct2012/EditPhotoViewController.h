@@ -34,7 +34,7 @@
 #import "CoreLocation/CoreLocation.h"
 #import <MapKit/MapKit.h>
 
-@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate> 
+@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate>
 
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
 @property(nonatomic, retain) UIImagePickerController *picker2;
@@ -44,9 +44,13 @@
 @property(nonatomic, retain) IBOutlet CLLocationManager *locationManager;
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 
+@property (strong, nonatomic) IBOutlet UITextField *myTextField;
+
 - (IBAction)galleryAction;
 - (IBAction)geotagAction:(id)sender;
 - (IBAction)viewAction:(id)sender;
+
+- (IBAction)openURLAction:(id)sender;
 
 @end
 
