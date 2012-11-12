@@ -290,6 +290,7 @@ NSURL *imageURL;
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     UIAlertView *noURLAlert = [[UIAlertView alloc] initWithTitle:@"ALERT" message:@"You have not put any URL" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    UIImage *urlImage;
     
     if (buttonIndex == 1) {
         
@@ -298,8 +299,22 @@ NSURL *imageURL;
         }else{
             NSString *URL;
             URL = myTextField.text;
-            imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: URL]]];         
-            }                  
-        }           
+            //imageView.image =
+            urlImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: URL]]];
+            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+            [library writeImageToSavedPhotosAlbum:[urlImage CGImage] orientation:   (ALAssetOrientation)[urlImage imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error)
+            {
+                if (error)
+                {
+                    NSLog(@"Error loading image");
+                } 
+                else 
+                {
+                    imageView.image = urlImage;
+                    imgPickerUrl = assetURL;
+                }  
+            }];
+        }
+    }
 }
 @end
