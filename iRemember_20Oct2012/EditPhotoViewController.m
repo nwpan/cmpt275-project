@@ -129,11 +129,23 @@ NSURL *imageURL;
         markUpPhoto.photoImage = imageView.image;
     }
     
-    //if([segue.identifier isEqualToString:@"geotagSegue"])
-    //{
-    //    ViewGeotagViewController *viewGeotag = [segue destinationViewController];
-    //    viewGeotag.region = region;
-    //}
+    //If the user presses the "View" button, the little map beside the button should
+    //transfer to a fullsized map.  The small map will be retained
+    if([segue.identifier isEqualToString:@"geotagSegue"])
+    {
+        NSString *URLString = [imageURL absoluteString];
+        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+        Geotag *geotag = [Geotag MR_findByAttribute:@"image_id" withValue:URLString inContext:localContext].lastObject;
+        MKCoordinateRegion regionSent;
+        double latitude = [geotag.latitude doubleValue];
+        double longitude = [geotag.longitude doubleValue];
+        regionSent.center.latitude = latitude;
+        regionSent.center.longitude = longitude;
+        regionSent.span.longitudeDelta = 0.1;
+        regionSent.span.latitudeDelta = 0.1;
+        ViewGeotagViewController *viewGeotag = [segue destinationViewController];
+        viewGeotag.region = regionSent;
+    }
 }
 
 -(void)takePicture:(id)sender

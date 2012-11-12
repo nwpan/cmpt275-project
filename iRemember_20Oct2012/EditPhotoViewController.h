@@ -30,6 +30,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MarkUpControl.h"
+#import "ViewGeotagViewController.h"
 
 #import "CoreLocation/CoreLocation.h"
 #import <MapKit/MapKit.h>

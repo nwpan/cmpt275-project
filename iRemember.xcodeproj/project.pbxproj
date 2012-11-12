@@ -102,6 +102,7 @@
 		F3F0B4DC165047AC0008EFCF /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B4DB165047AC0008EFCF /* Image.m */; };
 		F3F0B4DF165047AD0008EFCF /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B4DE165047AD0008EFCF /* Tag.m */; };
 		F3F0B4E2165047AD0008EFCF /* Geotag.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B4E1165047AD0008EFCF /* Geotag.m */; };
+		F3F0B591165077860008EFCF /* ViewGeotagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F0B590165077860008EFCF /* ViewGeotagViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,8 +223,6 @@
 		E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F389FE93163364150043C395 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F389FE95163364280043C395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F3CAD42A164EFB0E0096EFC3 /* ViewGeotagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewGeotagViewController.h; path = ../ViewGeotagViewController.h; sourceTree = "<group>"; };
-		F3CAD42B164EFB0E0096EFC3 /* ViewGeotagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewGeotagViewController.m; path = ../ViewGeotagViewController.m; sourceTree = "<group>"; };
 		F3F0B4D6165047AC0008EFCF /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		F3F0B4D7165047AC0008EFCF /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		F3F0B4DA165047AC0008EFCF /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -232,6 +231,8 @@
 		F3F0B4DE165047AD0008EFCF /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		F3F0B4E0165047AD0008EFCF /* Geotag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geotag.h; sourceTree = "<group>"; };
 		F3F0B4E1165047AD0008EFCF /* Geotag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geotag.m; sourceTree = "<group>"; };
+		F3F0B58F165077860008EFCF /* ViewGeotagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewGeotagViewController.h; sourceTree = "<group>"; };
+		F3F0B590165077860008EFCF /* ViewGeotagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewGeotagViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,8 +489,6 @@
 				810B7857164EE34800BED1BD /* MagicalRecord */,
 				23BACF6E163367950071E5B6 /* LoginViewController.h */,
 				23BACF6F163367950071E5B6 /* LoginViewController.m */,
-				F3CAD42A164EFB0E0096EFC3 /* ViewGeotagViewController.h */,
-				F3CAD42B164EFB0E0096EFC3 /* ViewGeotagViewController.m */,
 				E8C529C21633300800BF8231 /* MainMenuViewController.h */,
 				E8C529C31633300800BF8231 /* MainMenuViewController.m */,
 				E8C529C51633301600BF8231 /* EditPhotoViewController.h */,
@@ -497,6 +496,8 @@
 				E8C5299716332E3600BF8231 /* AppDelegate.h */,
 				E8C5299816332E3600BF8231 /* AppDelegate.m */,
 				E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */,
+				F3F0B58F165077860008EFCF /* ViewGeotagViewController.h */,
+				F3F0B590165077860008EFCF /* ViewGeotagViewController.m */,
 				CE393C21163540AC00563248 /* InfoPage */,
 				CE393C1F1635408C00563248 /* Search */,
 				9EFE2F9A1633AB7A00EB264C /* MarkUp */,
@@ -703,6 +704,7 @@
 				F3F0B4DC165047AC0008EFCF /* Image.m in Sources */,
 				F3F0B4DF165047AD0008EFCF /* Tag.m in Sources */,
 				F3F0B4E2165047AD0008EFCF /* Geotag.m in Sources */,
+				F3F0B591165077860008EFCF /* ViewGeotagViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
