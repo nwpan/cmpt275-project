@@ -108,8 +108,8 @@ NSURL *imageURL;
         NSLog(@"CREAING NEW GEOTAG");
         Geotag *geotag = [Geotag MR_createInContext:localContext];
         geotag.image_id = URLString;
-        geotagFound.latitude = [NSNumber numberWithDouble:latitude];
-        geotagFound.longitude = [NSNumber numberWithDouble:longitude];
+        geotag.latitude = [NSNumber numberWithDouble:latitude];
+        geotag.longitude = [NSNumber numberWithDouble:longitude];
         geotag.date = now;
         
         [localContext MR_saveNestedContexts];
@@ -246,16 +246,25 @@ NSURL *imageURL;
     NSString *URLString = [imageURL absoluteString];
     NSArray *foundArray = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
     
-    Geotag *found = [foundArray objectAtIndex:0];
+    if ([foundArray count] > 0)
+    {
+        Geotag *found = [foundArray objectAtIndex:0];
     
-    latitude = [found.latitude doubleValue];
-    longitude = [found.longitude doubleValue];
+        latitude = [found.latitude doubleValue];
+        longitude = [found.longitude doubleValue];
     
-    MKCoordinateRegion region;
-    region.center.latitude = latitude;
-    region.center.longitude = longitude;
-    region.span.longitudeDelta = 0.1;
-    region.span.latitudeDelta = 0.1;
-    [mapView setRegion:region animated:YES];
+        MKCoordinateRegion region;
+        region.center.latitude = latitude;
+        region.center.longitude = longitude;
+        region.span.longitudeDelta = 0.1;
+        region.span.latitudeDelta = 0.1;
+        [mapView setRegion:region animated:YES];
+    }
+    
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"This picture has no geotag.  Display failed." delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 @end
