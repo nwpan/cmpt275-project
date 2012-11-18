@@ -35,7 +35,7 @@
 #import "CoreLocation/CoreLocation.h"
 #import <MapKit/MapKit.h>
 
-@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate>
+@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate, UITabBarDelegate>
 
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
 @property(nonatomic, retain) UIImagePickerController *picker2;
@@ -46,12 +46,23 @@
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic) IBOutlet UITextField *myTextField;
+@property (strong, nonatomic) UIImage *myImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UITabBar *tabBar;
+@property (strong, nonatomic) UITabBarItem *tagTabBarItem;
+@property (strong, nonatomic) UITabBarItem *noteTabBarItem;
+@property (strong, nonatomic) UITabBarItem *drawTabBarItem;
+@property (strong, nonatomic) NSArray *tabItems;
 
 - (IBAction)galleryAction;
 - (IBAction)geotagAction:(id)sender;
 - (IBAction)viewAction:(id)sender;
 
 - (IBAction)openURLAction:(id)sender;
+
+
 
 @end
 

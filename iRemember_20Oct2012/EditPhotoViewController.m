@@ -31,6 +31,7 @@
 #import "MarkUpControl.h"
 #import "ViewGeotagViewController.h"
 #import "Geotag.h"
+#import "drawOnImage.h"
 
 
 @interface EditPhotoViewController ()
@@ -38,6 +39,8 @@
 @end
 
 @implementation EditPhotoViewController
+@synthesize locationLabel;
+@synthesize dateLabel;
 
 @synthesize locationManager;
 @synthesize mapView;
@@ -46,7 +49,8 @@
 @synthesize picker2;
 @synthesize gallery;
 @synthesize locationmanager;
-@synthesize myTextField;
+@synthesize myTextField, myImage;
+@synthesize tabBar, tagTabBarItem, noteTabBarItem, drawTabBarItem, tabItems;
 
 /* Instance variables */
 double longitude;
@@ -183,6 +187,53 @@ NSURL *imageURL;
     UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePicture:)];
     
     [[self navigationItem] setRightBarButtonItem:cameraBarButtonItem];
+    
+    [self tabBarSet];
+}
+
+-(void)tabBarSet
+{
+    tabBar = [[UITabBar alloc] initWithFrame:CGRectMake(0, 376, 320, 44)];
+    [[self tabBar] setBackgroundColor:[UIColor greenColor]];
+    
+    tagTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Tag" image:[UIImage imageNamed:@"tab.png"] tag:0];
+    noteTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Note" image:[UIImage imageNamed:@"tab.png"] tag:1];
+    drawTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Draw" image:[UIImage imageNamed:@"tab.png"] tag:2];
+    
+    
+    
+    tabItems = [NSArray arrayWithObjects:tagTabBarItem, noteTabBarItem, drawTabBarItem, nil];
+    [tabBar setItems:tabItems];
+    [tabBar setSelectedItem:nil];
+    tabBar.delegate = self;
+    
+    [self.view addSubview:tabBar];
+}
+
+-(void) tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    if(item.tag == 0)
+    {
+        [self tagAction];
+    }
+    
+    else if(item.tag == 1)
+    {
+        [self noteAction];
+    }
+    else if(item.tag == 2)
+    {
+        [self drawAction];
+    }
+    else if (item.tag == 3)
+    {
+        [self saveAction];
+    }
+    else if (item.tag == 4)
+    {
+        [self cancelAction];
+    }
+
 }
 
 //a function to open the gallery
@@ -194,6 +245,7 @@ NSURL *imageURL;
     [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentModalViewController:picker2 animated:YES];
 }
+
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -223,12 +275,15 @@ NSURL *imageURL;
 {
     [super viewDidLoad];
     [self setup];
+    [imageView setImage:myImage];
 	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
 {
     [self setLocationManager:nil];
+    [self setLocationLabel:nil];
+    [self setDateLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -238,12 +293,46 @@ NSURL *imageURL;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)tagAction
+{
+    NSLog(@"Tag");
+}
+
+-(void)noteAction
+{
+    NSLog(@"note");
+}
+
+-(void)drawAction
+{
+    NSLog(@"draw");
+    UITabBarItem *saveTabBarItem = [[UITabBarItem alloc]initWithTitle:@"Save" image:[UIImage imageNamed:@"tab.png"] tag:3];
+    UITabBarItem *cancelTabBarItem = [[UITabBarItem alloc]initWithTitle:@"Cancel" image:[UIImage imageNamed:@"tab.png"] tag:4];
+    NSArray *drawItems = [[NSArray alloc]initWithObjects:saveTabBarItem, cancelTabBarItem, nil];
+    [tabBar setItems:drawItems];
+   // drawOnImage *drawStart = [[drawOnImage alloc]init];
+}
+
+-(void)saveAction
+{
+    NSLog(@"save");
+    [tabBar setItems:tabItems];
+}
+
+-(void)cancelAction
+{
+    NSLog(@"cancel");
+    [tabBar setItems:tabItems];
+}
+
 - (IBAction)geotagAction:(id)sender
 {
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
 }
 
+
+//view map
 - (IBAction)viewAction:(id)sender
 {
     NSString *URLString = [imageURL absoluteString];
@@ -290,6 +379,7 @@ NSURL *imageURL;
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     UIAlertView *noURLAlert = [[UIAlertView alloc] initWithTitle:@"ALERT" message:@"You have not put any URL" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    UIAlertView *wrongURLAlert = [[UIAlertView alloc] initWithTitle:@"ALERT" message:@"You have typed invalid URL" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
     UIImage *urlImage;
     
     if (buttonIndex == 1) {
@@ -306,7 +396,7 @@ NSURL *imageURL;
             {
                 if (error)
                 {
-                    NSLog(@"Error loading image");
+                    [wrongURLAlert show];
                 } 
                 else 
                 {
@@ -317,4 +407,5 @@ NSURL *imageURL;
         }
     }
 }
+
 @end

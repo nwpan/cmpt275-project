@@ -23,6 +23,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #import "MainMenuViewController.h"
+#import "EditPhotoViewController.h"
 
 @interface MainMenuViewController () 
 
@@ -30,13 +31,127 @@
 
 @implementation MainMenuViewController
 
+@synthesize photoImage, myTextField;
 
--(IBAction)gallery{
-    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-    picker.sourceType =UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    [[self navigationController] presentModalViewController:picker animated:YES];
+-(IBAction)alert
+{
+    //photo selection menu
+    UIAlertView *alertMenu = [[UIAlertView alloc] initWithTitle:@"Select Photo" message:@"Select Photo" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"From Album", @"From Internet", @"Search", nil];
+    
+    [alertMenu show];
+    
+}
+
+- (IBAction)selectPhotoAction:(id)sender {
+    
+    [self alert];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex]; //stores title of buttons on the alert
+    //NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    UIAlertView *noURLAlert = [[UIAlertView alloc] initWithTitle:@"ALERT" message:@"You have not put any URL" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    UIAlertView *wrongURLAlert = [[UIAlertView alloc] initWithTitle:@"ALERT" message:@"You have typed invalid URL" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    UIImage *urlImage;
+    
+    if([title isEqualToString:@"From Album"]) //show photo album to pick photoes from
+    {
+        [self showPhotoLibrary];
+        
+    }
+    
+    else if([title isEqualToString:@"From Internet"]) //show alertmenu to type in URL
+    {
+        
+        UIAlertView *openURLAlert = [[UIAlertView alloc] initWithTitle:@"Enter URL here" message:@"Please Enter URL" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        myTextField = [self alertMenuField];
+        [openURLAlert addSubview:myTextField];
+        [openURLAlert show];
+        
+    }
+    else if([title isEqualToString:@"Search"]) //Move to search view
+    {
+        [self performSegueWithIdentifier:@"searchViewSegue" sender:self];        
+    }
+    else if ([title isEqualToString:@"OK"]) {
+        
+        if([myTextField.text length]==0)
+        {
+            [noURLAlert show];
+        }
+        else
+        {
+            NSString *URL;
+            URL = myTextField.text;
+            
+            urlImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: URL]]];
+            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+            
+            [library writeImageToSavedPhotosAlbum:[urlImage CGImage] orientation:   (ALAssetOrientation)[urlImage imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error)
+             {
+                 if (error)
+                 {
+                     [wrongURLAlert show];
+                 }
+                 else
+                 {
+                     NSLog(@"image loaded");
+                     photoImage = urlImage;
+                     [self performSegueWithIdentifier:@"imageDetailSegue" sender:self];
+                     //imageView.image = urlImage;
+                     //imgPickerUrl = assetURL;
+                 }
+             }];
+        }
+    }
+}
+
+-(void) showPhotoLibrary
+{
+    UIImagePickerController *myImagePicker;
+    myImagePicker = [[UIImagePickerController alloc]init];
+    myImagePicker.delegate = self;
+    [myImagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentModalViewController:myImagePicker animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //Get image
+    photoImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    //Segue to imageDetailView and take image picker off the screen
+    [self performSegueWithIdentifier:@"imageDetailSegue" sender:self];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"imageDetailSegue"])
+    {
+        EditPhotoViewController *editPhoto = [segue destinationViewController];
+        editPhoto.myImage = photoImage;
+    }
+}
+
+-(UITextField *) alertMenuField
+{
+    UITextField *tempTextField;
+    tempTextField = [[UITextField alloc] initWithFrame: CGRectMake(12.0, 50.0, 260.0, 25.0)];
+    [tempTextField setBackgroundColor:[UIColor whiteColor]];
+    tempTextField.placeholder = @"Type here";
+    tempTextField.borderStyle = UITextBorderStyleBezel;
+    tempTextField.returnKeyType = UIReturnKeyDone;
+    tempTextField.delegate = self;
+    
+    return tempTextField;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -69,17 +184,6 @@
     [self presentModalViewController:imagePicker animated:YES];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    //Get image
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    //UIImageView *imageView = nil;
-    
-    [self.imageView setImage:image];
-    // Take image picker off the screen (required)
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 -(void) setup
 {
     [self setupAppearance];
@@ -95,11 +199,6 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:[defaults objectForKey:@"user_id"] delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
-    //[alert show];
     [self setup];
 }
 

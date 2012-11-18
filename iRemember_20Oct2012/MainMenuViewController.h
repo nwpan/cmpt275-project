@@ -25,12 +25,15 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface MainMenuViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface MainMenuViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) UIImage *photoImage;
+@property (nonatomic, strong) UITextField *myTextField;
 
 @property (nonatomic, retain) AppDelegate *app;
 
--(IBAction)gallery;
+-(IBAction) alert;
+- (IBAction)selectPhotoAction:(id)sender;
 
 @end
