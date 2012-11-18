@@ -29,6 +29,7 @@
 @end
 
 @implementation MainMenuViewController
+@synthesize TestButton;
 
 
 -(IBAction)gallery{
@@ -105,6 +106,7 @@
 
 - (void)viewDidUnload
 {
+    [self setTestButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -32,5 +32,6 @@
 @property (nonatomic, retain) AppDelegate *app;
 
 -(IBAction)gallery;
+@property (strong, nonatomic) IBOutlet UIButton *TestButton;
 
 @end
