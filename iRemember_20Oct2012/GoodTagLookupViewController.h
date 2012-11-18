@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GoodImageViewController.h"
 
 @interface GoodTagLookupViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 

@@ -48,12 +48,12 @@
 @synthesize locationmanager;
 @synthesize myTextField;
 
+@synthesize imgPickerUrl;
+@synthesize imageURL;
+
 /* Instance variables */
 double longitude;
 double latitude;
-
-NSURL * imgPickerUrl;
-NSURL *imageURL;
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
@@ -183,6 +183,35 @@ NSURL *imageURL;
     UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePicture:)];
     
     [[self navigationItem] setRightBarButtonItem:cameraBarButtonItem];
+    __block UIImage *image;
+    ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
+    
+    
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+    {
+        ALAssetRepresentation *rep = [myasset defaultRepresentation];
+        CGImageRef iref = [rep fullResolutionImage];
+        if (iref) {
+            image = [UIImage imageWithCGImage:iref];
+            imgPickerUrl = self.imageURL;
+            [imageView setImage:image];
+        }
+    };
+    
+    //
+    ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
+    {
+        NSLog(@"booya, cant get image - %@",[myerror localizedDescription]);
+    };
+    
+    NSURL *url = imageURL;
+    if (url != nil)
+    {
+        [assetslibrary assetForURL:url
+                   resultBlock:resultblock
+                  failureBlock:failureblock];
+    }
+
 }
 
 //a function to open the gallery
@@ -197,32 +226,9 @@ NSURL *imageURL;
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    __block UIImage *image;
-    ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
-
-    
-    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
-    {
-        ALAssetRepresentation *rep = [myasset defaultRepresentation];
-        CGImageRef iref = [rep fullResolutionImage];
-        if (iref) {
-            image = [UIImage imageWithCGImage:iref];
-            [imageView setImage:image];
-        }
-    };
-    
-    //
-    ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
-    {
-        NSLog(@"booya, cant get image - %@",[myerror localizedDescription]);
-    };
-    NSURL *url = [[NSURL alloc] initWithString:@"assets-library://asset/asset.JPG?id=F7D52C1B-DAE7-421D-9BF2-4790D31FD52E&ext=JPG"];
-    [assetslibrary assetForURL:url
-                   resultBlock:resultblock
-                  failureBlock:failureblock];
-    
-    //imageURL = [info objectForKey:UIImagePickerControllerReferenceURL];
-    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    imageURL = [info objectForKey:UIImagePickerControllerReferenceURL];
+    [imageView setImage:image];
     imgPickerUrl = [info valueForKey: UIImagePickerControllerReferenceURL];
     [self dismissModalViewControllerAnimated:YES];
 }

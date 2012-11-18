@@ -175,6 +175,39 @@ http://projects.nicholaspan.com/cmpt275/
             </objects>
             <point key="canvasLocation" x="1014" y="1433"/>
         </scene>
+        <!--Good Image View Controller-->
+        <scene sceneID="f1P-qn-aBg">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TQt-mO-Vcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="PMd-DF-4fI" customClass="GoodImageViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9gD-Yq-JnN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="GEn-QK-kow">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PMd-DF-4fI" id="Ny5-UK-PbT"/>
+                            <outlet property="delegate" destination="PMd-DF-4fI" id="YhS-Wq-7o4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="CpR-3F-awP"/>
+                    <connections>
+                        <segue destination="gfd-N3-8sy" kind="push" identifier="selectedImageSegue" id="QWf-CX-BLy"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1349" y="1093"/>
+        </scene>
         <!--Good Tag Lookup View Controller-->
         <scene sceneID="qr0-TU-ZOA">
             <objects>
@@ -185,11 +218,11 @@ http://projects.nicholaspan.com/cmpt275/
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="F0B-dd-beH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="F0B-dd-beH">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -201,6 +234,9 @@ http://projects.nicholaspan.com/cmpt275/
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="exh-MM-JZ8"/>
+                    <connections>
+                        <segue destination="PMd-DF-4fI" kind="push" identifier="tagSearchSegue" id="G3l-zZ-htW"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1198" y="191"/>
@@ -546,4 +582,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="QWf-CX-BLy"/>
+    </inferredMetricsTieBreakers>
 </document>

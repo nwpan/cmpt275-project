@@ -97,6 +97,7 @@
 		E8C529C41633300800BF8231 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529C31633300800BF8231 /* MainMenuViewController.m */; };
 		E8C529C71633301600BF8231 /* EditPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C529C61633301600BF8231 /* EditPhotoViewController.m */; };
 		E8C529CC163335A900BF8231 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */; };
+		F35BDAB516586BFD001268D2 /* GoodImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35BDAB416586BFD001268D2 /* GoodImageViewController.m */; };
 		F389FE94163364150043C395 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE93163364150043C395 /* CoreLocation.framework */; };
 		F389FE96163364280043C395 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F389FE95163364280043C395 /* MapKit.framework */; };
 		F3D69BF516584809003CDD9D /* GoodTagLookupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D69BF416584809003CDD9D /* GoodTagLookupViewController.m */; };
@@ -228,6 +229,8 @@
 		E8C529C51633301600BF8231 /* EditPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPhotoViewController.h; sourceTree = "<group>"; };
 		E8C529C61633301600BF8231 /* EditPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPhotoViewController.m; sourceTree = "<group>"; };
 		E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		F35BDAB316586BFD001268D2 /* GoodImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodImageViewController.h; sourceTree = "<group>"; };
+		F35BDAB416586BFD001268D2 /* GoodImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodImageViewController.m; sourceTree = "<group>"; };
 		F389FE93163364150043C395 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F389FE95163364280043C395 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F3D69BF316584809003CDD9D /* GoodTagLookupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodTagLookupViewController.h; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 				E8C5299716332E3600BF8231 /* AppDelegate.h */,
 				E8C5299816332E3600BF8231 /* AppDelegate.m */,
 				E8C529CB163335A900BF8231 /* MainStoryboard_iPhone.storyboard */,
+				F35BDAB316586BFD001268D2 /* GoodImageViewController.h */,
+				F35BDAB416586BFD001268D2 /* GoodImageViewController.m */,
 				F3D69BF316584809003CDD9D /* GoodTagLookupViewController.h */,
 				F3D69BF416584809003CDD9D /* GoodTagLookupViewController.m */,
 				F3F0B58F165077860008EFCF /* ViewGeotagViewController.h */,
@@ -723,6 +728,7 @@
 				F3F0B4E2165047AD0008EFCF /* Geotag.m in Sources */,
 				F3F0B591165077860008EFCF /* ViewGeotagViewController.m in Sources */,
 				F3D69BF516584809003CDD9D /* GoodTagLookupViewController.m in Sources */,
+				F35BDAB516586BFD001268D2 /* GoodImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

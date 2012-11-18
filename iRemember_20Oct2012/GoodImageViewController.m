@@ -1,22 +1,23 @@
 //
-//  GoodTagLookupViewController.m
+//  GoodImageViewController.m
 //  iRemember
 //
 //  Created by Jake Nagazine on 11/17/12.
 //  Copyright (c) 2012 Double One. All rights reserved.
 //
 
-#import "GoodTagLookupViewController.h"
-#import "Tag.h"
+#import "GoodImageViewController.h"
 
-@interface GoodTagLookupViewController ()
+@interface GoodImageViewController ()
 
 @end
 
-@implementation GoodTagLookupViewController
+@implementation GoodImageViewController
 
-NSArray *uniqueTagsArray;
-NSString *selectedWord;
+@synthesize selectedWord;
+
+NSArray *uniqueImagePathArray;
+NSURL *selectedURL;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,15 +31,16 @@ NSString *selectedWord;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *sortedTags = [Tag MR_findAllSortedBy:@"word" ascending:NO];
-    NSMutableArray *sortedWords = [[NSMutableArray alloc] init];
-    for (int i=0; i<[sortedTags count]; i++)
+    
+    NSArray *tagsWithWord   = [Tag MR_findByAttribute:@"word" withValue: selectedWord];
+    NSMutableArray *sortedImagePath = [[NSMutableArray alloc] init];
+    for (int i=0; i<[tagsWithWord count]; i++)
     {
-        [sortedWords addObject: ((Tag*)[sortedTags objectAtIndex:i]).word];
+        [sortedImagePath addObject: ((Tag*)[tagsWithWord objectAtIndex:i]).image_path];
     }
-    NSSet *uniqueTags = [NSSet setWithArray: sortedWords];
-    uniqueTagsArray = [uniqueTags allObjects];
-
+    NSSet *uniqueImages = [NSSet setWithArray: sortedImagePath];
+     
+    uniqueImagePathArray = [uniqueImages allObjects];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -64,7 +66,7 @@ NSString *selectedWord;
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [uniqueTagsArray count];
+    return [uniqueImagePathArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,7 +81,32 @@ NSString *selectedWord;
     
     // Configure the cell...
     
-    cell.textLabel.text = [uniqueTagsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [uniqueImagePathArray objectAtIndex:indexPath.row];
+    
+    __block UIImage *image;
+    ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
+    
+    
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+    {
+        ALAssetRepresentation *rep = [myasset defaultRepresentation];
+        CGImageRef iref = [rep fullResolutionImage];
+        if (iref) {
+            image = [UIImage imageWithCGImage:iref];
+            cell.imageView.image = image;
+           // [self.tableView reloadData];
+        }
+    };
+    
+    //
+    ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
+    {
+        NSLog(@"booya, cant get image - %@",[myerror localizedDescription]);
+    };
+    NSURL *url = [[NSURL alloc] initWithString:[uniqueImagePathArray objectAtIndex:indexPath.row]];
+    [assetslibrary assetForURL:url
+                   resultBlock:resultblock
+                  failureBlock:failureblock];
     
     return cell;
 }
@@ -127,18 +154,16 @@ NSString *selectedWord;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    selectedWord = [uniqueTagsArray objectAtIndex:[indexPath row]];
-    [self performSegueWithIdentifier:@"tagSearchSegue" sender:self];
+    selectedURL = [[NSURL alloc] initWithString:[uniqueImagePathArray objectAtIndex:[indexPath row]]];
+    [self performSegueWithIdentifier:@"selectedImageSegue" sender:self];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"tagSearchSegue"])
+    if([segue.identifier isEqualToString:@"selectedImageSegue"])
     {
-        NSString *word = selectedWord;
-
-        GoodImageViewController *goodImage = [segue destinationViewController];
-        goodImage.selectedWord = word;
+        EditPhotoViewController *editPhoto = [segue destinationViewController];
+        editPhoto.imageURL = selectedURL;
     }
 }
 

@@ -47,6 +47,10 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *myTextField;
 
+
+@property (strong, nonatomic) NSURL * imgPickerUrl;
+@property (strong, nonatomic) NSURL *imageURL;
+
 - (IBAction)galleryAction;
 - (IBAction)geotagAction:(id)sender;
 - (IBAction)viewAction:(id)sender;
