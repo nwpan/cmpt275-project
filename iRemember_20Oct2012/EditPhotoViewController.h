@@ -56,6 +56,10 @@
 @property (strong, nonatomic) UITabBarItem *drawTabBarItem;
 @property (strong, nonatomic) NSArray *tabItems;
 
+
+@property (strong, nonatomic) NSURL * imgPickerUrl;
+@property (strong, nonatomic) NSURL *imageURL;
+
 - (IBAction)galleryAction;
 - (IBAction)geotagAction:(id)sender;
 - (IBAction)viewAction:(id)sender;

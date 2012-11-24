@@ -35,5 +35,7 @@
 
 -(IBAction) alert;
 - (IBAction)selectPhotoAction:(id)sender;
+-(IBAction)gallery;
+@property (strong, nonatomic) IBOutlet UIButton *TestButton;
 
 @end

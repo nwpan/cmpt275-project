@@ -30,6 +30,7 @@
 @end
 
 @implementation MainMenuViewController
+@synthesize TestButton;
 
 @synthesize photoImage, myTextField;
 
@@ -204,6 +205,7 @@
 
 - (void)viewDidUnload
 {
+    [self setTestButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

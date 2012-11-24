@@ -130,6 +130,25 @@ We noticed this is the first time you're launching this app. Click the button ab
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1rm-uk-Vw0" kind="push" id="792-3l-PkZ"/>
+                                </connections>
+                            </button>
+
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Cj9-Lu-VUo">
+                                <rect key="frame" x="124" y="189" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Test">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="1rm-uk-Vw0" kind="push" id="792-3l-PkZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -138,6 +157,7 @@ We noticed this is the first time you're launching this app. Click the button ab
                     <connections>
                         <segue destination="txK-y7-nAW" kind="push" identifier="searchViewSegue" id="al6-KB-hb6"/>
                         <segue destination="gfd-N3-8sy" kind="push" identifier="imageDetailSegue" id="2vI-7h-2IY"/>
+                        <outlet property="TestButton" destination="Cj9-Lu-VUo" id="R6S-te-lqE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5v-7Q-fNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,6 +192,72 @@ http://projects.nicholaspan.com/cmpt275/
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WED-We-aG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="172" y="857"/>
+        </scene>
+        <!--Good Image View Controller-->
+        <scene sceneID="f1P-qn-aBg">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TQt-mO-Vcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="PMd-DF-4fI" customClass="GoodImageViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9gD-Yq-JnN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="GEn-QK-kow">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PMd-DF-4fI" id="Ny5-UK-PbT"/>
+                            <outlet property="delegate" destination="PMd-DF-4fI" id="YhS-Wq-7o4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="CpR-3F-awP"/>
+                    <connections>
+                        <segue destination="gfd-N3-8sy" kind="push" identifier="selectedImageSegue" id="QWf-CX-BLy"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1349" y="1093"/>
+        </scene>
+        <!--Good Tag Lookup View Controller-->
+        <scene sceneID="qr0-TU-ZOA">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Xl-Uf-beU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="1rm-uk-Vw0" customClass="GoodTagLookupViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0bQ-gg-vYL">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="F0B-dd-beH">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1rm-uk-Vw0" id="qd8-dN-5i1"/>
+                            <outlet property="delegate" destination="1rm-uk-Vw0" id="hVp-Nv-L0W"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="exh-MM-JZ8"/>
+                    <connections>
+                        <segue destination="PMd-DF-4fI" kind="push" identifier="tagSearchSegue" id="G3l-zZ-htW"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1198" y="191"/>
         </scene>
         <!--Search By Day View Controller-->
         <scene sceneID="Hxu-OP-XLp">
@@ -562,4 +648,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="QWf-CX-BLy"/>
+    </inferredMetricsTieBreakers>
 </document>
