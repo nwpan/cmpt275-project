@@ -35,7 +35,7 @@
 #import "CoreLocation/CoreLocation.h"
 #import <MapKit/MapKit.h>
 
-@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate, UITabBarDelegate>
+@interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate, UITabBarDelegate, UITextViewDelegate>
 
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
 @property(nonatomic, retain) UIImagePickerController *picker2;
@@ -45,6 +45,7 @@
 @property(nonatomic, retain) IBOutlet CLLocationManager *locationManager;
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UITextField *myTextField;
 @property (strong, nonatomic) UIImage *myImage;
 
@@ -57,15 +58,20 @@
 @property (strong, nonatomic) NSArray *tabItems;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *drawingView;
 @property (strong, nonatomic) NSURL * imgPickerUrl;
 @property (strong, nonatomic) NSURL *imageURL;
+@property (weak, nonatomic) NSURL *photoUrl;
+@property (strong, nonatomic) NSString *textFieldString;
+@property (strong, nonatomic) UITextField *saveField;
+
 
 - (IBAction)galleryAction;
 - (IBAction)geotagAction:(id)sender;
 - (IBAction)viewAction:(id)sender;
 
 - (IBAction)openURLAction:(id)sender;
-
+- (IBAction) alert;
 
 
 @end

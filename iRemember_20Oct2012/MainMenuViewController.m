@@ -34,6 +34,8 @@
 
 @synthesize photoImage, myTextField;
 
+NSURL *imagePickerUrl;
+
 -(IBAction)alert
 {
     //photo selection menu
@@ -122,10 +124,11 @@
 {
     //Get image
     photoImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
+    imagePickerUrl = [info valueForKey: UIImagePickerControllerReferenceURL];
     //Segue to imageDetailView and take image picker off the screen
     [self performSegueWithIdentifier:@"imageDetailSegue" sender:self];
     [self dismissModalViewControllerAnimated:YES];
+    
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -139,6 +142,8 @@
     {
         EditPhotoViewController *editPhoto = [segue destinationViewController];
         editPhoto.myImage = photoImage;
+        editPhoto.photoUrl = imagePickerUrl;
+        editPhoto.imageURL = imagePickerUrl;
     }
 }
 
