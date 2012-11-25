@@ -136,13 +136,7 @@ Note *currentNote;
  */
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"markUpSegue"])
-    {
-        MarkUpControl *markUpPhoto = [segue destinationViewController];
-        markUpPhoto.photoImage = imageView.image;
-        markUpPhoto.photoUrl = imgPickerUrl;
-    }
-    
+     
     //If the user presses the "View" button, the little map beside the button should
     //transfer to a fullsized map.  The small map will be retained
     if([segue.identifier isEqualToString:@"geotagSegue"])
@@ -271,6 +265,7 @@ Note *currentNote;
 
 }
 
+/*
 //a function to open the gallery
 -(IBAction)galleryAction
 {
@@ -288,7 +283,6 @@ Note *currentNote;
     imageURL = [info objectForKey:UIImagePickerControllerReferenceURL];
     [imageView setImage:image];
     imgPickerUrl = [info valueForKey: UIImagePickerControllerReferenceURL];
-    NSLog(@"phtoo: %@", [imageURL absoluteString]);
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -296,7 +290,7 @@ Note *currentNote;
 {
     [self dismissModalViewControllerAnimated:YES];
 }
-
+//*/
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -314,7 +308,7 @@ Note *currentNote;
     [imageView setImage:myImage];
     [drawingView setImage:myImage];
     [textView setDelegate:self];
-    saveField = [self alertTextField];
+   // saveField = [self alertTextField];
 	// Do any additional setup after loading the view.
 }
 
@@ -503,6 +497,7 @@ Note *currentNote;
     }
 }
 
+/*
 - (IBAction)openURLAction:(id)sender
 {
     UIAlertView *openURLAlert = [[UIAlertView alloc] initWithTitle:@"Enter URL here" message:@"Please Enter URL" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -563,6 +558,7 @@ Note *currentNote;
                  else
                  {
                      imageView.image = urlImage;
+                     imageURL = assetURL;
                      imgPickerUrl = assetURL;
                  }
              }
@@ -648,6 +644,6 @@ Note *currentNote;
     [alertTextField setBackgroundColor:[UIColor whiteColor]];
     
     return alertTextField;
-}
+}//*/
 
 @end

@@ -102,9 +102,10 @@ NSURL *imagePickerUrl;
                  {
                      NSLog(@"image loaded");
                      photoImage = urlImage;
+                     imagePickerUrl = assetURL;
                      [self performSegueWithIdentifier:@"imageDetailSegue" sender:self];
                      //imageView.image = urlImage;
-                     //imgPickerUrl = assetURL;
+                     
                  }
              }];
         }

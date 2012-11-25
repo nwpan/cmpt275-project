@@ -356,7 +356,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="8wj-YQ-l22">
             <objects>
                 <viewController id="gfd-N3-8sy" customClass="EditPhotoViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CPP-mW-WEg" customClass="drawOnImage">
+                    <view key="view" contentMode="scaleToFill" id="CPP-mW-WEg">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
