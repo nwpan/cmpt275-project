@@ -39,6 +39,7 @@
 @end
 
 @implementation EditPhotoViewController
+@synthesize updateGeotagAction;
 @synthesize locationLabel;
 @synthesize dateLabel;
 
@@ -64,7 +65,26 @@ double longitude;
 double latitude;
 Tag *currentTag;
 Note *currentNote;
+NSString *URLString;
 
+- (IBAction)updateGeotagAction:(id)sender {
+    [self geotagAction];
+    
+    NSString *URLString = [imageURL absoluteString];
+    NSArray *foundArray = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
+    
+    Geotag *found = [foundArray objectAtIndex:0];
+    locationLabel.Text = @"[%u,%u]", found.longitude, found.latitude;
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"MMM d yyyy, K:mm a, z"];
+    
+    NSDate *date = found.date;
+    
+    NSString *dateString = [format stringFromDate: date];
+    
+    dateLabel.Text = dateString;
+}
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
@@ -88,14 +108,8 @@ Note *currentNote;
 
     NSLog(@"- Timestamp: %@\n", dateString);
     
-    NSString *URLString = [imageURL absoluteString];
- /*
-  * NSArray* foo = [URLString componentsSeparatedByString: @"="]; // This code extracts only the ID from the URL.  For simplicity, we are not extracting the ID
-  * NSString* URLPart1 = [foo objectAtIndex: 1];
-  * NSString* URLPart2 = [foo objectAtIndex: 2];
-  * NSString* URLPart3 = [URLPart1 stringByAppendingString:@"="];
-  * NSString* URLID = [URLPart3 stringByAppendingString:URLPart2];
-  */  
+    URLString = [imageURL absoluteString];
+    
     NSLog(@"- ID: %@\n", URLString);
     
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
@@ -309,6 +323,29 @@ Note *currentNote;
     [drawingView setImage:myImage];
     [textView setDelegate:self];
     saveField = [self alertTextField];
+    
+    NSString *URLString = [imageURL absoluteString];
+    NSArray *foundArray = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
+    
+    if ([foundArray count] <= 0)
+    {
+        [self geotagAction];
+    }
+    
+    else
+    {
+        Geotag *found = [foundArray objectAtIndex:0];
+        locationLabel.Text = @"[%u,%u]", found.longitude, found.latitude;
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"MMM d yyyy, K:mm a, z"];
+        
+        NSDate *date = found.date;
+        
+        NSString *dateString = [format stringFromDate: date];
+        
+        dateLabel.Text = dateString;
+    }
 	// Do any additional setup after loading the view.
 }
 
@@ -319,6 +356,7 @@ Note *currentNote;
     [self setDateLabel:nil];
     [self setTextView:nil];
     [self setDrawingView:nil];
+    [self setUpdateGeotagAction:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -462,7 +500,7 @@ Note *currentNote;
     [tabBar setItems:tabItems];
 }
 
-- (IBAction)geotagAction:(id)sender
+- (void)geotagAction
 {
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
