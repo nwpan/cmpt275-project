@@ -30,14 +30,14 @@ NSString *selectedWord;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *sortedTags = [Tag MR_findAllSortedBy:@"word" ascending:NO];
+    NSArray *sortedTags = [Tag MR_findAllSortedBy:@"word" ascending:NO]; // Returns an array of all tags in the database
     NSMutableArray *sortedWords = [[NSMutableArray alloc] init];
-    for (int i=0; i<[sortedTags count]; i++)
+    for (int i=0; i<[sortedTags count]; i++) // Extracts the words from the tags and stores them in a mutable array
     {
         [sortedWords addObject: ((Tag*)[sortedTags objectAtIndex:i]).word];
     }
-    NSSet *uniqueTags = [NSSet setWithArray: sortedWords];
-    uniqueTagsArray = [uniqueTags allObjects];
+    NSSet *uniqueTags = [NSSet setWithArray: sortedWords]; // Puts the words into a set, to remove duplicates
+    uniqueTagsArray = [uniqueTags allObjects]; // Puts the set back into an array.
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -131,6 +131,7 @@ NSString *selectedWord;
     [self performSegueWithIdentifier:@"tagSearchSegue" sender:self];
 }
 
+/* Passes the selected tag word to the GoodImageViewController */
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"tagSearchSegue"])
