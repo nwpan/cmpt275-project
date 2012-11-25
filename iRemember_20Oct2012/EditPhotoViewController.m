@@ -308,7 +308,7 @@ Note *currentNote;
     [imageView setImage:myImage];
     [drawingView setImage:myImage];
     [textView setDelegate:self];
-   // saveField = [self alertTextField];
+    saveField = [self alertTextField];
 	// Do any additional setup after loading the view.
 }
 
@@ -512,7 +512,7 @@ Note *currentNote;
     
     [openURLAlert show];
 }
-
+//*/
 -(IBAction)alert
 {
     //alert with tag options: add, edit, or remove.
@@ -526,47 +526,11 @@ Note *currentNote;
 
 //URL and tag selection options
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSLog(@"%@", [imageURL absoluteString]);
-    UIAlertView *noURLAlert = [[UIAlertView alloc] initWithTitle:@"ALERT" message:@"You have not put any URL" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
-    UIAlertView *wrongURLAlert = [[UIAlertView alloc] initWithTitle:@"ALERT" message:@"You have typed invalid URL" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
-    UIImage *urlImage;
-    
+        
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex]; //stores title of buttons on the alert
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     
-    if ([title isEqualToString:@"OK"]) {
-        
-        if([myTextField.text length]==0)
-        {
-            [noURLAlert show];
-            
-        }
-        
-        else
-        {
-            NSString *URL;
-            URL = myTextField.text;
-            urlImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: URL]]];
-            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-            
-            [library writeImageToSavedPhotosAlbum:[urlImage CGImage] orientation:   (ALAssetOrientation)[urlImage imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error)
-             {
-                 if (error)
-                 {
-                     [wrongURLAlert show];
-                 }
-                 else
-                 {
-                     imageView.image = urlImage;
-                     imageURL = assetURL;
-                     imgPickerUrl = assetURL;
-                 }
-             }
-             ];
-        }
-    }
-    
-    else if([title isEqualToString:@"Add"]) //add the tag to the photo when add is touched
+    if([title isEqualToString:@"Add"]) //add the tag to the photo when add is touched
     {
         //alert with textfield will be created for a user to enter the tag.
         UIAlertView *alertAddMenu = [[UIAlertView alloc] initWithTitle:@"Add a new tag" message:@"Please enter a one word tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",  nil];
@@ -629,8 +593,7 @@ Note *currentNote;
         }
         currentTag.image_path = [imageURL absoluteString];
         
-        [localContext MR_saveNestedContexts]; //write to file if tag is valid.
-        
+        [localContext MR_saveNestedContexts]; //write to file if tag is valid.       
         
         
     }
