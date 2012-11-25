@@ -28,10 +28,10 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #import "EditPhotoViewController.h"
-#import "MarkUpControl.h"
 #import "ViewGeotagViewController.h"
+#import "Tag.h"
+#import "Note.h"
 #import "Geotag.h"
-#import "drawOnImage.h"
 
 
 @interface EditPhotoViewController ()
@@ -44,21 +44,18 @@
 @synthesize dateLabel;
 
 @synthesize locationManager;
+@synthesize locationmanager;
 @synthesize mapView;
 
-@synthesize textView;
+@synthesize locationLabel;
+@synthesize dateLabel;
 
-@synthesize imageView;
-@synthesize picker2;
-@synthesize gallery;
-@synthesize locationmanager;
-@synthesize myTextField, myImage;
-@synthesize tabBar, tagTabBarItem, noteTabBarItem, drawTabBarItem, tabItems;
+@synthesize textView, imageView, drawingView, myImage;
 
-@synthesize drawingView;
-@synthesize imgPickerUrl;
+@synthesize tabBar, tagTabBarItem, noteTabBarItem, drawTabBarItem, tabItems, cameraBarButtonItem;
+
 @synthesize imageURL;
-@synthesize photoUrl, textFieldString, saveField;
+@synthesize textFieldString, saveField;
 
 /* Instance variables */
 double longitude;
@@ -144,8 +141,7 @@ NSString *URLString;
 }
 
 /*
- * When the user press 'Edit' button, the view will be segue to Markup view.
- * The user selected photo will be transfer to markup view to be marked up.
+ * Using information of geotag, map will be displayed on seperate view
  *
  */
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -174,6 +170,7 @@ NSString *URLString;
 {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
+    
     //Use camera if device has one otherwise use photo library
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
@@ -199,7 +196,7 @@ NSString *URLString;
 
 -(void) setupAppearance
 {
-    UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePicture:)];
+    cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePicture:)];
     
     [[self navigationItem] setRightBarButtonItem:cameraBarButtonItem];
     __block UIImage *image;
@@ -212,7 +209,6 @@ NSString *URLString;
         CGImageRef iref = [rep fullResolutionImage];
         if (iref) {
             image = [UIImage imageWithCGImage:iref];
-            imgPickerUrl = self.imageURL;
             [imageView setImage:image];
         }
     };
@@ -279,32 +275,6 @@ NSString *URLString;
 
 }
 
-/*
-//a function to open the gallery
--(IBAction)galleryAction
-{
-    
-    picker2 = [[UIImagePickerController alloc]init];
-    picker2.delegate = self;
-    [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    [self presentModalViewController:picker2 animated:YES];
-}
-
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    imageURL = [info objectForKey:UIImagePickerControllerReferenceURL];
-    [imageView setImage:image];
-    imgPickerUrl = [info valueForKey: UIImagePickerControllerReferenceURL];
-    [self dismissModalViewControllerAnimated:YES];
-}
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-//*/
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -375,6 +345,101 @@ NSString *URLString;
     [self alert];
 }
 
+-(IBAction)alert
+{
+    //alert with tag options: add, edit, or remove.
+    UIAlertView *alertMenu = [[UIAlertView alloc] initWithTitle:@"Tag options" message:@"You can add, edit, or remove a tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", @"Edit", @"Remove", nil];
+    
+    [alertMenu show];
+    
+}
+
+//Tag selection options
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex]; //stores title of buttons on the alert
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    
+    if([title isEqualToString:@"Add"]) //add the tag to the photo when add is touched
+    {
+        //alert with textfield will be created for a user to enter the tag.
+        UIAlertView *alertAddMenu = [[UIAlertView alloc] initWithTitle:@"Add a new tag" message:@"Please enter a one word tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",  nil];
+        
+        currentTag = [Tag MR_createInContext:localContext];
+        
+        [alertAddMenu addSubview:saveField];
+        saveField.text = @""; //clear the saveField.
+        [alertAddMenu show];
+        
+    }
+    
+    else if([title isEqualToString:@"Edit"]) //edit the tag on the photo when edit is touched
+    {
+        
+        Tag *tagFounded = [Tag MR_findByAttribute:@"image_path" withValue:[imageURL absoluteString] inContext:localContext].lastObject;
+        
+        UIAlertView *alertEditMenu = [[UIAlertView alloc] initWithTitle:@"Edit an existing tag" message:@"Please edit an existing tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
+        
+        [alertEditMenu addSubview:saveField];
+        [alertEditMenu show];
+        
+        NSString *fieldText = [[NSString alloc]init];
+        
+        if (tagFounded)
+        {
+            fieldText = [[NSString alloc] initWithString:[tagFounded word]];
+            currentTag = tagFounded;
+        }
+        else
+        {
+            currentTag = [Tag MR_createInContext:localContext];
+            currentTag.word = @"";
+            fieldText = currentTag.word;
+        }
+        saveField.text = fieldText;
+    }
+    else if([title isEqualToString:@"Remove"]) //remove the tag on the photo when remove is touched
+    {
+        Tag *tagFounded = [Tag MR_findByAttribute:@"image_path" withValue:[imageURL absoluteString] inContext:localContext].lastObject;
+        
+        if (tagFounded)
+        {
+            [tagFounded MR_deleteInContext:localContext];
+        }
+        
+        [localContext MR_saveNestedContexts];
+    }
+    
+    else if([title isEqualToString:@"Save"]) //save new or changed tag to file storing tags data.
+    {
+        
+        if (!currentTag)
+        {
+            currentTag = [Tag MR_createInContext:localContext];
+        }
+        else
+        {
+            currentTag.word = saveField.text;
+        }
+        currentTag.image_path = [imageURL absoluteString];
+        
+        [localContext MR_saveNestedContexts]; //write to file if tag is valid.
+        
+        
+    }
+    
+    
+}
+//creats text field used in alert
+-(UITextField *)alertTextField
+{
+    UITextField *alertTextField = [[UITextField alloc] initWithFrame:CGRectMake(12,45,260,25)];
+    [alertTextField setBackgroundColor:[UIColor whiteColor]];
+    
+    return alertTextField;
+}
+
+
 //Edit note
 -(void)noteAction
 {
@@ -442,6 +507,7 @@ NSString *URLString;
     [self.textView resignFirstResponder];
     textView.hidden = YES;
     [[self navigationItem]setLeftBarButtonItem:nil];
+    [[self navigationItem]setRightBarButtonItem:cameraBarButtonItem];
     
 }
 
@@ -473,6 +539,7 @@ NSString *URLString;
     self.textView.hidden = YES;
 }
 
+//Draw will be activated so that a user can draw on the image.
 -(void)drawAction
 {
     [self setTitle:@"Draw"];
@@ -480,14 +547,35 @@ NSString *URLString;
     textView.hidden = YES;
     imageView.hidden = YES;
     drawingView.hidden = NO;
+    
+    //add buttons on tabbar to save or cancel 
     UITabBarItem *saveTabBarItem = [[UITabBarItem alloc]initWithTitle:@"Save" image:[UIImage imageNamed:@"tab.png"] tag:3];
     UITabBarItem *cancelTabBarItem = [[UITabBarItem alloc]initWithTitle:@"Cancel" image:[UIImage imageNamed:@"tab.png"] tag:4];
+    
     NSArray *drawItems = [[NSArray alloc]initWithObjects:saveTabBarItem, cancelTabBarItem, nil];
+    
+    [[self navigationItem]setLeftBarButtonItem:nil];
     [tabBar setItems:drawItems];
 }
 
+//Save image with draw
 -(void)saveAction
 {
+    //UIImageWriteToSavedPhotosAlbum(drawingView.image, nil, nil, nil);
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    
+    [library writeImageToSavedPhotosAlbum:[drawingView.image CGImage] orientation:   (ALAssetOrientation)[drawingView.image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error)
+     {
+         if (error)
+         {
+             NSLog(@"Error saving drawing to photo library");
+         }
+         else
+         {
+             NSLog(@"SAVED");
+             //imageURL = assetURL;
+         }
+     }];
     imageView.hidden = NO;
     drawingView.hidden =YES;
     [tabBar setItems:tabItems];
@@ -534,117 +622,5 @@ NSString *URLString;
         [alert show];
     }
 }
-
-/*
-- (IBAction)openURLAction:(id)sender
-{
-    UIAlertView *openURLAlert = [[UIAlertView alloc] initWithTitle:@"Enter URL here" message:@"Please Enter URL" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    
-    myTextField = [[UITextField alloc] initWithFrame: CGRectMake(12.0, 50.0, 260.0, 25.0)];
-    [myTextField setBackgroundColor:[UIColor whiteColor]];
-    [openURLAlert addSubview: myTextField];
-    myTextField.placeholder = @"Type here";
-    myTextField.borderStyle = UITextBorderStyleBezel;
-    myTextField.returnKeyType = UIReturnKeyDone;
-    myTextField.delegate = self;
-    
-    [openURLAlert show];
-}
-//*/
--(IBAction)alert
-{
-    //alert with tag options: add, edit, or remove.
-    UIAlertView *alertMenu = [[UIAlertView alloc] initWithTitle:@"Tag options" message:@"You can add, edit, or remove a tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", @"Edit", @"Remove", nil];
-    
-    [alertMenu show];
-    
-}
-
-
-
-//URL and tag selection options
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-        
-    NSString *title = [alertView buttonTitleAtIndex:buttonIndex]; //stores title of buttons on the alert
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    
-    if([title isEqualToString:@"Add"]) //add the tag to the photo when add is touched
-    {
-        //alert with textfield will be created for a user to enter the tag.
-        UIAlertView *alertAddMenu = [[UIAlertView alloc] initWithTitle:@"Add a new tag" message:@"Please enter a one word tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",  nil];
-        
-        currentTag = [Tag MR_createInContext:localContext];
-        
-        [alertAddMenu addSubview:saveField];
-        saveField.text = @""; //clear the saveField.
-        [alertAddMenu show];
-        
-    }
-    
-    else if([title isEqualToString:@"Edit"]) //edit the tag on the photo when edit is touched
-    {
-        
-        Tag *tagFounded = [Tag MR_findByAttribute:@"image_path" withValue:[imageURL absoluteString] inContext:localContext].lastObject;
-        
-        UIAlertView *alertEditMenu = [[UIAlertView alloc] initWithTitle:@"Edit an existing tag" message:@"Please edit an existing tag" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
-        
-        [alertEditMenu addSubview:saveField];
-        [alertEditMenu show];
-        
-        NSString *fieldText = [[NSString alloc]init];
-        
-        if (tagFounded)
-        {
-            fieldText = [[NSString alloc] initWithString:[tagFounded word]];
-            currentTag = tagFounded;
-        }
-        else
-        {
-            currentTag = [Tag MR_createInContext:localContext];
-            currentTag.word = @"";
-            fieldText = currentTag.word;
-        }
-        saveField.text = fieldText;
-    }
-    else if([title isEqualToString:@"Remove"]) //remove the tag on the photo when remove is touched
-    {
-        Tag *tagFounded = [Tag MR_findByAttribute:@"image_path" withValue:[imageURL absoluteString] inContext:localContext].lastObject;
-        
-        if (tagFounded)
-        {
-            [tagFounded MR_deleteInContext:localContext];
-        }
-        
-        [localContext MR_saveNestedContexts];
-    }
-    
-    else if([title isEqualToString:@"Save"]) //save new or changed tag to file storing tags data.
-    {
-        
-        if (!currentTag)
-        {
-            currentTag = [Tag MR_createInContext:localContext];
-        }
-        else
-        {
-            currentTag.word = saveField.text;
-        }
-        currentTag.image_path = [imageURL absoluteString];
-        
-        [localContext MR_saveNestedContexts]; //write to file if tag is valid.       
-        
-        
-    }
-    
-    
-}
-//creats text field used in alert
--(UITextField *)alertTextField
-{
-    UITextField *alertTextField = [[UITextField alloc] initWithFrame:CGRectMake(12,45,260,25)];
-    [alertTextField setBackgroundColor:[UIColor whiteColor]];
-    
-    return alertTextField;
-}//*/
 
 @end

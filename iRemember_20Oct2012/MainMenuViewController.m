@@ -100,7 +100,6 @@ NSURL *imagePickerUrl;
                  }
                  else
                  {
-                     NSLog(@"image loaded");
                      photoImage = urlImage;
                      imagePickerUrl = assetURL;
                      [self performSegueWithIdentifier:@"imageDetailSegue" sender:self];
@@ -126,6 +125,7 @@ NSURL *imagePickerUrl;
     //Get image
     photoImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     imagePickerUrl = [info valueForKey: UIImagePickerControllerReferenceURL];
+    
     //Segue to imageDetailView and take image picker off the screen
     [self performSegueWithIdentifier:@"imageDetailSegue" sender:self];
     [self dismissModalViewControllerAnimated:YES];
@@ -143,7 +143,6 @@ NSURL *imagePickerUrl;
     {
         EditPhotoViewController *editPhoto = [segue destinationViewController];
         editPhoto.myImage = photoImage;
-        editPhoto.photoUrl = imagePickerUrl;
         editPhoto.imageURL = imagePickerUrl;
     }
 }
