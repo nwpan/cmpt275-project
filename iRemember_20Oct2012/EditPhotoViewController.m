@@ -207,6 +207,7 @@ NSString *URLString;
         if (iref) {
             image = [UIImage imageWithCGImage:iref];
             [imageView setImage:image];
+            [drawingView setImage:image];
         }
     };
 
@@ -573,6 +574,7 @@ NSString *URLString;
              //imageURL = assetURL;
          }
      }];
+    imageView.image = drawingView.image;
     imageView.hidden = NO;
     drawingView.hidden =YES;
     [tabBar setItems:tabItems];

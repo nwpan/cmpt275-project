@@ -2,7 +2,7 @@
  * SearchByDayViewController.m
  * iRemember_20Oct2012
  *
- * Created by Matt Numsen on 10/20/12.
+ * Created by Nicholas Pan on 10/20/12.
  * Copyright (c) 2012 Double One. All rights reserved.
  *
  * Programmer: Nicholas Pan
@@ -16,11 +16,12 @@
  * Changes:
  *   2012-10-20 Created
  *   2012-10-21 Add comments
+ *   2012-11-24 Remove camera button on navigation bar
  *
- * Known bugs: No bugs
+ * Known bugs: No bugs found yet
  *
  *
- * Last revised on 2012-10-21
+ * Last revised on 2012-11-24
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #import "SearchByDayViewController.h"
