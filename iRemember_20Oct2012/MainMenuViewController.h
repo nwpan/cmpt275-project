@@ -34,7 +34,8 @@
 
 -(IBAction) alert;
 - (IBAction)selectPhotoAction:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *takePhotoButton;
 
-@property (strong, nonatomic) IBOutlet UIButton *TestButton;
+
 
 @end

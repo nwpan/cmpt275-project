@@ -136,6 +136,7 @@ We noticed this is the first time you're launching this app. Click the button ab
                     </view>
                     <navigationItem key="navigationItem" id="oyq-iw-KUW"/>
                     <connections>
+                        <outlet property="takePhotoButton" destination="MEI-Oc-6hq" id="mLA-Ge-VHC"/>
                         <segue destination="txK-y7-nAW" kind="push" identifier="searchViewSegue" id="al6-KB-hb6"/>
                         <segue destination="gfd-N3-8sy" kind="push" identifier="imageDetailSegue" id="2vI-7h-2IY"/>
                     </connections>
