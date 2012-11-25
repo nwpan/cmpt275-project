@@ -414,21 +414,6 @@ http://projects.nicholaspan.com/cmpt275/
             </objects>
             <point key="canvasLocation" x="2033" y="-309"/>
         </scene>
-        <!--Search By Tags View Controller-->
-        <scene sceneID="Q7O-Tw-w9b">
-            <objects>
-                <viewController id="0Rc-y9-JoF" customClass="SearchByTagsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iUh-qT-c5U">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="64T-sp-gXA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ss0-gi-hOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2846" y="101"/>
-        </scene>
         <!--Help View Controller-->
         <scene sceneID="ASm-gc-dQA">
             <objects>
@@ -495,21 +480,6 @@ http://projects.nicholaspan.com/cmpt275/
             </objects>
             <point key="canvasLocation" x="-224" y="219"/>
         </scene>
-        <!--Mark Up Control-->
-        <scene sceneID="XbT-ft-8FS">
-            <objects>
-                <viewController id="kCP-oH-Ztz" customClass="MarkUpControl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZMi-sT-aXN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="CTQ-TN-f3E"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wNx-23-i7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2854" y="696"/>
-        </scene>
     </scenes>
     <resources>
         <image name="logo.png" width="300" height="290"/>
@@ -566,26 +536,6 @@ http://projects.nicholaspan.com/cmpt275/
                 <relationship kind="outlet" name="TestButton" candidateClass="UIButton"/>
             </relationships>
         </class>
-        <class className="MarkUpControl" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MarkUpControl.h"/>
-            <relationships>
-                <relationship kind="action" name="alert"/>
-                <relationship kind="action" name="doneAction:"/>
-                <relationship kind="action" name="drawAction:"/>
-                <relationship kind="action" name="noteAction:"/>
-                <relationship kind="action" name="optionAction:"/>
-                <relationship kind="action" name="tagAction:"/>
-                <relationship kind="outlet" name="buttonDone" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonDraw" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonNote" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonOption" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonTag" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="naviItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="naviTitle" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
         <class className="SearchByDayViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByDayViewController.h"/>
             <relationships>
@@ -593,9 +543,6 @@ http://projects.nicholaspan.com/cmpt275/
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
             </relationships>
-        </class>
-        <class className="SearchByTagsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByTagsViewController.h"/>
         </class>
         <class className="ViewGeotagViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewGeotagViewController.h"/>
