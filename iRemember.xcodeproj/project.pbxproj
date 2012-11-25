@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232A72D41661AEB900773DBE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 232A72D31661AEB900773DBE /* Icon@2x.png */; };
+		232A72D61661AF5500773DBE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 232A72D51661AF5500773DBE /* logo.png */; };
 		233CD015163384920056B3AF /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 233CD014163384920056B3AF /* HelpViewController.m */; };
 		23BACEFE16335E560071E5B6 /* iRememberModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23BACEFC16335E560071E5B6 /* iRememberModel.xcdatamodeld */; };
 		23BACF69163362680071E5B6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BACF68163362680071E5B6 /* CoreData.framework */; };
@@ -121,6 +123,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		232A72D31661AEB900773DBE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		232A72D51661AF5500773DBE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		233CD013163384920056B3AF /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpViewController.h; path = ../HelpViewController.h; sourceTree = "<group>"; };
 		233CD014163384920056B3AF /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpViewController.m; path = ../HelpViewController.m; sourceTree = "<group>"; };
 		23BACEFD16335E560071E5B6 /* iRememberModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRememberModel.xcdatamodel; sourceTree = "<group>"; };
@@ -541,6 +545,8 @@
 		E8C5298F16332E3600BF8231 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				232A72D51661AF5500773DBE /* logo.png */,
+				232A72D31661AEB900773DBE /* Icon@2x.png */,
 				E8C5299016332E3600BF8231 /* iRemember-Info.plist */,
 				8131749B16359AE6002678F9 /* Default-568h@2x.png */,
 				E8C5299116332E3600BF8231 /* InfoPlist.strings */,
@@ -659,6 +665,8 @@
 				9EFE2FBB1633AB7A00EB264C /* tags.txt in Resources */,
 				8131749C16359AE6002678F9 /* Default-568h@2x.png in Resources */,
 				9E394C8316586B6E000B49AF /* tab.png in Resources */,
+				232A72D41661AEB900773DBE /* Icon@2x.png in Resources */,
+				232A72D61661AF5500773DBE /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

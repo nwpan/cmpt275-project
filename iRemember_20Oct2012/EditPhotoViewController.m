@@ -68,7 +68,7 @@ NSString *URLString;
     NSArray *foundArray = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
     
     Geotag *found = [foundArray objectAtIndex:0];
-    locationLabel.Text = @"[%u,%u]", found.longitude, found.latitude;
+    locationLabel.Text = @"[%g,%g]", found.longitude, found.latitude;
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"MMM d yyyy, K:mm a, z"];
