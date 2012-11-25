@@ -61,13 +61,14 @@ Tag *currentTag;
 Note *currentNote;
 NSString *URLString;
 
+/* Code to be executed when Update Geotag button is pushed */
 - (IBAction)updateGeotagAction:(id)sender {
-    [self geotagAction];
+    [self geotagAction]; // Updates the Geotag on the image
     
     NSString *URLString = [imageURL absoluteString];
     NSArray *foundArray = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
     
-    Geotag *found = [foundArray objectAtIndex:0];
+    Geotag *found = [foundArray objectAtIndex:0]; // Finds the tag object of the image displayed
     locationLabel.Text = [NSString stringWithFormat:@"[%f, %f]", [found.longitude doubleValue], [found.latitude doubleValue]];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
@@ -77,15 +78,16 @@ NSString *URLString;
     
     NSString *dateString = [format stringFromDate: date];
     
-    dateLabel.Text = dateString;
+    dateLabel.Text = dateString; // Changes the date label to a properly formatted string
 }
 
+/* Code to be executed when a new geotag is requested */
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
 
-    [manager stopUpdatingLocation];
+    [manager stopUpdatingLocation]; // Stop pulling data from GPS
 
     latitude = newLocation.coordinate.latitude;
     longitude = newLocation.coordinate.longitude;
@@ -144,8 +146,7 @@ NSString *URLString;
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
      
-    //If the user presses the "View" button, the little map beside the button should
-    //transfer to a fullsized map.  The small map will be retained
+    /* If the user views a geotag, the information is passed to a different view with a larger map */
     if([segue.identifier isEqualToString:@"geotagSegue"])
     {
         NSString *URLString = [imageURL absoluteString];
@@ -292,6 +293,8 @@ NSString *URLString;
     [textView setDelegate:self];
     saveField = [self alertTextField];
     
+    
+    /* The code below automatically geotags an image if it does not have a geotag upon being viewed */
     NSString *URLString = [imageURL absoluteString];
     NSArray *foundArray = [Geotag MR_findByAttribute:@"image_id" withValue: URLString];
     
@@ -314,7 +317,6 @@ NSString *URLString;
         
         dateLabel.Text = dateString;
     }
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -595,6 +597,8 @@ NSString *URLString;
 
 
 //view map
+
+/* Transfers geotag data to a new view with a large map to view */
 - (IBAction)viewAction:(id)sender
 {
     NSString *URLString = [imageURL absoluteString];
@@ -614,7 +618,8 @@ NSString *URLString;
         region.span.latitudeDelta = 0.1;
         [mapView setRegion:region animated:YES];
     }
-    
+
+/* If the button does not have a geotag (somehow), an error message is displayed */
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"This picture has no geotag.  Display failed." delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];

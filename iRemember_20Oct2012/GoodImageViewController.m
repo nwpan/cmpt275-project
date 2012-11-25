@@ -122,6 +122,7 @@ NSURL *selectedURL;
     [self performSegueWithIdentifier:@"selectedImageSegue" sender:self];
 }
 
+/* Pass the URL of the selected image to the EditPhotoViewController */
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"selectedImageSegue"])
