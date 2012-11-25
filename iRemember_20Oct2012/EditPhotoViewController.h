@@ -29,48 +29,40 @@
 
 
 #import <UIKit/UIKit.h>
-#import "MarkUpControl.h"
-#import "ViewGeotagViewController.h"
-
-#import "CoreLocation/CoreLocation.h"
 #import <MapKit/MapKit.h>
+#import "ViewGeotagViewController.h"
+#import "CoreLocation/CoreLocation.h"
 
 @interface EditPhotoViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate, UITabBarDelegate, UITextViewDelegate>
-
-@property(nonatomic, retain) IBOutlet UIImageView *imageView;
-@property(nonatomic, retain) UIImagePickerController *picker2;
-@property(nonatomic, retain) IBOutlet UIButton *gallery;
 
 @property(nonatomic, retain) CLLocationManager *locationmanager;
 @property(nonatomic, retain) IBOutlet CLLocationManager *locationManager;
 @property(nonatomic, retain) IBOutlet MKMapView *mapView;
 
+//Appearance
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (strong, nonatomic) IBOutlet UITextField *myTextField;
-@property (strong, nonatomic) UIImage *myImage;
+@property (weak, nonatomic) IBOutlet UIImageView *drawingView;
+@property(nonatomic, retain) IBOutlet UIImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
 @property (strong, nonatomic) IBOutlet UITabBar *tabBar;
 @property (strong, nonatomic) UITabBarItem *tagTabBarItem;
 @property (strong, nonatomic) UITabBarItem *noteTabBarItem;
 @property (strong, nonatomic) UITabBarItem *drawTabBarItem;
 @property (strong, nonatomic) NSArray *tabItems;
+@property (strong, nonatomic) UIBarButtonItem *cameraBarButtonItem;
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *drawingView;
-@property (strong, nonatomic) NSURL * imgPickerUrl;
+@property (strong, nonatomic) UIImage *myImage;
 @property (strong, nonatomic) NSURL *imageURL;
-@property (weak, nonatomic) NSURL *photoUrl;
+
 @property (strong, nonatomic) NSString *textFieldString;
 @property (strong, nonatomic) UITextField *saveField;
 
 
-- (IBAction)galleryAction;
-- (IBAction)geotagAction:(id)sender;
 - (IBAction)viewAction:(id)sender;
-
-- (IBAction)openURLAction:(id)sender;
 - (IBAction) alert;
 
 

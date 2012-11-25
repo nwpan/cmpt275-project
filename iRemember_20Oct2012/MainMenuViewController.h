@@ -27,7 +27,6 @@
 
 @interface MainMenuViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
-@property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) UIImage *photoImage;
 @property (nonatomic, strong) UITextField *myTextField;
 
@@ -35,7 +34,7 @@
 
 -(IBAction) alert;
 - (IBAction)selectPhotoAction:(id)sender;
--(IBAction)gallery;
+
 @property (strong, nonatomic) IBOutlet UIButton *TestButton;
 
 @end

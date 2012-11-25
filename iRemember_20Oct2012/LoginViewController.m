@@ -135,8 +135,6 @@ NSManagedObjectContext *context;
                             //something went wrong, you can't access the photo gallery
                         }
      ];
-    
-    NSLog(@"User data saved");
 }
 
 - (void)viewDidUnload
