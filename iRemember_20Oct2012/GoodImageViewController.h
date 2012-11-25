@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GoodImageViewController.h"
 #import "Tag.h"
+#import "Image.h"
 #import "EditPhotoViewController.h"
 
 @interface GoodImageViewController : UITableViewController
