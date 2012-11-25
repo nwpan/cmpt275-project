@@ -365,7 +365,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gGD-6w-sf3">
-                                <rect key="frame" x="204" y="311" width="94" height="35"/>
+                                <rect key="frame" x="186" y="311" width="112" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="View map">
@@ -381,28 +381,28 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="71y-OU-za1">
-                                <rect key="frame" x="22" y="311" width="76" height="21"/>
+                                <rect key="frame" x="20" y="311" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="d92-Ux-NMH">
-                                <rect key="frame" x="22" y="340" width="42" height="21"/>
+                                <rect key="frame" x="20" y="328" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="jKA-fQ-OPd">
-                                <rect key="frame" x="99" y="340" width="56" height="21"/>
+                                <rect key="frame" x="20" y="357" width="278" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dqi-Hc-ya6">
-                                <rect key="frame" x="99" y="311" width="56" height="21"/>
+                                <rect key="frame" x="104" y="311" width="56" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -419,6 +419,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <rect key="frame" x="22" y="11" width="276" height="292"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ptS-ul-GW0">
+                                <rect key="frame" x="186" y="340" width="114" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Update Geotag">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateGeotagAction:" destination="gfd-N3-8sy" eventType="touchUpInside" id="YDa-c0-S8l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -431,6 +446,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="locationLabel" destination="dqi-Hc-ya6" id="MGs-vn-CGS"/>
                         <outlet property="locationManager" destination="6co-MF-U08" id="9nj-fq-PPx"/>
                         <outlet property="textView" destination="ghO-Dq-fjv" id="yu1-2T-2jk"/>
+                        <outlet property="updateGeotagAction" destination="ptS-ul-GW0" id="7Bq-1H-4SW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRt-Tw-Y02" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -564,6 +580,106 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="iRemember.jpg" width="569" height="88"/>
     </resources>
+    <classes>
+        <class className="AboutUsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutUsViewController.h"/>
+        </class>
+        <class className="CLLocationManager" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLLocationManager.h"/>
+        </class>
+        <class className="EditPhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPhotoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="alert"/>
+                <relationship kind="action" name="galleryAction"/>
+                <relationship kind="action" name="openURLAction:"/>
+                <relationship kind="action" name="updateGeotagAction:"/>
+                <relationship kind="action" name="viewAction:"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="drawingView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="gallery" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationManager" candidateClass="CLLocationManager"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="myTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="updateGeotagAction" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="GoodImageViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GoodImageViewController.h"/>
+        </class>
+        <class className="GoodTagLookupViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GoodTagLookupViewController.h"/>
+        </class>
+        <class className="HelpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="viewDocs:"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="btnStartAction:"/>
+                <relationship kind="outlet" name="btnStart" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lblStatus" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="alert"/>
+                <relationship kind="action" name="gallery"/>
+                <relationship kind="action" name="selectPhotoAction:"/>
+                <relationship kind="outlet" name="TestButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MarkUpControl" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MarkUpControl.h"/>
+            <relationships>
+                <relationship kind="action" name="alert"/>
+                <relationship kind="action" name="doneAction:"/>
+                <relationship kind="action" name="drawAction:"/>
+                <relationship kind="action" name="noteAction:"/>
+                <relationship kind="action" name="optionAction:"/>
+                <relationship kind="action" name="tagAction:"/>
+                <relationship kind="outlet" name="buttonDone" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonDraw" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonNote" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonOption" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonTag" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="naviItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="naviTitle" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="SearchByDayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByDayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getSelection"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="SearchByTagsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByTagsViewController.h"/>
+        </class>
+        <class className="ViewGeotagViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewGeotagViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="locationmanager" candidateClass="CLLocationManager"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="drawOnImage" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/drawOnImage.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

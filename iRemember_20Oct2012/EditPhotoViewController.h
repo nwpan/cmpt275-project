@@ -64,10 +64,10 @@
 @property (weak, nonatomic) NSURL *photoUrl;
 @property (strong, nonatomic) NSString *textFieldString;
 @property (strong, nonatomic) UITextField *saveField;
-
+@property (weak, nonatomic) IBOutlet UIButton *updateGeotagAction;
 
 - (IBAction)galleryAction;
-- (IBAction)geotagAction:(id)sender;
+- (void)geotagAction;
 - (IBAction)viewAction:(id)sender;
 
 - (IBAction)openURLAction:(id)sender;
