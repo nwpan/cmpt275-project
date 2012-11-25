@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" id="wkR-n9-edf">
-                                <rect key="frame" x="-103" y="0.0" width="526" height="186"/>
+                                <rect key="frame" x="-108" y="0.0" width="526" height="186"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ayF-bF-wfR">
@@ -71,7 +71,7 @@ We noticed this is the first time you're launching this app. Click the button ab
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" id="I1o-PQ-ccC">
-                                <rect key="frame" x="-103" y="0.0" width="526" height="186"/>
+                                <rect key="frame" x="-108" y="0.0" width="526" height="186"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3bJ-xM-t9z">
