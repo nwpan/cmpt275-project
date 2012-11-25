@@ -32,20 +32,28 @@ NSURL *selectedURL;
 {
     [super viewDidLoad];
     
-    NSArray *tagsWithWord   = [Tag MR_findByAttribute:@"word" withValue: selectedWord];
+    NSSet *uniqueImages;
     NSMutableArray *sortedImagePath = [[NSMutableArray alloc] init];
-    for (int i=0; i<[tagsWithWord count]; i++)
+    if (selectedWord != nil)
     {
-        [sortedImagePath addObject: ((Tag*)[tagsWithWord objectAtIndex:i]).image_path];
+        NSArray *tagsWithWord = [Tag MR_findByAttribute:@"word" withValue: selectedWord];
+        
+        for (int i=0; i<[tagsWithWord count]; i++)
+        {
+            [sortedImagePath addObject: ((Tag*)[tagsWithWord objectAtIndex:i]).image_path];
+        }
     }
-    NSSet *uniqueImages = [NSSet setWithArray: sortedImagePath];
-     
+    else
+    {
+        NSArray *images = [Image MR_findAllSortedBy:@"_pk" ascending:YES];
+        for (int i=0; i<[images count]; i++)
+        {
+            [sortedImagePath addObject: ((Image*)[images objectAtIndex:i]).image_path];
+        }
+        
+    }
+    uniqueImages = [NSSet setWithArray: sortedImagePath];
     uniqueImagePathArray = [uniqueImages allObjects];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -60,11 +68,8 @@ NSURL *selectedURL;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [uniqueImagePathArray count];
 }
@@ -73,16 +78,14 @@ NSURL *selectedURL;
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     // Configure the cell...
-    
     cell.textLabel.text = [uniqueImagePathArray objectAtIndex:indexPath.row];
-    
     __block UIImage *image;
     ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
     
@@ -93,9 +96,11 @@ NSURL *selectedURL;
         CGImageRef iref = [rep fullResolutionImage];
         if (iref) {
             image = [UIImage imageWithCGImage:iref];
-            cell.imageView.image = image;
-           // [self.tableView reloadData];
+            [cell.imageView setImage:image];
+            [cell.imageView setFrame:CGRectMake(0, 0, 44, 44)];
+            [cell.textLabel setFrame:CGRectMake(44, 0, 276, 44)];
         }
+        
     };
     
     //
@@ -110,47 +115,6 @@ NSURL *selectedURL;
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
