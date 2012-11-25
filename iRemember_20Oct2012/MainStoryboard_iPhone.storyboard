@@ -136,6 +136,7 @@ We noticed this is the first time you're launching this app. Click the button ab
                     </view>
                     <navigationItem key="navigationItem" id="oyq-iw-KUW"/>
                     <connections>
+                        <outlet property="takePhotoButton" destination="MEI-Oc-6hq" id="mLA-Ge-VHC"/>
                         <segue destination="txK-y7-nAW" kind="push" identifier="searchViewSegue" id="al6-KB-hb6"/>
                         <segue destination="gfd-N3-8sy" kind="push" identifier="imageDetailSegue" id="2vI-7h-2IY"/>
                     </connections>
@@ -484,77 +485,6 @@ http://projects.nicholaspan.com/cmpt275/
     <resources>
         <image name="logo.png" width="300" height="290"/>
     </resources>
-    <classes>
-        <class className="AboutUsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutUsViewController.h"/>
-        </class>
-        <class className="CLLocationManager" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLLocationManager.h"/>
-        </class>
-        <class className="EditPhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPhotoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="alert"/>
-                <relationship kind="action" name="updateGeotagAction:"/>
-                <relationship kind="action" name="viewAction:"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="drawingView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="locationManager" candidateClass="CLLocationManager"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="updateGeotagAction" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="GoodImageViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GoodImageViewController.h"/>
-        </class>
-        <class className="GoodTagLookupViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GoodTagLookupViewController.h"/>
-        </class>
-        <class className="HelpViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="viewDocs:"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnStartAction:"/>
-                <relationship kind="outlet" name="btnStart" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblStatus" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MainMenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="alert"/>
-                <relationship kind="action" name="selectPhotoAction:"/>
-                <relationship kind="outlet" name="TestButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SearchByDayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchByDayViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="getSelection"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="ViewGeotagViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewGeotagViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="locationmanager" candidateClass="CLLocationManager"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="drawOnImage" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/drawOnImage.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

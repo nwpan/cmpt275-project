@@ -30,7 +30,7 @@
 @end
 
 @implementation MainMenuViewController
-@synthesize TestButton;
+@synthesize takePhotoButton;
 
 @synthesize photoImage, myTextField;
 
@@ -206,11 +206,12 @@ NSURL *imagePickerUrl;
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     [self setup];
+    [takePhotoButton addTarget:self action:@selector(takePicture:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidUnload
 {
-    [self setTestButton:nil];
+    [self setTakePhotoButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
