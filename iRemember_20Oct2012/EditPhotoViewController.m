@@ -47,9 +47,6 @@
 @synthesize locationmanager;
 @synthesize mapView;
 
-@synthesize locationLabel;
-@synthesize dateLabel;
-
 @synthesize textView, imageView, drawingView, myImage;
 
 @synthesize tabBar, tagTabBarItem, noteTabBarItem, drawTabBarItem, tabItems, cameraBarButtonItem;
