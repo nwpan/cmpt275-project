@@ -5,7 +5,7 @@
  * Created by Steven Tjendana on 10/20/12.
  * Copyright (c) 2012 Group 11. All rights reserved.
  *
- * Programmer: Steven Tjendana, Jake Nagazine
+ * Programmer: Steven Tjendana, Jake Nagazine, Charles Shin
  * Team Name: Double One
  * Project Name: iRemember
  * Version: Version 1.0
@@ -20,11 +20,16 @@
  * Changes:
  *   2012-10-20 Created
  *   2012-10-21 Add comments
+ *   2012-11-19 Integrate features in markup page(tag, note) into this page.
+ *   2012-11-20 Implement drawing feature
+ *   2012-11-21 Implement geotag
+ *   2012-11-22 Change UI and add tab bar
+ *   2012-11-24 Fix minor bugs
  *
- * Known bugs: No bugs
+ * Known bugs: Not yet found
  *
  *
- * Last revised on 2012-10-21
+ * Last revised on 2012-11-24
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 

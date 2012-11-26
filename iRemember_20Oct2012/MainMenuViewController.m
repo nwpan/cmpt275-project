@@ -5,7 +5,7 @@
  * Created by Steven Tjendana on 10/20/12.
  * Copyright (c) 2012 Double One. All rights reserved.
  *
- * Programmer: Steven Tjendana
+ * Programmer: Steven Tjendana, Charles Shin
  * Team Name: Double One
  * Project Name: iRemember
  * Version: Version 1.0
@@ -15,11 +15,13 @@
  * Changes:
  *   2012-10-20 Created
  *   2012-10-21 Add comments
+ *   2012-11-19 Major UI change integrate photo selection into one menu
+ *   2012-11-24 Implement take photo and fix bugs on selection
  *
- * Known bugs: No bugs
+ * Known bugs: Not yet found
  *
  *
- * Last revised on 2012-10-21
+ * Last revised on 2012-11-25
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #import "MainMenuViewController.h"
@@ -36,6 +38,7 @@
 
 NSURL *imagePickerUrl;
 
+//Use alert to show menu for selecting photo options
 -(IBAction)alert
 {
     //photo selection menu
@@ -51,6 +54,7 @@ NSURL *imagePickerUrl;
     
 }
 
+//Alert view used to show selection options
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex]; //stores title of buttons on the alert
@@ -147,6 +151,7 @@ NSURL *imagePickerUrl;
     }
 }
 
+//textfield added to alert menu
 -(UITextField *) alertMenuField
 {
     UITextField *tempTextField;
